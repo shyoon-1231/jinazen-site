@@ -156,6 +156,38 @@ HTML 의 앵커·상대경로·`src` 전수 검사에서 **깨진 링크 0건**.
 
 ## 5. 이 문서 — 저장소에 기록
 
+## R2 (2026-08-23 후속) — 폰트 되돌림 · 지적 2건 수정
+
+소유자 지시로 자체 호스팅을 **되돌렸다**(`git revert`, reset 아님).
+`assets/font/PretendardVariable.woff2` 는 **지우지 않고 남겼다** — 서브셋을
+만들 때 원본으로 쓴다. 그래서 되돌림이 완전하지 않다: 파일 하나가 남아
+있고 아무도 참조하지 않는다. 의도된 상태다.
+
+함께 고친 것 둘:
+
+- `style.css` 의 `url(assets/img/northstar.svg)` → `url(img/northstar.svg)`
+- 루트 `index.html` 의 `<a class="brand" href="">` → `href="./"`
+
+문구는 **손대지 않았다.** 소유자 확정본을 받아 한 번에 반영한다.
+
+### Lighthouse 재측정 (KO · 같은 조건)
+
+| 항목 | 자체 호스팅 | CDN 복귀 |
+|---|---|---|
+| Performance | 56 | **92** |
+| Accessibility | 89 | 89 |
+| Best Practices | 96 | **100** |
+| SEO | 100 | 100 |
+| First Contentful Paint | 11.0s | **1.4s** |
+| Largest Contentful Paint | 13.4s | **3.3s** |
+| Speed Index | 11.0s | **1.4s** |
+| TBT · CLS | 0ms · 0 | 0ms · 0 |
+
+**콘솔 오류 0건** — `northstar.svg` 404 가 사라져 모범사례가 100 이 됐다.
+
+숫자가 말하는 것은 분명하다. 2MB 단일 variable 파일은 **너무 비쌌다.**
+자체 호스팅을 다시 시도한다면 서브셋이 전제다 — 남겨 둔 woff2 가 그 원본이다.
+
 ## 6. 남은 일 (승인 대기)
 
 - GitHub 원격 생성 · push
