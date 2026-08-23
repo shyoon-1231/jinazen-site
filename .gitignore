@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# 편집기
+.idea/
+.vscode/
+*.swp
+
+# 로컬 확인용 산출물 (저장소에 넣지 않는다)
+/.screenshots/
+*.log
