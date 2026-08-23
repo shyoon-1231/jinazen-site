@@ -28,7 +28,7 @@ h1 em{font-style:normal;font-weight:800}
 .hero-device{margin:60px auto 0;max-width:960px}
 .device{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 50px 90px -50px rgba(0,0,0,.32)}
 .device .screen{aspect-ratio:16/10;background:linear-gradient(180deg,#fafaf8,#f0f0ec);border-radius:8px;display:grid;place-items:center;color:var(--ink-soft);font-size:12px;letter-spacing:.14em;text-align:center;line-height:2}
-.device .screen::before{content:"";width:28px;height:28px;background:url(assets/img/northstar.svg) center/contain no-repeat;opacity:.4;margin-bottom:8px}
+.device .screen::before{content:"";width:28px;height:28px;background:url(img/northstar.svg) center/contain no-repeat;opacity:.4;margin-bottom:8px}
 .device.a4 .screen{aspect-ratio:297/210}
 section.pad{padding:104px 0}
 .alt{background:var(--paper-2)}
