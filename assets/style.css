@@ -1,3 +1,17 @@
+/* Pretendard 자체 호스팅 (2026-08-23 · TASK-SITE-DEPLOY-PREP-R1)
+   CDN(jsdelivr) 링크를 걷어내고 저장소 안 파일을 쓴다. 이유 둘:
+   ① 외부 CDN 이 멈추면 글꼴만 무너지는 것이 아니라 렌더가 늦어진다
+   ② 방문자의 요청이 제3자에게 남지 않는다
+   variable 단일 파일을 쓴다 — 동적 서브셋판은 woff2 가 92개라 정적
+   호스팅에 얹기에 관리 비용이 크다. 대신 첫 로드가 2MB 다.
+   font-display:swap 이라 글꼴이 늦어도 글은 먼저 보인다. */
+@font-face{
+  font-family:"Pretendard Variable";
+  font-style:normal;
+  font-weight:45 920;
+  font-display:swap;
+  src:url("font/PretendardVariable.woff2") format("woff2-variations");
+}
 :root{--ink:#111;--ink-soft:#5C5C5A;--paper:#FFF;--paper-2:#F4F4F1;--gold:#C5A15B;--line:#E4E3DE;--max:1120px;
 --f:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Hiragino Kaku Gothic ProN",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
