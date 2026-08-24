@@ -5,14 +5,15 @@
 <title>진아젠 운세그래프 — JINAZEN</title>
 <meta name="description" content="명상아티스트가 만든 전문가용 운세상담 솔루션. 사주·자미두수·타로운명수를 한곳에서.">
 <link rel="icon" type="image/svg+xml" href="assets/img/northstar.svg">
-<link rel="stylesheet" href="assets/font/pretendard.css">
 <link rel="stylesheet" href="assets/style.css">
+<!-- 히어로 그림이 LCP 요소다. 스타일시트를 다 읽은 뒤에야 발견되면 그만큼 늦는다. -->
+<link rel="preload" as="image" href="assets/img/site_01_hero_graph.webp" type="image/webp" fetchpriority="high">
 <script>if(new URLSearchParams(location.search).get("mode")==="privacy")location.replace("privacy/");</script>
 </head>
 <body>
 <a class="skip" href="#top">본문으로 건너뛰기</a>
 <header class="nav"><div class="wrap">
-<a class="brand" href="#top"><img src="assets/img/northstar.svg" alt="">JINAZEN</a>
+<a class="brand" href="#top"><img src="assets/img/northstar.svg" alt="" width="200" height="200">JINAZEN</a>
 <nav class="menu">
 <a href="#fortune">운세그래프</a>
 <a href="#artist">명상아티스트</a>
@@ -25,7 +26,7 @@
 <main id="top">
 
 <section class="philo"><div class="wrap">
-<img class="mark" src="assets/img/northstar.svg" alt="">
+<img class="mark" src="assets/img/northstar.svg" alt="" width="200" height="200">
 <p class="line1">명상이 예술이 되는 순간</p>
 <p class="line2">진아젠 <small>JINAZEN</small></p>
 </div></section>
@@ -38,7 +39,7 @@
      빈 링크(#)로 두지 않는 이유는, 눌러도 아무 일이 없으면 고장으로 보이기 때문이다. -->
 <span class="cta is-disabled" role="link" aria-disabled="true">Google Play 출시 예정 <small>출시 기념가</small></span>
 <p class="pricenote">다운로드는 무료이며, 앱 안에서 한 번 구매하면 계속 사용합니다. 구독이 아닙니다.<br>출시를 기념해 정상가보다 낮은 가격으로 시작합니다.</p>
-<div class="hero-device phone"><div class="device"><img class="screen" src="assets/img/site_01_hero_phone.png" alt="진아젠 운세그래프 대운 흐름표 화면 — 1세부터 91세까지 열 개 대운의 간지와 점수" width="1080" height="1714"></div></div>
+<div class="hero-device graph"><picture><source srcset="assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="assets/img/site_01_hero_graph.png" alt="진아젠 운세그래프 대운 그래프 — 1세부터 91세까지 열 개 대운의 점수를 잇는 꺾은선, 현재 대운 41세 丁卯 94점이 표시돼 있다" width="1148" height="1354"></picture></div>
 </div></section>
 
 <section class="pad usp"><div class="wrap">
@@ -62,34 +63,34 @@
 <div class="text"><h2>한 사람의 운명을,<br><b>한곳에서 입체적으로</b></h2>
 <p>세 가지 관점으로, 번거로운 재계산 없이 한 화면에서 완벽한 상담 준비.<br>사주 · 자미두수 · 타로운명수를 오가는 통합 솔루션을 경험해 보세요.</p>
 <ul><li>고객 등록 · 목록 · 통합 검색</li><li>고객별 상담 회차 및 이력 관리</li><li>상담 메모 및 특이사항 회차별 보관</li></ul></div>
-<div class="device"><img class="screen wide" src="assets/img/site_02_customer.png" alt="고객목록 화면 — 이름·성별·생년월일과 사주명반 바로가기" width="2560" height="1440"></div>
+<div class="device"><picture><source srcset="assets/img/site_02_customer.webp" type="image/webp"><img class="screen wide" src="assets/img/site_02_customer.png" alt="고객목록 화면 — 이름·성별·생년월일과 사주명반 바로가기" width="2560" height="1440"></picture></div>
 </div></section>
 
 <section class="pad feature flip"><div class="wrap">
 <div class="text"><h2>기계가 할 일과 <b>사람이 할 일</b></h2>
 <p>여덟 글자를 세우고 흐름을 그리는 일은 앱이 합니다.<br>그것이 이 사람에게 무슨 뜻인지는 선생님이 말합니다.</p>
 <ul><li>계산 — 검수된 기준으로 앱이</li><li>용신 — 선생님이 직접 지정</li><li>해석 — 단정하지 않고 자리를 비워 둠</li></ul></div>
-<div class="device"><img class="screen wide" src="assets/img/site_03_wonguk.png" alt="사주 원국표 화면 — 시·일·월·년 네 기둥의 천간지지와 십신, 옆에 대운 흐름표" width="2560" height="1440"></div>
+<div class="device"><picture><source srcset="assets/img/site_03_wonguk.webp" type="image/webp"><img class="screen wide" src="assets/img/site_03_wonguk.png" alt="사주 원국표 화면 — 시·일·월·년 네 기둥의 천간지지와 십신, 옆에 대운 흐름표" width="2560" height="1440"></picture></div>
 </div></section>
 
 <section class="pad report"><div class="wrap">
 <h2>상담의 결과는 <b>두 장의 종이</b>로</h2>
 <p class="wide">A4 가로 2페이지 리포트. 원국 · 흐름 · 추천을 정리해 PDF로 저장하고 공유합니다.</p>
 <p class="subnote">종이 인쇄는 매장(진아젠 마인드맵솔루션)에서 제공합니다.</p>
-<div class="device a4"><img class="screen" src="assets/img/site_04_report.png" alt="A4 리포트 1페이지 — 사주 원국표와 대운 흐름 그래프" width="3368" height="2380"></div>
+<div class="device a4"><picture><source srcset="assets/img/site_04_report_v2_p1.webp" type="image/webp"><img class="screen" src="assets/img/site_04_report_v2_p1.png" alt="A4 리포트 1페이지 — 사주 원국표와 대운 흐름 그래프" width="3368" height="2380"></picture></div>
 <p class="figcap">리포트 1페이지 · 2페이지에는 추천과 개운법이 담깁니다</p>
 </div></section>
 
 <section class="pad alt artist" id="artist"><div class="wrap">
-<div class="portrait"><img src="assets/img/artist.jpg" alt="명상아티스트 김진아"></div>
+<div class="portrait"><img src="assets/img/artist.jpg" alt="명상아티스트 김진아" width="720" height="960"></div>
 <div>
 <p class="eyebrow">명상아티스트</p><h2>김진아 <small>Jina Kim</small></h2>
 <p class="quote">명상을 위한 여정</p>
 <p class="journey">어른을 위한 동화를 쓰고,<br>IT기술로 발명을,<br>인생을 운세그래프로 시각화하고,<br>마음을 다스리는 명상차와 함께 그 끝에 명상을 놓습니다.</p>
 <div class="chapters">
-<div class="ch"><div class="k">동화</div><div><h4>동화소설 『황금부리 : 잃어버린 시간을 찾아서』 글 · 그림</h4><p>황금부리는 부리를 만지면 소원이 이루어지는, 한국 전통의 태양의 새를 상징하여 완성한 행운 캐릭터입니다. 동화의 상상 속에서 태어나 현실의 삶 속으로 찾아온 따뜻한 친구입니다.</p></div></div>
-<div class="ch"><div class="k">기술</div><div><h4>IoT 미디어 필링티비 대표</h4><p>책 모양 안드로이드 단말기와 책꽂이 거치대를 발명해 광고플랫폼을 운영하고 한국·일본 법인을 세워, 한국과 일본에 누적 10,000대를 설치해 서비스했습니다. 캐논·롯데·공차 파트너십, 충전장치 기술특허 공동발명.</p></div></div>
-<div class="ch"><div class="k">명상</div><div><h4>명상록 『당신이 찻잔을 들 때』 · 천일차, 천월차, 자미차, 쌍화차(명상차)</h4><p>차를 마음을 바라보는 작은 의식으로 보고, 네 가지 명상차를 직접 블렌딩했습니다. 예술의전당 뮤지엄테라피 〈Chill your soul〉 명상전시(2025), 속초 영랑호 보광사 용연정의 '나홀로 명상의자'와 '사랑의 의자'를 만들었습니다.</p></div></div>
+<div class="ch"><div class="k">동화</div><div><h3>동화소설 『황금부리 : 잃어버린 시간을 찾아서』 글 · 그림</h3><p>황금부리는 부리를 만지면 소원이 이루어지는, 한국 전통의 태양의 새를 상징하여 완성한 행운 캐릭터입니다. 동화의 상상 속에서 태어나 현실의 삶 속으로 찾아온 따뜻한 친구입니다.</p></div></div>
+<div class="ch"><div class="k">기술</div><div><h3>IoT 미디어 필링티비 대표</h3><p>책 모양 안드로이드 단말기와 책꽂이 거치대를 발명해 광고플랫폼을 운영하고 한국·일본 법인을 세워, 한국과 일본에 누적 10,000대를 설치해 서비스했습니다. 캐논·롯데·공차 파트너십, 충전장치 기술특허 공동발명.</p></div></div>
+<div class="ch"><div class="k">명상</div><div><h3>명상록 『당신이 찻잔을 들 때』 · 천일차, 천월차, 자미차, 쌍화차(명상차)</h3><p>차를 마음을 바라보는 작은 의식으로 보고, 네 가지 명상차를 직접 블렌딩했습니다. 예술의전당 뮤지엄테라피 〈Chill your soul〉 명상전시(2025), 속초 영랑호 보광사 용연정의 '나홀로 명상의자'와 '사랑의 의자'를 만들었습니다.</p></div></div>
 </div>
 <ul class="facts"><li>2017 세계여성발명대회 GOLD · 2016 한국디자인진흥원 굿디자인 우수상</li><li>동우차 판매처 — 인천공항면세점 · 낙산사 · 미국(FDA) · 일본 · 사우디 등</li></ul>
 <div class="thread"><b>자미차(紫微茶)</b>는 북극성의 기운을 담은 차, <b>자미두수(紫微斗數)</b>는 북극성으로 운명을 읽는 학문. 그래서 앱의 표식도 <b>북극성</b>입니다.<br>동화에서 IT융합기술로, IT융합기술에서 운세그래프로, 운세그래프에서 명상으로.</div>
@@ -100,9 +101,9 @@
 <h2>해와 달과 별, <b>일월성신</b>을 차로</h2>
 <p class="sub">하늘을 우러르던 우리 민족의 정신적 원형을 세 잔의 차에 담았습니다.<br>해의 차, 달의 차, 북극성의 차.<br>동양의학 이론에 맞게 설계한 명상을 위한 한방차입니다.</p>
 <div class="grid">
-<div class="tea"><div class="hanja">日</div><div class="name">천일차<small>CHEONIL CHA · 天日茶</small></div><div class="desc">하늘에 뜬 해처럼 따뜻하고 활기찬 느낌을 담은 건강차</div><div class="img"><img src="assets/img/tea_cheonil.jpg" alt="천일차"></div></div>
-<div class="tea star"><div class="hanja">星</div><div class="name">자미차<small>JAMI CHA · 紫微茶</small></div><div class="desc">밤하늘 북극성의 기운을 상징하는 자미(紫微)처럼 깊은 휴식이 되는 차</div><div class="img"><img src="assets/img/tea_jami.jpg" alt="자미차"></div></div>
-<div class="tea"><div class="hanja">月</div><div class="name">천월차<small>CHEONWOL CHA · 天月茶</small></div><div class="desc">밤하늘의 달처럼 은은하고 부드러운 느낌의 식이섬유가 풍부한 건강차</div><div class="img"><img src="assets/img/tea_cheonwol.jpg" alt="천월차"></div></div>
+<div class="tea"><div class="hanja">日</div><div class="name">천일차<small>CHEONIL CHA · 天日茶</small></div><div class="desc">하늘에 뜬 해처럼 따뜻하고 활기찬 느낌을 담은 건강차</div><div class="img"><img src="assets/img/tea_cheonil.jpg" alt="천일차" width="1000" height="1000"></div></div>
+<div class="tea star"><div class="hanja">星</div><div class="name">자미차<small>JAMI CHA · 紫微茶</small></div><div class="desc">밤하늘 북극성의 기운을 상징하는 자미(紫微)처럼 깊은 휴식이 되는 차</div><div class="img"><img src="assets/img/tea_jami.jpg" alt="자미차" width="1000" height="1000"></div></div>
+<div class="tea"><div class="hanja">月</div><div class="name">천월차<small>CHEONWOL CHA · 天月茶</small></div><div class="desc">밤하늘의 달처럼 은은하고 부드러운 느낌의 식이섬유가 풍부한 건강차</div><div class="img"><img src="assets/img/tea_cheonwol.jpg" alt="천월차" width="1000" height="1000"></div></div>
 </div>
 <p class="note">동우차(東友茶) · 이스트프렌즈 · 기술특허 2건 · HACCP</p>
 </div></section>

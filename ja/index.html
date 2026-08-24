@@ -5,13 +5,14 @@
 <title>ジナゼン 運勢グラフ — JINAZEN</title>
 <meta name="description" content="瞑想アーティストがつくった専門家向けの運勢相談ソリューション。四柱推命・紫微斗数・タロット運命数をひとつに。">
 <link rel="icon" type="image/svg+xml" href="../assets/img/northstar.svg">
-<link rel="stylesheet" href="../assets/font/pretendard.css">
 <link rel="stylesheet" href="../assets/style.css">
+<!-- ヒーロー画像が LCP 要素。CSS を読み終えてから見つかると、その分だけ遅れる。 -->
+<link rel="preload" as="image" href="../assets/img/site_01_hero_graph.webp" type="image/webp" fetchpriority="high">
 </head>
 <body>
 <a class="skip" href="#top">本文へスキップ</a>
 <header class="nav"><div class="wrap">
-<a class="brand" href="#top"><img src="../assets/img/northstar.svg" alt="">JINAZEN</a>
+<a class="brand" href="#top"><img src="../assets/img/northstar.svg" alt="" width="200" height="200">JINAZEN</a>
 <nav class="menu">
 <a href="#fortune">運勢グラフ</a>
 <a href="#artist">瞑想アーティスト</a>
@@ -24,7 +25,7 @@
 <main id="top">
 
 <section class="philo"><div class="wrap">
-<img class="mark" src="../assets/img/northstar.svg" alt="">
+<img class="mark" src="../assets/img/northstar.svg" alt="" width="200" height="200">
 <p class="line1">瞑想が芸術になる瞬間</p>
 <p class="line2">ジナゼン <small>JINAZEN</small></p>
 </div></section>
@@ -38,7 +39,7 @@
 <span class="cta is-disabled" role="link" aria-disabled="true">Google Play にて公開予定 <small>リリース記念価格</small></span>
 <p class="pricenote">ダウンロードは無料です。アプリ内で一度購入すれば、そのまま使い続けられます。サブスクリプションではありません。<br>リリースを記念して、通常価格より低い価格から始めます。</p>
 <p class="uinote">アプリ画面は現在韓国語です。日本語UIは準備中です。</p>
-<div class="hero-device phone"><div class="device"><img class="screen" src="../assets/img/site_01_hero_phone.png" alt="ジナゼン運勢グラフの大運流れ表 — 1歳から91歳までの十の大運の干支と点数" width="1080" height="1714"></div></div>
+<div class="hero-device graph"><picture><source srcset="../assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="../assets/img/site_01_hero_graph.png" alt="ジナゼン運勢グラフの大運グラフ — 1歳から91歳までの十の大運の点数を結ぶ折れ線。現在の大運（41歳・丁卯・94点）が示されている" width="1148" height="1354"></picture></div>
 </div></section>
 
 <section class="pad usp"><div class="wrap">
@@ -62,34 +63,34 @@
 <div class="text"><h2>ひとりの運命を、<br><b>ひとつの場所で立体的に</b></h2>
 <p>三つの視点を、煩わしい再計算なしに、ひとつの画面で相談の準備まで。<br>四柱推命・紫微斗数・タロット運命数を行き来する統合ソリューションです。</p>
 <ul><li>顧客登録 · 一覧 · 統合検索</li><li>顧客ごとの相談回数と履歴の管理</li><li>相談メモと特記事項を回次ごとに保管</li></ul></div>
-<div class="device"><img class="screen wide" src="../assets/img/site_02_customer.png" alt="顧客リスト画面 — 氏名・性別・生年月日と命式へのショートカット" width="2560" height="1440"></div>
+<div class="device"><picture><source srcset="../assets/img/site_02_customer.webp" type="image/webp"><img class="screen wide" src="../assets/img/site_02_customer.png" alt="顧客リスト画面 — 氏名・性別・生年月日と命式へのショートカット" width="2560" height="1440"></picture></div>
 </div></section>
 
 <section class="pad feature flip"><div class="wrap">
 <div class="text"><h2>機械の仕事と、<b>人の仕事</b></h2>
 <p>八文字を立て、流れを描くのはアプリの仕事です。<br>それがこの人にとって何を意味するのかは、先生が語ります。</p>
 <ul><li>計算 — 検証された基準でアプリが</li><li>用神 — 先生が直接指定</li><li>解釈 — 断定せず、余白を残す</li></ul></div>
-<div class="device"><img class="screen wide" src="../assets/img/site_03_wonguk.png" alt="命式画面 — 時・日・月・年の四柱の天干地支と十神、隣に大運流れ表" width="2560" height="1440"></div>
+<div class="device"><picture><source srcset="../assets/img/site_03_wonguk.webp" type="image/webp"><img class="screen wide" src="../assets/img/site_03_wonguk.png" alt="命式画面 — 時・日・月・年の四柱の天干地支と十神、隣に大運流れ表" width="2560" height="1440"></picture></div>
 </div></section>
 
 <section class="pad report"><div class="wrap">
 <h2>相談の結果は<b>二枚の紙</b>に</h2>
 <p class="wide">A4横2ページのレポート。命式・流れ・おすすめをまとめ、PDFで保存し共有します。</p>
 <p class="subnote">紙への印刷は店舗（ジナゼン マインドマップソリューション）で提供します。</p>
-<div class="device a4"><img class="screen" src="../assets/img/site_04_report.png" alt="A4レポート1ページ目 — 命式表と大運の流れグラフ" width="3368" height="2380"></div>
+<div class="device a4"><picture><source srcset="../assets/img/site_04_report_v2_p1.webp" type="image/webp"><img class="screen" src="../assets/img/site_04_report_v2_p1.png" alt="A4レポート1ページ目 — 命式表と大運の流れグラフ" width="3368" height="2380"></picture></div>
 <p class="figcap">レポート1ページ目 — 2ページ目には推薦と開運法が入ります</p>
 </div></section>
 
 <section class="pad alt artist" id="artist"><div class="wrap">
-<div class="portrait"><img src="../assets/img/artist.jpg" alt="瞑想アーティスト キム・ジナ"></div>
+<div class="portrait"><img src="../assets/img/artist.jpg" alt="瞑想アーティスト キム・ジナ" width="720" height="960"></div>
 <div>
 <p class="eyebrow">瞑想アーティスト</p><h2>キム・ジナ</h2>
 <p class="quote">瞑想へ向かう旅</p>
 <p class="journey">大人のための童話を書き、<br>IT融合技術で発明を、<br>人生を運勢グラフとして可視化し、<br>心を整える瞑想茶とともに、その先に瞑想を置きます。</p>
 <div class="chapters">
-<div class="ch"><div class="k">童話</div><div><h4>童話小説『黄金のくちばし：失われた時間を探して』文・絵</h4><p>黄金のくちばしは、くちばしに触れると願いが叶う、韓国伝統の太陽の鳥を象徴して生まれた幸運のキャラクターです。童話の想像の中から、現実の暮らしへ訪れてきた温かな友です。</p></div></div>
-<div class="ch"><div class="k">技術</div><div><h4>IoTメディア feelingTV 代表</h4><p>本の形をしたAndroid端末と本棚型ドックを発明して広告プラットフォームを運営し、日韓に法人を設立し、両国に累計10,000台を設置してサービスを提供しました。キヤノン・ロッテ・ゴンチャとのパートナーシップ、充電装置の技術特許を共同発明。</p></div></div>
-<div class="ch"><div class="k">瞑想</div><div><h4>瞑想録『あなたがティーカップを持ち上げるとき』・天日茶、天月茶、紫微茶、雙和茶（瞑想茶）</h4><p>お茶を、心を見つめる小さな儀式ととらえ、四種の瞑想茶を自らブレンドしました。ソウル芸術の殿堂ミュージアムセラピー〈Chill your soul〉瞑想展（2025）、束草・永郎湖の普光寺 龍淵亭の「ひとり瞑想の椅子」と「愛の椅子」を制作。</p></div></div>
+<div class="ch"><div class="k">童話</div><div><h3>童話小説『黄金のくちばし：失われた時間を探して』文・絵</h3><p>黄金のくちばしは、くちばしに触れると願いが叶う、韓国伝統の太陽の鳥を象徴して生まれた幸運のキャラクターです。童話の想像の中から、現実の暮らしへ訪れてきた温かな友です。</p></div></div>
+<div class="ch"><div class="k">技術</div><div><h3>IoTメディア feelingTV 代表</h3><p>本の形をしたAndroid端末と本棚型ドックを発明して広告プラットフォームを運営し、日韓に法人を設立し、両国に累計10,000台を設置してサービスを提供しました。キヤノン・ロッテ・ゴンチャとのパートナーシップ、充電装置の技術特許を共同発明。</p></div></div>
+<div class="ch"><div class="k">瞑想</div><div><h3>瞑想録『あなたがティーカップを持ち上げるとき』・天日茶、天月茶、紫微茶、雙和茶（瞑想茶）</h3><p>お茶を、心を見つめる小さな儀式ととらえ、四種の瞑想茶を自らブレンドしました。ソウル芸術の殿堂ミュージアムセラピー〈Chill your soul〉瞑想展（2025）、束草・永郎湖の普光寺 龍淵亭の「ひとり瞑想の椅子」と「愛の椅子」を制作。</p></div></div>
 </div>
 <ul class="facts"><li>2017 世界女性発明大会 GOLD · 2016 韓国デザイン振興院 グッドデザイン優秀賞</li><li>東友茶の販売先 — 仁川空港免税店 · 洛山寺 · 米国(FDA) · 日本 · サウジアラビア など</li></ul>
 <div class="thread"><b>紫微茶</b>は北極星の気を宿すお茶、<b>紫微斗数</b>は北極星で運命を読む学問。だからアプリの印も<b>北極星</b>です。<br>童話からIT融合技術へ、IT融合技術から運勢グラフへ、運勢グラフから瞑想へ。</div>
@@ -100,9 +101,9 @@
 <h2>日と月と星、<b>三つのお茶に</b></h2>
 <p class="sub">空を仰いできた民族の精神的原型を、三杯のお茶に込めました。<br>太陽のお茶、月のお茶、北極星のお茶。<br>東洋医学の理論に沿って設計した、瞑想のための韓方茶です。</p>
 <div class="grid">
-<div class="tea"><div class="hanja">日</div><div class="name">天日茶<small>CHEONIL CHA</small></div><div class="desc">空に昇った太陽のように、温かく活気ある健康茶。黄耆・枸杞子</div><div class="img"><img src="../assets/img/tea_cheonil.jpg" alt="天日茶"></div></div>
-<div class="tea star"><div class="hanja">星</div><div class="name">紫微茶<small>JAMI CHA</small></div><div class="desc">夜空の北極星の気を象徴する紫微のように、深い休息となるお茶。酸棗仁・黒河廊</div><div class="img"><img src="../assets/img/tea_jami.jpg" alt="紫微茶"></div></div>
-<div class="tea"><div class="hanja">月</div><div class="name">天月茶<small>CHEONWOL CHA</small></div><div class="desc">夜空の月のように穏やかで柔らかく、食物繊維が豊富な健康茶。牛蒡・たんぽぽ</div><div class="img"><img src="../assets/img/tea_cheonwol.jpg" alt="天月茶"></div></div>
+<div class="tea"><div class="hanja">日</div><div class="name">天日茶<small>CHEONIL CHA</small></div><div class="desc">空に昇った太陽のように、温かく活気ある健康茶。黄耆・枸杞子</div><div class="img"><img src="../assets/img/tea_cheonil.jpg" alt="天日茶" width="1000" height="1000"></div></div>
+<div class="tea star"><div class="hanja">星</div><div class="name">紫微茶<small>JAMI CHA</small></div><div class="desc">夜空の北極星の気を象徴する紫微のように、深い休息となるお茶。酸棗仁・黒河廊</div><div class="img"><img src="../assets/img/tea_jami.jpg" alt="紫微茶" width="1000" height="1000"></div></div>
+<div class="tea"><div class="hanja">月</div><div class="name">天月茶<small>CHEONWOL CHA</small></div><div class="desc">夜空の月のように穏やかで柔らかく、食物繊維が豊富な健康茶。牛蒡・たんぽぽ</div><div class="img"><img src="../assets/img/tea_cheonwol.jpg" alt="天月茶" width="1000" height="1000"></div></div>
 </div>
 <p class="note">東友茶 · EAST FRIENDS · 技術特許2件 · HACCP</p>
 </div></section>
