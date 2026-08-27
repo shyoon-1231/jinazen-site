@@ -279,3 +279,38 @@ footer .disclaimer{width:auto;max-width:none;margin-top:20px;padding-top:18px;bo
 .artist h2 small{font-size:.38em}
 .skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--ink);padding:10px 16px;z-index:99}
 .skip:focus{left:8px;top:8px;border:1px solid var(--ink);border-radius:6px}
+
+/* 만든 사람 — 앱 「설정 > 앱 정보」 크레딧을 그대로 옮긴 것 (TASK-SITE-CREDIT)
+ *
+ * ## 왜 푸터인가
+ *
+ * 앱은 크레딧 바로 아래에 「© JinaZen. All rights reserved.」를 둔다. 사이트
+ * 푸터에 그 줄이 이미 똑같이 있으므로, 여기 놓으면 **같은 이웃·같은 순서**가 된다.
+ * 상단 philo 밴드는 사진 위 흰 글씨의 브랜드 선언이라 성격이 다르고, 제품을
+ * 소개하기도 전에 만든 사람 이름이 먼저 나온다.
+ *
+ * ## 왜 두 행인가 — 슬래시로 잇지 않는다
+ *
+ * 국문 위·영문 아래 2행 병기는 앱이 정한 형태다(APP-COPY-R1). 한 행에 슬래시로
+ * 이으면 휴대폰 세로에서 그 줄이 접힐 때 **어디까지가 국문인지 사라진다.**
+ * 그래서 `.cr` 은 2열 × 2행 격자다 — 항목명 열과 이름 열.
+ *
+ * ## nth-child 로 영문 행을 고르는 이유
+ *
+ * 세 언어에서 `lang` 이 붙는 자리가 서로 다르다(ko 판은 영문에, en 판은 국문에).
+ * 자식 순서는 세 판이 같으므로(1 항목명·2 이름·3 영문 항목명·4 영문 이름)
+ * 순서로 고른다. 선택자 하나가 세 판을 함께 덮는다.
+ *
+ * ## 한자 尹淡
+ *
+ * Pretendard 서브셋 92개에 U+5C39·U+6DE1 이 **없다.** 그래서 `--f` 스택의
+ * 시스템 폰트로 폴백된다 — 이미 본문의 四柱 · 紫微斗數 · 天日茶 가 같은 경로이고
+ * 정상 렌더된다(2026-08-27 헤드리스 Chrome 3개 언어 실측). 두부가 아니다.
+ * 스택 끝의 `system-ui, sans-serif` 를 지우면 이 글자들이 함께 깨진다.
+ */
+footer .credits{display:flex;flex-wrap:wrap;gap:16px 56px;padding-bottom:20px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+footer .cr{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:3px}
+footer .cr b{font-weight:600;color:var(--ink);white-space:nowrap}
+footer .cr span{color:var(--ink-soft)}
+footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:500;color:var(--ink-soft);letter-spacing:.01em}
+@media(max-width:640px){footer .credits{flex-direction:column;gap:14px}}
