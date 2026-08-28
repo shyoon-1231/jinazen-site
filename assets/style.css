@@ -202,6 +202,34 @@ section.pad{padding:104px 0}
 .store p{margin-top:18px;color:rgba(255,255,255,.72);font-size:15.5px;max-width:460px}
 .store .cta{border-color:rgba(255,255,255,.5);color:#fff}
 .store .cta:hover{background:#fff;color:var(--ink)}
+/* ── 거치대 목업 — **CSS 로 그린다. 그림 파일을 만들지 않는다** ─────────────
+   (소유자 확정 2026-08-28: 특정 기기가 아닌 일반적인 형태)
+
+   파일로 만들면 해상도(1x/2x) · 다크 배경용 투명 PNG · 언어별 관리가 전부
+   따라붙는다. 형태가 「둥근 사각형 + 목 + 받침」 셋뿐이라 div 로 충분하다.
+
+   🔴 이 구역은 배경이 검정(--ink #111)이다. **--gold-ink 를 쓰지 않는다** —
+   그 값(#8A7140)은 흰 배경 위 글자 전용이라 검정 위에서 대비가 나오지 않는다.
+   여기서는 .store 가 이미 쓰는 흰색 알파값 계열만 쓴다.
+
+   목업 안에 글자를 넣지 않는다 — 넣으면 3개 언어 번역이 따라붙는다.
+   화면에 들어가는 것은 캡처 이미지 하나뿐이고 설명은 옆 .flow 가 맡는다. */
+.store-right{display:flex;flex-direction:column;gap:34px}
+.stands{display:flex;gap:22px;align-items:flex-end}
+.stand{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;margin:0}
+/* 화면 — 얇은 테두리와 아주 옅은 채움. 캡처가 주인공이므로 액자는 물러선다. */
+.stand-screen{width:100%;padding:7px;border:1px solid rgba(255,255,255,.28);
+  border-radius:14px;background:rgba(255,255,255,.06);line-height:0}
+.stand-screen img{width:100%;height:auto;border-radius:8px}
+/* 목 — 화면과 받침을 잇는다. 가운데 정렬은 .stand 의 align-items 가 맡는다. */
+.stand-neck{width:14px;height:30px;background:rgba(255,255,255,.18);
+  border-radius:0 0 3px 3px}
+/* 받침 — 살짝 넓고 납작하게. 그림자 대신 폭으로 무게를 준다. */
+.stand-base{width:58%;height:9px;border-radius:999px;background:rgba(255,255,255,.24)}
+@media(max-width:820px){
+  /* 1열로 접히면 가로가 넉넉해진다 — 거치대가 지나치게 커지지 않게 묶어 둔다. */
+  .stands{max-width:420px;margin:0 auto}
+}
 .flow{border-left:1px solid rgba(255,255,255,.18);padding-left:26px}
 .flow div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14.5px;color:rgba(255,255,255,.85)}
 .flow div:last-child{border-bottom:0}
