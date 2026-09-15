@@ -311,6 +311,11 @@ footer .disclaimer{width:100%;margin-top:14px;font-size:12px;line-height:1.8;max
 footer .wrap{display:block}
 footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer .disclaimer{width:auto;max-width:none;margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;line-height:1.8;color:var(--ink-soft)}
+/* 면책 문구는 푸터 맨 위 — 푸터 자체의 윗줄과 겹치지 않게 줄과 위 여백을 걷고 아래로 띄운다 */
+footer .disclaimer:first-child{margin-top:0;padding-top:0;border-top:0;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+/* 사업자 정보 — 서류 문구 그대로, 좁은 화면에서는 줄바꿈 */
+footer .biz{display:flex;flex-wrap:wrap;gap:2px 16px;margin-bottom:14px;font-size:12px;line-height:1.8;color:var(--ink-soft)}
+footer .biz a{color:inherit}
 .about .lede{margin-top:18px;font-size:18px;font-weight:600;color:var(--ink);letter-spacing:-.02em}
 .about .lede + p{margin-top:12px;max-width:520px}
 

@@ -2,8 +2,23 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ジナゼン 運勢グラフ — JINAZEN</title>
-<meta name="description" content="瞑想アーティストがつくった専門家向けの運勢相談ソリューション。四柱推命・紫微斗数・タロット運命数をひとつに。">
+<!-- 🔴 title · description · og 는 한국어판 구조를 옮긴 초안이다 — 소유자 확인 전 (「만세력」→「万年暦」도 초안) -->
+<title>ジナゼン 運勢グラフ — 万年暦・四柱推命・紫微斗数・タロット相談プログラム</title>
+<meta name="description" content="瞑想アーティストがつくった専門家向けの運勢相談ソリューション。万年暦・四柱推命・紫微斗数・タロット運命数をひとつに。">
+<link rel="canonical" href="https://jinazen.com/ja/">
+<link rel="alternate" hreflang="ko" href="https://jinazen.com/">
+<link rel="alternate" hreflang="en" href="https://jinazen.com/en/">
+<link rel="alternate" hreflang="ja" href="https://jinazen.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://jinazen.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ジナゼン 運勢グラフ — 万年暦・四柱推命・紫微斗数・タロット相談プログラム">
+<meta property="og:description" content="瞑想アーティストがつくった専門家向けの運勢相談ソリューション。万年暦・四柱推命・紫微斗数・タロット運命数をひとつに。">
+<meta property="og:url" content="https://jinazen.com/ja/">
+<meta property="og:image" content="{{OG_PNG}}">
+<!-- 構造化データは SoftwareApplication のみ。aggregateRating は入れない（レビュー0件）。 -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ジナゼン 運勢グラフ","inLanguage":"ja","operatingSystem":"Android","applicationCategory":"{{APP_CATEGORY}}","description":"瞑想アーティストがつくった専門家向けの運勢相談ソリューション。万年暦・四柱推命・紫微斗数・タロット運命数をひとつに。","url":"https://jinazen.com/ja/","installUrl":"{{PLAY_URL}}","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"author":{"@type":"Organization","name":"JinaZen"}}
+</script>
 <link rel="icon" type="image/svg+xml" href="../assets/img/northstar.svg">
 <link rel="stylesheet" href="../assets/style.css">
 <!-- ヒーロー画像が LCP 要素。CSS を読み終えてから見つかると、その分だけ遅れる。 -->
@@ -33,10 +48,10 @@
 <section class="hero" id="fortune"><div class="wrap">
 <p class="eyebrow">瞑想アーティストがつくった</p>
 <h1>ジナゼン <em>運勢グラフ</em></h1>
-<p class="lead">人生の波を見る。より正確に。<br>専門家のための運勢相談ソリューション</p>
-<!-- 公開日の作業: 下の span を a に戻し、Play のアドレスを指定する。
-     空リンクのままだと押しても何も起こらず、故障に見える。 -->
-<span class="cta is-disabled" role="link" aria-disabled="true">Google Play にて公開予定 <small>リリース記念価格</small></span>
+<!-- {{JA_FOR_PROS_SENTENCE}} = 앱 설명 원문 「사주 상담, 자미두수 상담, 타로 상담을 한 프로그램에서 다루려는 역술인과 상담사를 위해 만들었습니다.」의 일본어판 — 원문 번역이 없어 비워 둔다 -->
+<p class="lead">{{JA_FOR_PROS_SENTENCE}}<br>専門家のための運勢相談ソリューション</p>
+<!-- href は Play Console の URL ビルダーが生成したアドレス（referrer 付き）をオーナーが入れる。形式を推測しない。 -->
+<a class="cta" href="{{PLAY_URL}}">Google Play <small>リリース記念価格</small></a>
 <p class="pricenote">ダウンロードは無料です。アプリ内で一度購入すれば、そのまま使い続けられます。サブスクリプションではありません。<br>リリースを記念して、通常価格より低い価格から始めます。</p>
 <p class="uinote">アプリ画面は現在韓国語です。日本語UIは準備中です。</p>
 <div class="hero-device graph"><picture><source srcset="../assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="../assets/img/site_01_hero_graph.png" alt="ジナゼン運勢グラフの大運グラフ — 1歳から91歳までの十の大運の点数を結ぶ曲線。現在の大運（41歳・丁卯・94点）が示されている" width="1440" height="1962"></picture></div>
@@ -44,7 +59,7 @@
 
 <section class="pad usp"><div class="wrap">
 <h2>瞑想アーティストの視線で<br><b>人生の波を描く</b></h2>
-<p>正確な用神をもとに、運の流れをグラフとして可視化します。<br>四柱推命・紫微斗数・タロット運命数を通して、お客様の流れを深く理解し記録します。</p>
+<p>用神をもとに、運の流れをグラフとして可視化します。<br>四柱推命・紫微斗数・タロット運命数を通して、お客様の流れを深く理解し記録します。</p>
 </div></section>
 
 <section class="pad three"><div class="wrap"><div class="grid">
@@ -61,7 +76,8 @@
 
 <section class="pad alt feature"><div class="wrap">
 <div class="text"><h2>ひとりの運命を、<br><b>ひとつの場所で立体的に</b></h2>
-<p>三つの視点を、煩わしい再計算なしに、ひとつの画面で相談の準備まで。<br>四柱推命・紫微斗数・タロット運命数を行き来する統合ソリューションです。</p>
+<!-- {{JA_ONE_SCREEN_SENTENCE}} = 앱 설명 원문 「만세력을 따로 켜고 자미두수를 따로 보고 타로를 또 따로 뽑던 일을 한 화면에서 끝냅니다.」의 일본어판 -->
+<p>{{JA_ONE_SCREEN_SENTENCE}}<br>四柱推命・紫微斗数・タロット運命数を行き来する統合ソリューションです。</p>
 <ul><li>顧客登録 · 一覧 · 統合検索</li><li>顧客ごとの相談回数と履歴の管理</li><li>相談メモと特記事項を回次ごとに保管</li></ul></div>
 <div class="device"><picture><source srcset="../assets/img/site_02_customer.webp" type="image/webp"><img class="screen wide" src="../assets/img/site_02_customer.png" alt="顧客リスト画面 — 氏名・性別・生年月日と命式へのショートカット" width="2560" height="1440"></picture></div>
 </div></section>
@@ -71,14 +87,6 @@
 <p>八文字を立て、流れを描くのはアプリの仕事です。<br>それがこの人にとって何を意味するのかは、先生が語ります。</p>
 <ul><li>計算 — 検証された基準でアプリが</li><li>用神 — 先生が直接指定</li><li>解釈 — 断定せず、余白を残す</li></ul></div>
 <div class="device"><picture><source srcset="../assets/img/site_03_wonguk.webp" type="image/webp"><img class="screen wide" src="../assets/img/site_03_wonguk.png" alt="命式画面 — 時・日・月・年の四柱の天干地支と十神、隣に大運流れ表" width="2560" height="1440"></picture></div>
-</div></section>
-
-<section class="pad report"><div class="wrap">
-<h2>相談の結果は<b>二枚の紙</b>に</h2>
-<p class="wide">A4横2ページのレポート。命式・流れ・おすすめをまとめ、PDFで保存し共有します。</p>
-<p class="subnote">紙への印刷は店舗（ジナゼン マインドマップソリューション）で提供します。</p>
-<div class="device a4"><picture><source srcset="../assets/img/site_04_report_v2_p1.webp" type="image/webp"><img class="screen" src="../assets/img/site_04_report_v2_p1.png" alt="A4レポート1ページ目 — 命式表と大運の流れグラフ" width="3368" height="2380"></picture></div>
-<p class="figcap">レポート1ページ目 — 2ページ目には推薦と開運法が入ります</p>
 </div></section>
 
 <section class="pad alt artist" id="artist"><div class="wrap">
@@ -119,7 +127,7 @@
 </div>
 <div class="flow">
 <div><span>01</span>キオスクで生年月日を入力</div>
-<div><span>02</span>お支払い後、番号札</div>
+<div><span>02</span>番号札 · カウンターでお支払い</div>
 <div><span>03</span>同じ番号のレポートを説明とともに</div>
 <div><span>04</span>東友茶 · 五行グッズ</div>
 <div><span>05</span>瞑想ルーム</div>
@@ -137,15 +145,21 @@
 
 </main>
 <footer><div class="wrap">
+<p class="disclaimer">※ 本アプリは相談のための参考ツールであり、結果を断定したり重要な意思決定を代替するものではありません。</p>
 <div class="credits">
 <div class="cr"><b>企画</b><span lang="ko">명상아티스트 김진아</span><b lang="en">Planning</b><span lang="en">Meditation Artist Jina Kim</span></div>
 <div class="cr"><b>開発</b><span lang="ko">尹淡(윤담)</span><b lang="en">Development</b><span lang="en">Yoondam</span></div>
 <div class="cr"><b>監修</b><span lang="ko">압구정도사 진용</span><b lang="en">Supervision</b><span lang="en">Master Jinyong</span></div>
 </div>
+<!-- 事業者情報は登録証と一字一句合わせるため、どの言語ページでも韓国語原文のまま置く。 -->
+<div class="biz" lang="ko">
+<span>상호 진아젠</span><span>대표자 김진아</span><span>사업자등록번호 832-19-02353</span><span>통신판매업신고 제2026-고양덕양구-2162호</span>
+<span>주소 경기도 고양시 덕양구 꽃마을로 36, 14층 1403호 (DMC스타비즈 6st) (향동동)</span>
+<span>전화 {{PHONE}}</span><span>이메일 <a href="mailto:jina@jinazen.com">jina@jinazen.com</a></span><span>호스팅 Cloudflare, Inc.</span>
+</div>
 <div class="row">
 <span>© JinaZen. All rights reserved.</span>
 <span><a href="../privacy/ja/">プライバシーポリシー</a></span>
 </div>
-<p class="disclaimer">※ 本アプリは相談のための参考ツールであり、結果を断定したり重要な意思決定を代替するものではありません。</p>
 </div></footer>
 </body></html>
