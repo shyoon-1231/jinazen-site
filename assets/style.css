@@ -358,7 +358,7 @@ footer .cr span{color:var(--ink-soft)}
 footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:500;color:var(--ink-soft);letter-spacing:.01em}
 @media(max-width:640px){footer .credits{flex-direction:column;gap:14px}}
 
-/* v9 — usp 띠 본문 줄바꿈 (SITE-COPY-1)
+/* v9 — usp 띠 본문 줄바꿈 (docs/tasks/TASK-SITE-COPY-1.md)
    ko: 낱말 한가운데서 끊기지 않게 띄어쓰기에서만 끊는다 (폰 폭 400px 실측: 「받/아들여」)
    ja: 문절 단위로 끊는다. 미지원 브라우저는 지금 모양 그대로다 — 폭이 좁아지지는 않는다
    🔴 ja 에 keep-all 을 쓰지 않는다 — 일본어는 띄어쓰기가 없어 줄이 칸 밖으로 넘친다 */
