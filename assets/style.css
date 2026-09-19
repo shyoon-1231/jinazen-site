@@ -72,6 +72,27 @@ img,svg{display:block;max-width:100%}
 .lang{display:flex;gap:10px;font-size:12px;letter-spacing:.08em;color:var(--ink-soft)}
 .lang b{color:var(--ink);font-weight:600}
 @media(max-width:760px){.menu{display:none}}
+/* ── 🔴 좁은 데스크톱에서 메뉴 간격 (2026-09-19 · SITE-36) ─────────────
+   메뉴가 **여섯**이 되면서 761~855px 구간의 영어 메뉴가 넘쳤다. 실측 (헤드리스
+   Chrome · `.nav .wrap` 안쪽 705px):
+
+   | 폭 | ko | en | ja |
+   |---|---|---|---|
+   | 다섯 항목 (이 판 전) | 144px | 55px | 84px |
+   | 여섯 항목 (간격 26px) | 60px | **0px · 닻이 접혔다** | **0px · 접혔다** |
+
+   ⚠ 「접혔다」가 눈에 잘 안 띈다 — `.menu` 가 `align-items` 를 안 주어 닻이
+     **늘어나므로**(stretch) 줄이 두 줄이 돼도 높이만 커지고 자리는 그대로다.
+     🔴 그래서 닻의 `y` 가 같은지로 재면 **언제나 통과한다**(함정 29). 닻 **높이**를
+     한 줄 높이와 대 봐야 잡힌다.
+
+   🔴 **라벨을 줄이지 않았다.** 메뉴 라벨은 섹션 제목과 **같은 글자**여야 하고
+      (다르면 손님이 없는 것을 찾는다), 나머지 다섯은 소유자 확정 문안이라
+      내가 줄일 것이 아니다. 줄인 것은 **간격뿐**이다 — 26 → 16px 로 다섯 틈에서
+      50px 가 남는다.
+   ⚠ 900px 을 경계로 삼은 것은 en 이 860px 에서야 여유(38px)를 얻기 때문이다.
+      경계를 855px 에 딱 맞추면 글꼴이 바뀔 때 다시 넘친다. */
+@media(max-width:900px){.menu{gap:16px}}
 .hero{padding:92px 0 72px;text-align:center}
 .eyebrow{font-size:13px;letter-spacing:.18em;color:var(--ink-soft);margin-bottom:24px}
 h1{font-weight:600;font-size:clamp(34px,5.2vw,60px);line-height:1.2;letter-spacing:-.03em}
@@ -198,6 +219,27 @@ section.pad{padding:104px 0}
 .report h2 b{font-weight:800}
 .report p{color:var(--ink-soft);margin:16px auto 0;max-width:560px;font-size:15.5px}
 .report .device{max-width:880px;margin:48px auto 0}
+/* ── 운명리포트 섹션 (2026-09-19 · SITE-36) ─────────────────────────────
+   🔴 위 `.report` 규칙 넷은 **2026-09-16 에 통째로 뺀 결과지 섹션**이 쓰던 것이
+      남아 있던 자리다(`.stands` · `.flow` 와 같은 처지 — index.html 의 매장 섹션
+      주석이 그 사정을 적어 두었다). 🔴 새로 만들지 않고 **그것을 쓴다** — 가운데
+      정렬 · h2 · 본문 폭이 이 섹션에 그대로 맞는다.
+   ⚠ 그래서 `.report .device` 는 여기서 안 쓴다(이 섹션에 그림이 없다). 지우지는
+      않는다 — 결과지 그림이 돌아오면 그 규칙이 다시 필요하다.
+
+   여기서 **더하는 것은 셋뿐**이다:
+   ① 단추 둘을 나란히 두는 줄  ② 채운 단추  ③ 값 없이 적는 잔글씨.
+   🔴 새 색을 만들지 않았다 — `--ink` · `--gold-ink` · `--ink-soft` 는 이미 있다. */
+.report .acts{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:34px}
+.report .acts .cta{margin-top:0}
+/* 🔴 채운 단추는 **하나뿐**이다 — 둘 다 채우면 어느 쪽이 먼저인지 사라진다.
+   「예시 화면 보기」가 채운 쪽이다: 구매 전 체험은 친절이 아니라 법적 조치다
+   (전자상거래법 시행령 제21조의2 ③). web_report 설명 페이지도 그쪽을 채웠다. */
+.cta.fill{background:var(--ink);color:#fff}
+.cta.fill:hover{background:var(--gold-ink);border-color:var(--gold-ink);color:#fff}
+/* 🔴 `.report p` 보다 특정도가 높아야 이긴다 — 낮으면 15.5px 본문 크기로 그려진다.
+   (`.report p` 는 (0,1,1) · 이것은 (0,2,0)) */
+.report .fine{margin-top:18px;font-size:13px;line-height:1.9;color:var(--ink-soft);max-width:620px}
 /* 그림 설명. 본문이 「두 장」이라 말하는데 사이트에는 1장만 넣으므로,
    나머지 한 장이 무엇인지 여기서 말한다. */
 .figcap{margin:14px auto 0;max-width:880px;text-align:center;font-size:13px;color:var(--ink-soft);letter-spacing:.01em}
@@ -378,3 +420,8 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
    🔴 ja 에 keep-all 을 쓰지 않는다 — 일본어는 띄어쓰기가 없어 줄이 칸 밖으로 넘친다 */
 :lang(ko) .usp p{word-break:keep-all}
 :lang(ja) .usp p{word-break:auto-phrase}
+/* 운명리포트 섹션 본문도 같은 처지다 (2026-09-19 · SITE-36) — 폰 400px 실측에서
+   「사주명반·자미두수·타로운명수를 화면으로 제공하/고,」처럼 낱말 가운데서 끊겼다.
+   🔴 위 usp 줄과 **같은 규칙**을 쓴다. ja 에 keep-all 을 쓰지 않는 이유도 같다. */
+:lang(ko) .report p{word-break:keep-all}
+:lang(ja) .report p{word-break:auto-phrase}

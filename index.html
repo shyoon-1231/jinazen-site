@@ -30,6 +30,16 @@
 <a class="brand" href="#top"><img src="assets/img/northstar.svg" alt="" width="200" height="200">JINAZEN</a>
 <nav class="menu">
 <a href="#fortune">운세그래프</a>
+<!-- 🔴 「운명리포트」 (SITE-36) — 판매 세 갈래 중 **일반인 웹**으로 가는 길.
+     2026-09-19 이전에는 jinazen.com 에 `/report` 로 가는 링크가 **0건**이었다:
+     전문가 앱은 히어로의 Play 단추가, 매장 도입은 `#store` 가 있었는데 일반인만
+     길이 없었다.
+     🔴 라벨은 web_report 설명 페이지의 무리 제목(`flow_copy.REPORT_GROUP_LABEL`)
+        글자 그대로다 — 새로 짓지 않았다. 섹션 h2 의 뒷마디와도 같은 글자다.
+     ⚠ 자리는 **DOM 순서 그대로**다 — 섹션이 히어로 바로 뒤라 메뉴도 첫째 뒤다.
+     ⚠ 폰(760px 이하)에서는 `.menu{display:none}` 이라 이 줄이 아예 안 그려진다.
+        그래서 섹션을 **위**에 두었다(스크롤이 폰 손님의 유일한 길이다). -->
+<a href="#report">운명리포트</a>
 <a href="#artist">명상아티스트</a>
 <!-- 🔴 「매장 도입」 (소유자 확정 2026-09-18 · SITE-STORE-INQUIRY-2) — 판매 세 갈래 중
      셋째(매장 사업자)로 가는 길. 섹션 id 는 `store` 다(`store-ask` 는 그 안 div 의 class).
@@ -57,6 +67,37 @@
 <a class="cta" href="https://play.google.com/store/apps/details?id=com.jinazen.fortunegraph">Google Play <small>출시 기념가</small></a>
 <p class="pricenote">다운로드는 무료이며, 앱 안에서 한 번 구매하면 계속 사용합니다. 구독이 아닙니다.</p>
 <div class="hero-device graph"><picture><source srcset="assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="assets/img/site_01_hero_graph.png" alt="진아젠 운세그래프 대운 그래프 — 1세부터 91세까지 열 개 대운의 점수를 잇는 곡선, 현재 대운 41세 丁卯 94점이 표시돼 있다" width="1440" height="1962"></picture></div>
+</div></section>
+
+<!-- ── 운명리포트 (웹) ─────────────────────────────────────────────
+     🔴 자리가 **히어로 바로 다음**인 이유 — 폰에서 메뉴가 안 그려지므로 일반인
+        손님이 닿는 길은 스크롤뿐이다. 아래로 내리면 그만큼 안 읽힌다.
+     🔴 **히어로 문안은 한 글자도 안 건드렸다.** 「전문가를 위한」은 앱 스토어·
+        Play 심사와 맞춰 둔 글자다. 일반인이 자기 자리를 찾는 일은 이 섹션이 한다.
+
+     🔴 **새 문장을 짓지 않았다.** 전부 web_report 에서 글자 그대로 왔다:
+       · h2          `api/pages.py` ORDER_NAME 「진아젠 운명리포트」
+       · 본문        `flow_copy.SALES_INTRO` (= 약관 제4조 첫 문단 첫 문장)
+       · 잔글씨 앞   `flow_copy.REOPEN_FREE` (= 약관 제11조 첫 문단 둘째 마디)
+       · 잔글씨 뒤   `legal.PRICE_LINE_FALLBACK`
+       · 단추        `legal.SAMPLE_LINK_LABEL` · `flow_copy.START_LABEL`
+
+     🔴 **값을 글자로 박지 않는다.** 홈페이지는 정적이라 서버 값을 못 찍는데
+        값은 관리 화면(`/report/admin/price`)에서 바뀐다 — 박아 두면 그때 두
+        곳이 갈리고, **갈려도 아무 일이 안 난다.** `PRICE_LINE_FALLBACK` 은
+        web_report 가 「값을 못 읽었을 때」를 위해 이미 갖고 있는 문장이다.
+
+     ⚠ 주소를 절대경로로 적는다 — `/report` 는 같은 호스트이지만 Cloudflare
+        **Worker Route** 가 내는 자리이고 이 Pages 사이트가 아니다. 상대경로로
+        적으면 그 사정이 안 보인다. -->
+<section class="pad alt report" id="report"><div class="wrap">
+<h2>진아젠 <b>운명리포트</b></h2>
+<p>서비스는 이용자가 입력한 생년월일·시각·성별을 바탕으로 사주명반·자미두수·타로운명수를 화면으로 제공하고, 매장 결과지와 같은 내용의 운명리포트를 제공하는 디지털 콘텐츠입니다.</p>
+<p class="fine">한 번 결제하면 해당 리포트를 계정에서 계속 열람할 수 있습니다. 구독이 아닙니다.<br>가격은 결제 화면에서 확인해 주세요.</p>
+<p class="acts">
+<a class="cta fill" href="https://jinazen.com/report/sample">예시 화면 보기</a>
+<a class="cta" href="https://jinazen.com/report/">시작하기</a>
+</p>
 </div></section>
 
 <section class="pad usp"><div class="wrap">
