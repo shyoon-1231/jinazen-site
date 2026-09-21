@@ -39,7 +39,8 @@
      ⚠ 자리는 **DOM 순서 그대로**다 — 섹션이 히어로 바로 뒤라 메뉴도 첫째 뒤다.
      ⚠ 폰(760px 이하)에서는 `.menu{display:none}` 이라 이 줄이 아예 안 그려진다.
         그래서 섹션을 **위**에 두었다(스크롤이 폰 손님의 유일한 길이다). -->
-<a href="#report">운명리포트</a>
+<!-- 🔴 SITE-38 §2 — 메뉴는 목적지로 바로 간다(섹션은 첫 화면 단추와 스크롤로 닿는다). 절대주소 — /report 는 Worker 가 내는 자리다 -->
+<a href="https://jinazen.com/report/">운명리포트</a>
 <a href="#artist">명상아티스트</a>
 <!-- 🔴 「매장 도입」 (소유자 확정 2026-09-18 · SITE-STORE-INQUIRY-2) — 판매 세 갈래 중
      셋째(매장 사업자)로 가는 길. 섹션 id 는 `store` 다(`store-ask` 는 그 안 div 의 class).
@@ -58,6 +59,15 @@
 <img class="mark" src="assets/img/northstar.svg" alt="" width="200" height="200">
 <p class="line1">명상이 예술이 되는 순간</p>
 <p class="line2">진아젠 <small>JINAZEN</small></p>
+<!-- 🔴 첫 화면의 입구 (SITE-38) — 스크롤 없이 보이는 자리는 이 사진 띠뿐이다(폰 400×800 · PC 1280×800 실측).
+     히어로의 Play 단추는 두 폭 다 첫 화면 밖이다. 일반인이 먼저, 전문가 앱은 그다음(히어로)이다.
+     🔴 SITE-36 의 「히어로를 고치지 않는다」는 Play 심사 때문이었다 — 심사가 끝나 풀렸다(소유자 확인 2026-09-22).
+     🔴 글자는 web_report 설명 페이지(`flow_copy.START_LABEL` · `legal.SAMPLE_LINK_LABEL`)와 같다 — en·ja 는 SITE-36 초안 그대로.
+     ⚠ 채운 단추가 「시작하기」인 것은 소유자 지시다(SITE-38 §1). 아래 운명리포트 섹션과 web_report 는 「예시」가 채운 쪽이다. -->
+<p class="acts">
+<a class="cta fill" href="https://jinazen.com/report/">시작하기</a>
+<a class="cta" href="https://jinazen.com/report/sample">예시 화면 보기</a>
+</p>
 </div></section>
 
 <section class="hero" id="fortune"><div class="wrap">

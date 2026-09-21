@@ -425,3 +425,19 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
    🔴 위 usp 줄과 **같은 규칙**을 쓴다. ja 에 keep-all 을 쓰지 않는 이유도 같다. */
 :lang(ko) .report p{word-break:keep-all}
 :lang(ja) .report p{word-break:auto-phrase}
+
+/* ── 🔴 첫 화면 입구 — 사진 띠 위 단추 둘 (SITE-38 §1) ─────────────────────
+   채운 단추(주)는 `.cta.fill` 그대로 — 잉크 바탕 · 흰 글자.
+   🔴 보조 단추는 **흰 바탕 · 잉크 글자**다 — `.store .cta:hover` 의 값 그대로(새 값이 없다).
+   ⚠ 처음에는 `.store .cta` 처럼 **속이 빈 흰 테두리**로 두었는데, 사진 위에서 흰 글자 대비가
+     폰 400 에서 **평균 4.2:1 · 밝은 자리 1.6:1** 이었다(실측 · AA 4.5:1 미달). 사진의 밝은 곳이
+     글자 뒤로 오기 때문이다. 🔴 속을 채우면 대비가 사진과 무관해진다(잉크/흰 18.9:1).
+   줄 간격·틈은 `.report .acts` 와 같다. */
+.philo .acts{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:12px;margin-top:30px}
+.philo .acts .cta{margin-top:0}
+.philo .cta:not(.fill){background:#fff;color:var(--ink);border-color:#fff}
+.philo .cta:not(.fill):hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.philo .cta.fill{border-color:var(--ink)}
+@media(max-width:720px){.philo .acts{justify-content:center}}
+/* ── 운명리포트 섹션 제목을 한 단계 크게 (SITE-38 §3) — 값은 홈페이지 h1 단계 그대로 ── */
+.report h2{font-size:clamp(34px,5.2vw,60px);line-height:1.2}
