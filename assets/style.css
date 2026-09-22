@@ -521,3 +521,15 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
 /* ⚠ SITE-43 — 배너 ② 한 줄이 폰에서 「바탕으/로」 · 「콘/텐츠」로 끊겼다(실측). `.usp p` · `.report p` 와 같은 규칙 */
 :lang(ko) .banner p{word-break:keep-all}
 :lang(ja) .banner p{word-break:auto-phrase}
+
+/* ── SITE-44 멈춤/재생 단추 (2026-09-22 · WCAG 2.2.2) — 🔴 토큰 변경 0 · 새 규칙 하나
+   | 값 | 출처 |
+   | 44×44 · 모서리 999px · 테두리 `--ink` · 바탕 흰 반투명 · 글자 `--ink` | `.banner-arrow` 그대로(SITE-43) |
+   | 점과의 틈 8px | 새 값 — 점 단추 사이 4px 의 두 배(단추 무리가 갈린다) |
+   🔴 폰에서도 44px — 손가락 목표(WCAG 2.5.5 권장). 점 줄이 그만큼 높아진다(첫 화면 안인지 실측) */
+.banner-dots{align-items:center}
+/* ⚠ 선택자를 `.banner-dots .banner-pause` 로 — `.banner-dots button`(점 단추 24px · 0,1,1)이 `.banner-pause`(0,1,0)를
+     이겨 단추가 **24px 로 줄고 점 모양까지 붙었다**(실측). 점 가상요소는 이 단추에서 끈다 */
+.banner-dots .banner-pause{width:44px;height:44px;margin-left:8px;padding:0;border-radius:999px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.92);color:var(--ink);font-size:13px;line-height:1;cursor:pointer;letter-spacing:-1px}
+.banner-dots .banner-pause::before{content:none}
