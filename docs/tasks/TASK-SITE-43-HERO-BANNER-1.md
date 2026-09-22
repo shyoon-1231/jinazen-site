@@ -87,7 +87,9 @@
 ## §4 README 한글 원문 경로
 
 - `_redirects` 에 한글 그대로인 줄(`/README_배포.md / 301`)은 **이미 있었다**(SITE-39). 그런데도 인코딩 안 한 요청이 200 이었다 → 「한글 한 줄 더하기」는 이미 안 되는 것으로 판정
-- 대신 **ASCII splat 한 줄** `/README* / 301` 을 더했다(`README` 로 시작하는 공개 파일은 저장소에 그것 하나). 미리보기에서 실측 — 보고에 결과
+- 대신 **ASCII splat 한 줄** `/README* / 301` 을 더했다(`README` 로 시작하는 공개 파일은 저장소에 그것 하나).
+- 🟢 **실측 (미리보기 `story-2.jinazen-site.pages.dev` · 21:47)** — 인코딩 안 한 `/README_배포.md` → **301 → /** (본문 「Redirecting to /」) ·
+  퍼센트 인코딩 · `/docs/*` · `/.gitignore` 도 301. 운영(jinazen.com)은 아직 **200** — main 에 합칠 때 함께 나간다
 
 ## §5 확인
 
