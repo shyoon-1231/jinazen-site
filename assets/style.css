@@ -464,3 +464,13 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
 @media(max-width:720px){.path .grid{grid-template-columns:1fr;max-width:320px}}
 :lang(ko) .path .desc{word-break:keep-all}
 :lang(ja) .path .desc{word-break:auto-phrase}
+
+/* ── SITE-41 공간 (2026-09-22) — 🔴 토큰 변경 0 · 새 규칙 셋 ─────────────
+   ② 카드의 「이스트프렌즈에서 보기 ↗」 — 전역 `a{color:inherit;text-decoration:none}` 때문에 카드 글자와
+   구별되지 않는다. 값은 명상아티스트 장 이름표 `.ch .k` 의 것 그대로(`--gold-ink` · 600) — 흰 카드 위 글자라 이 색이 맞다.
+   공간 본문 넷 — 460px 칸(`.store p`)에서 「진/아젠」처럼 낱말 가운데서 끊겼다(실측 · 1280 · 400).
+   🔴 `.usp p` · `.report p` 줄과 **같은 규칙**이다. ja 에 keep-all 을 쓰지 않는 이유도 같다.
+   ⚠ 소유자 문안의 줄바꿈 둘은 `<br>` 로 옮기지 않았다 — 문장 한가운데라 460px 칸에서 두 번 꺾였다. 글자는 그대로다. */
+.space-cards .role a{color:var(--gold-ink);font-weight:600}
+:lang(ko) .space p{word-break:keep-all}
+:lang(ja) .space p{word-break:auto-phrase}
