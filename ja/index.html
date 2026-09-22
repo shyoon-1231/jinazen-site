@@ -21,29 +21,23 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="../assets/img/northstar.svg">
 <link rel="stylesheet" href="../assets/style.css">
-<!-- ヒーロー画像が LCP 要素。CSS を読み終えてから見つかると、その分だけ遅れる。 -->
-<link rel="preload" as="image" href="../assets/img/site_01_hero_graph.webp" type="image/webp" fetchpriority="high">
+<!-- 🔴 SITE-40 — 히어로 그림 preload 를 걷었다. 그 그림은 여섯째 섹션(#app)으로 내려가 첫 화면 밖이고
+     `loading=lazy` 다. 첫 화면의 큰 그림은 이제 사진 띠 배경(philo_photo.jpg · CSS 배경)이다. -->
 </head>
 <body>
 <a class="skip" href="#top">本文へスキップ</a>
 <header class="nav"><div class="wrap">
 <a class="brand" href="#top"><img src="../assets/img/northstar.svg" alt="" width="200" height="200">JINAZEN</a>
 <nav class="menu">
-<a href="#fortune">運勢グラフ</a>
-<!-- 🔴 「운명리포트」 (SITE-36) — 판매 세 갈래 중 **일반인 웹**으로 가는 길.
-     한국어 쪽 같은 자리의 주석에 사정을 적어 두었다.
-     ⚠ 폰(760px 이하)에서는 `.menu{display:none}` 이라 이 줄이 아예 안 그려진다. -->
-<!-- 초안 · 소유자 확인 — 원문: 「운명리포트」 -->
-<!-- 🔴 SITE-38 §2 — 메뉴는 목적지로 바로 간다(섹션은 첫 화면 단추와 스크롤로 닿는다). 절대주소 — /report 는 Worker 가 내는 자리다 -->
+<!-- 🔴 SITE-40 §3 (소유자 제안 2026-09-22 · 판정) — 여섯 그대로 · 차례는 **DOM 순서**(철학 → 운명리포트 → 공간 → 운세그래프 → 매장 → 문의).
+     소유자 제안은 「운세그래프 · 공간」 차례였다 — 섹션 차례(공간이 앞)와 어긋나 한 칸 바꿨다. 보고에 적었다.
+     「명상아티스트」 · 「회사소개」 가 빠졌다. 회사소개는 푸터 링크로 옮겼다. 폰(760px 이하)에서는 여전히 안 그려진다. -->
+<!-- 초안 · 소유자 확인 — 원문: 「진아젠 · 운명리포트 · 공간 · 운세그래프 · 매장 도입 · 문의하기」 -->
+<a href="#philosophy">ジナゼン</a>
 <a href="https://jinazen.com/report/">運命リポート</a>
-<a href="#artist">瞑想アーティスト</a>
-<!-- 🔴 「매장 도입」 (소유자 확정 2026-09-18 · SITE-STORE-INQUIRY-2) — 판매 세 갈래 중
-     셋째(매장 사업자)로 가는 길. 섹션 id 는 `store` 다(`store-ask` 는 그 안 div 의 class).
-     🔴 「마인드맵솔루션」·「키오스크」를 쓰지 않는다 — 그 낱말은 2026-09-16 에 통째로 뺐다.
-     ⚠ 자리는 **DOM 순서 그대로**다 — 섹션이 teas 뒤 · company 앞이라 메뉴도 그 사이다.
-     ⚠ 폰(760px 이하)에서는 `.menu{display:none}` 이라 이 줄이 아예 안 그려진다. -->
+<a href="#space">空間</a>
+<a href="#app">運勢グラフ</a>
 <a href="#store">店舗導入</a>
-<a href="#company">会社紹介</a>
 <a href="#contact">お問い合わせ</a>
 </nav>
 <div class="lang"><a href="../">KO</a><a href="../en/">EN</a><b>JA</b></div>
@@ -53,7 +47,9 @@
 <section class="philo"><div class="wrap">
 <img class="mark" src="../assets/img/northstar.svg" alt="" width="200" height="200">
 <p class="line1">瞑想が芸術になる瞬間</p>
-<p class="line2">ジナゼン <small>JINAZEN</small></p>
+<!-- 🔴 SITE-40 §1 — 페이지의 h1 은 이것 하나다(브랜드 「진아젠 JINAZEN」). 글자·모양은 그대로이고 태그만 p → h1.
+     「진아젠 운세그래프」(앱 이름)는 #app 의 h2 로 내려갔다 — <title> · JSON-LD 는 그대로 앱 이름을 말한다. -->
+<h1 class="line2">ジナゼン <small>JINAZEN</small></h1>
 <!-- 🔴 첫 화면의 입구 (SITE-38) — 스크롤 없이 보이는 자리는 이 사진 띠뿐이다(폰 400×800 · PC 1280×800 실측).
      히어로의 Play 단추는 두 폭 다 첫 화면 밖이다. 일반인이 먼저, 전문가 앱은 그다음(히어로)이다.
      🔴 SITE-36 의 「히어로를 고치지 않는다」는 Play 심사 때문이었다 — 심사가 끝나 풀렸다(소유자 확인 2026-09-22).
@@ -65,15 +61,28 @@
 </p>
 </div></section>
 
-<section class="hero" id="fortune"><div class="wrap">
-<p class="eyebrow">瞑想アーティストがつくった</p>
-<h1>ジナゼン <em>運勢グラフ</em></h1>
-<!-- 초안 · 소유자 확인 — 원문: 「사주 상담, 자미두수 상담, 타로 상담을 한 프로그램에서 다루려는 역술인과 상담사를 위해 만들었습니다.」 -->
-<p class="lead">四柱推命の相談、紫微斗数の相談、タロットの相談をひとつのプログラムで扱いたい占術家と相談師のためにつくりました。<br>専門家のための運勢相談ソリューション</p>
-<a class="cta" href="https://play.google.com/store/apps/details?id=com.jinazen.fortunegraph">Google Play <small>リリース記念価格</small></a>
-<p class="pricenote">ダウンロードは無料です。アプリ内で一度購入すれば、そのまま使い続けられます。サブスクリプションではありません。</p>
-<p class="uinote">アプリ画面は現在韓国語です。日本語UIは準備中です。</p>
-<div class="hero-device graph"><picture><source srcset="../assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="../assets/img/site_01_hero_graph.png" alt="ジナゼン運勢グラフの大運グラフ — 1歳から91歳までの十の大運の点数を結ぶ曲線。現在の大運（41歳・丁卯・94点）が示されている" width="1440" height="1962"></picture></div>
+<!-- ── 2 철학 (SITE-40 · 소유자 확정 2026-09-22) — 🔴 새로 쓴 섹션이 아니다. 지시서 §2 의 제목·세 문단은
+     이 띠에 **이미 글자 그대로** 있었다(2026-09-16 소유자 원문). 자리만 옮기고 id 를 달았다. -->
+<section class="pad usp" id="philosophy"><div class="wrap">
+<!-- 초안 · 소유자 확인 — 원문: Play 스토어 앱 설명 h2 7 「소우주로서의 인간, 음양오행으로 풀어낸 삶의 지도」. 스토어 설명에 같은 자리 일본어판이 없다 -->
+<h2>小宇宙としての人間、<br><b>陰陽五行で読み解く人生の地図</b></h2>
+<!-- 초안 · 소유자 확인 — 본문 원문: 소유자 한국어 원문 (2026-09-16 · docs/tasks/TASK-SITE-COPY-1.md). 단정·효능 표현을 피해 옮겼다 -->
+<p>日々の悩みを抱えたままでは、すぐに瞑想に入るのは難しいものです。<br>運勢を見る目的は、人生の栄枯盛衰を天気予報のように受け止め、<br>執着や比較を手放し、自然の流れに気づくことにあります。</p>
+<p>人間は陰陽五行の原理を宿した小さな宇宙です。<br>ジナゼン（JINAZEN）はその宇宙の設計図を読み解き、<br>人生の調和とバランスを支えることを目指しています。</p>
+<p>人生の流れを先に知ることで、心は落ち着きやすくなります。<br>自分だけの時間を見つけ、瞑想を通して本当の自分に向き合うとき、<br>人生を一つの美しい芸術として新たに形づくっていけるかもしれません。</p>
+</div></section>
+
+<!-- ── 3 흐름 넷 (SITE-40 §2 · 소유자 문안 2026-09-22) — 틀은 일월성신 차 카드(.teas .grid · .tea)를 그대로 쓴다.
+     🔴 더한 규칙은 칸 수 하나(.path .grid — style.css 끝 SITE-40). 단계 이름은 빈 채로 있던 `.tea .role` 자리다.
+     ⚠ 섹션 제목이 없다 — 지시서에 제목 문안이 없다({{문안 대기}}). -->
+<!-- 초안 · 소유자 확인 — 원문: 「① 나를 읽다 — 인간은 음양오행의 원리가 담긴 작은 우주입니다. 사주는 그 설계도입니다. (사주) / ② 흐름을 보다 — 인생의 흥망성쇠를 일기예보처럼 받아들이면, 집착과 비교가 놓입니다. (운세그래프) / ③ 마음을 고요히 — 삶의 흐름을 먼저 이해하면, 마음은 차분해집니다. (명상) / ④ 참된 나, 진아 — 명상으로 참된 나를 발견할 때, 삶은 하나의 예술로 재창조됩니다. (예술)」 -->
+<section class="pad teas path" id="path"><div class="wrap">
+<div class="grid">
+<div class="tea"><div class="hanja">①</div><div class="name">自分を読む</div><div class="desc">人間は陰陽五行の原理を宿した小さな宇宙です。四柱推命はその設計図です。</div><div class="role">四柱推命</div></div>
+<div class="tea"><div class="hanja">②</div><div class="name">流れを見る</div><div class="desc">人生の栄枯盛衰を天気予報のように受け止めれば、執着と比較が手放されます。</div><div class="role">運勢グラフ</div></div>
+<div class="tea"><div class="hanja">③</div><div class="name">心を静かに</div><div class="desc">人生の流れを先に理解すれば、心は穏やかになります。</div><div class="role">瞑想</div></div>
+<div class="tea"><div class="hanja">④</div><div class="name">本当の自分、ジナ</div><div class="desc">瞑想で本当の自分を見つけるとき、人生はひとつの芸術として再創造されます。</div><div class="role">芸術</div></div>
+</div>
 </div></section>
 
 <!-- ── 운명리포트 (웹) ─────────────────────────────────────────────
@@ -96,13 +105,32 @@
 </p>
 </div></section>
 
-<section class="pad usp"><div class="wrap">
-<!-- 초안 · 소유자 확인 — 원문: Play 스토어 앱 설명 h2 7 「소우주로서의 인간, 음양오행으로 풀어낸 삶의 지도」. 스토어 설명에 같은 자리 일본어판이 없다 -->
-<h2>小宇宙としての人間、<br><b>陰陽五行で読み解く人生の地図</b></h2>
-<!-- 초안 · 소유자 확인 — 본문 원문: 소유자 한국어 원문 (2026-09-16 · docs/tasks/TASK-SITE-COPY-1.md). 단정·효능 표현을 피해 옮겼다 -->
-<p>日々の悩みを抱えたままでは、すぐに瞑想に入るのは難しいものです。<br>運勢を見る目的は、人生の栄枯盛衰を天気予報のように受け止め、<br>執着や比較を手放し、自然の流れに気づくことにあります。</p>
-<p>人間は陰陽五行の原理を宿した小さな宇宙です。<br>ジナゼン（JINAZEN）はその宇宙の設計図を読み解き、<br>人生の調和とバランスを支えることを目指しています。</p>
-<p>人生の流れを先に知ることで、心は落ち着きやすくなります。<br>自分だけの時間を見つけ、瞑想を通して本当の自分に向き合うとき、<br>人生を一つの美しい芸術として新たに形づくっていけるかもしれません。</p>
+<!-- ── 5 공간 (SITE-40 §2 · 소유자 문안 2026-09-22) — 🔴 주소 · 시간 · 개시일을 넣지 않는다. 「곧 문을 엽니다」 한 줄만.
+     틀은 2026-09-16 에 뺀 매장 섹션(b57940c^)이 쓰던 것 그대로다 — `.store` 띠 · `.store-right` · `.stands` 거치대.
+     그림도 그때 그 두 장(site_05 · site_06)이다. 새 그림 0장. alt 는 그때 글자에서 「키오스크」만 걷었다(2026-09-16 에 뺀 낱말).
+     ⚠ 두 그림은 매장 **사진**이 아니라 매장 화면 **캡처**(v0.8.1 판)다. -->
+<!-- 초안 · 소유자 확인 — 원문: 「속초의 명상·상담 공간 / 운세를 보고, 차를 마시고, 명상으로 마음을 정리하는 곳. 전문 상담사가 사주·자미두수·타로운명수로 당신의 흐름을 함께 읽습니다. / 곧 문을 엽니다」 -->
+<section class="pad store space" id="space"><div class="wrap">
+<div><h2>束草の<b>瞑想・相談スペース</b></h2>
+<p>運勢を見て、お茶を飲み、瞑想で心を整える場所。<br>専門の相談師が四柱推命・紫微斗数・タロット運命数で、あなたの流れを一緒に読み解きます。</p>
+<p>まもなくオープンします</p></div>
+<div class="store-right"><div class="stands">
+<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_05_kiosk_idle.webp" type="image/webp"><img src="../assets/img/site_05_kiosk_idle.png" alt="待機画面 — ジナゼン運勢グラフのタイトルと、4言語で表示された「タッチして開始」の案内" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_06_kiosk_elements.webp" type="image/webp"><img src="../assets/img/site_06_kiosk_elements.png" alt="五行バランス結果 — 用神「火」と木・火・土・金・水の分布、五行バランスの解説と開運法" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+</div></div>
+</div></section>
+
+<!-- ── 6 전문가 앱 (SITE-40) — 옛 히어로(#fortune)를 **글자 그대로** 내렸다. h1 → h2 만 바뀌었다(모양은 `.hero h2`).
+     🔴 web_report `test_app_cta` 가 이 자리 글자(앱 이름 · eyebrow · 가격 안내 · Play 라벨)를 홈과 대조한다. -->
+<section class="hero" id="app"><div class="wrap">
+<p class="eyebrow">瞑想アーティストがつくった</p>
+<h2>ジナゼン <em>運勢グラフ</em></h2>
+<!-- 초안 · 소유자 확인 — 원문: 「사주 상담, 자미두수 상담, 타로 상담을 한 프로그램에서 다루려는 역술인과 상담사를 위해 만들었습니다.」 -->
+<p class="lead">四柱推命の相談、紫微斗数の相談、タロットの相談をひとつのプログラムで扱いたい占術家と相談師のためにつくりました。<br>専門家のための運勢相談ソリューション</p>
+<a class="cta" href="https://play.google.com/store/apps/details?id=com.jinazen.fortunegraph">Google Play <small>リリース記念価格</small></a>
+<p class="pricenote">ダウンロードは無料です。アプリ内で一度購入すれば、そのまま使い続けられます。サブスクリプションではありません。</p>
+<p class="uinote">アプリ画面は現在韓国語です。日本語UIは準備中です。</p>
+<div class="hero-device graph"><picture><source srcset="../assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="../assets/img/site_01_hero_graph.png" alt="ジナゼン運勢グラフの大運グラフ — 1歳から91歳までの十の大運の点数を結ぶ曲線。現在の大運（41歳・丁卯・94点）が示されている" width="1440" height="1962" loading="lazy" decoding="async"></picture></div>
 </div></section>
 
 <section class="pad three"><div class="wrap"><div class="grid">
@@ -204,9 +232,10 @@
 <span>주소 경기도 고양시 덕양구 꽃마을로 36, 14층 1403호 (DMC스타비즈 6st) (향동동)</span>
 <span>전화 070-8287-1733</span><span>이메일 <a href="mailto:jina@jinazen.com">jina@jinazen.com</a></span><span>호스팅 Cloudflare, Inc.</span>
 </div>
+<!-- 🔴 SITE-40 §3 — 메뉴에서 뺀 회사소개를 여기로. -->
 <div class="row">
 <span>© JinaZen. All rights reserved.</span>
-<span><a href="../privacy/ja/">プライバシーポリシー</a></span>
+<span><a href="#company">会社紹介</a> · <a href="../privacy/ja/">プライバシーポリシー</a></span>
 </div>
 </div></footer>
 </body></html>

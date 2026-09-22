@@ -21,34 +21,23 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="../assets/img/northstar.svg">
 <link rel="stylesheet" href="../assets/style.css">
-<!-- The hero image is the LCP element; preload it so it is not found only after the CSS. -->
-<link rel="preload" as="image" href="../assets/img/site_01_hero_graph.webp" type="image/webp" fetchpriority="high">
+<!-- 🔴 SITE-40 — 히어로 그림 preload 를 걷었다. 그 그림은 여섯째 섹션(#app)으로 내려가 첫 화면 밖이고
+     `loading=lazy` 다. 첫 화면의 큰 그림은 이제 사진 띠 배경(philo_photo.jpg · CSS 배경)이다. -->
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
 <header class="nav"><div class="wrap">
 <a class="brand" href="#top"><img src="../assets/img/northstar.svg" alt="" width="200" height="200">JINAZEN</a>
 <nav class="menu">
-<a href="#fortune">Fortune Graph</a>
-<!-- 🔴 「운명리포트」 (SITE-36) — 판매 세 갈래 중 **일반인 웹**으로 가는 길.
-     한국어 쪽 같은 자리의 주석에 사정을 적어 두었다.
-     ⚠ 폰(760px 이하)에서는 `.menu{display:none}` 이라 이 줄이 아예 안 그려진다. -->
-<!-- 초안 · 소유자 확인 — 원문: 「운명리포트」
-     🔴 **섹션 제목(`Destiny Report`)보다 짧다** — 영어 메뉴가 여섯이 되면서
-        761~855px 에서 넘쳤기 때문이다(실측: gap 26px 에 **-33px**). 간격을
-        16px 로 줄여도 761px 에서 **0px** 이라 모자랐다.
-     ⚠ 한국어·일본어는 제목의 굵은 마디와 **같은 글자**다. 영어만 짧다.
-        소유자가 긴 쪽을 고르면 그때는 간격을 더 줄이거나 다른 라벨을 손봐야 한다. -->
-<!-- 🔴 SITE-38 §2 — 메뉴는 목적지로 바로 간다(섹션은 첫 화면 단추와 스크롤로 닿는다). 절대주소 — /report 는 Worker 가 내는 자리다 -->
+<!-- 🔴 SITE-40 §3 (소유자 제안 2026-09-22 · 판정) — 여섯 그대로 · 차례는 **DOM 순서**(철학 → 운명리포트 → 공간 → 운세그래프 → 매장 → 문의).
+     소유자 제안은 「운세그래프 · 공간」 차례였다 — 섹션 차례(공간이 앞)와 어긋나 한 칸 바꿨다. 보고에 적었다.
+     「명상아티스트」 · 「회사소개」 가 빠졌다. 회사소개는 푸터 링크로 옮겼다. 폰(760px 이하)에서는 여전히 안 그려진다. -->
+<!-- 초안 · 소유자 확인 — 원문: 「진아젠 · 운명리포트 · 공간 · 운세그래프 · 매장 도입 · 문의하기」 -->
+<a href="#philosophy">JINAZEN</a>
 <a href="https://jinazen.com/report/">Report</a>
-<a href="#artist">Meditation Artist</a>
-<!-- 🔴 「매장 도입」 (소유자 확정 2026-09-18 · SITE-STORE-INQUIRY-2) — 판매 세 갈래 중
-     셋째(매장 사업자)로 가는 길. 섹션 id 는 `store` 다(`store-ask` 는 그 안 div 의 class).
-     🔴 「마인드맵솔루션」·「키오스크」를 쓰지 않는다 — 그 낱말은 2026-09-16 에 통째로 뺐다.
-     ⚠ 자리는 **DOM 순서 그대로**다 — 섹션이 teas 뒤 · company 앞이라 메뉴도 그 사이다.
-     ⚠ 폰(760px 이하)에서는 `.menu{display:none}` 이라 이 줄이 아예 안 그려진다. -->
+<a href="#space">Space</a>
+<a href="#app">Fortune Graph</a>
 <a href="#store">Store adoption</a>
-<a href="#company">About</a>
 <a href="#contact">Contact</a>
 </nav>
 <div class="lang"><a href="../">KO</a><b>EN</b><a href="../ja/">JA</a></div>
@@ -58,7 +47,9 @@
 <section class="philo"><div class="wrap">
 <img class="mark" src="../assets/img/northstar.svg" alt="" width="200" height="200">
 <p class="line1">The moment meditation becomes art</p>
-<p class="line2">JINAZEN</p>
+<!-- 🔴 SITE-40 §1 — 페이지의 h1 은 이것 하나다(브랜드 「진아젠 JINAZEN」). 글자·모양은 그대로이고 태그만 p → h1.
+     「진아젠 운세그래프」(앱 이름)는 #app 의 h2 로 내려갔다 — <title> · JSON-LD 는 그대로 앱 이름을 말한다. -->
+<h1 class="line2">JINAZEN</h1>
 <!-- 🔴 첫 화면의 입구 (SITE-38) — 스크롤 없이 보이는 자리는 이 사진 띠뿐이다(폰 400×800 · PC 1280×800 실측).
      히어로의 Play 단추는 두 폭 다 첫 화면 밖이다. 일반인이 먼저, 전문가 앱은 그다음(히어로)이다.
      🔴 SITE-36 의 「히어로를 고치지 않는다」는 Play 심사 때문이었다 — 심사가 끝나 풀렸다(소유자 확인 2026-09-22).
@@ -70,15 +61,28 @@
 </p>
 </div></section>
 
-<section class="hero" id="fortune"><div class="wrap">
-<p class="eyebrow">CREATED BY A MEDITATION ARTIST</p>
-<h1>JINAZEN <em>Fortune Graph</em></h1>
-<!-- 초안 · 소유자 확인 — 원문: 「사주 상담, 자미두수 상담, 타로 상담을 한 프로그램에서 다루려는 역술인과 상담사를 위해 만들었습니다.」 -->
-<p class="lead">Made for practitioners and counselors who want to handle Saju, Zi Wei Dou Shu and Tarot consultations in one program.<br>A consultation solution built for professionals</p>
-<a class="cta" href="https://play.google.com/store/apps/details?id=com.jinazen.fortunegraph">Google Play <small>LAUNCH PRICE</small></a>
-<p class="pricenote">The download is free. One purchase inside the app keeps it — this is not a subscription.</p>
-<p class="uinote">The app interface is currently in Korean. An English UI is in preparation.</p>
-<div class="hero-device graph"><picture><source srcset="../assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="../assets/img/site_01_hero_graph.png" alt="JINAZEN Fortune Graph major-luck chart — a smooth curve through ten decade scores from age 1 to 91, with the current decade (age 41, 丁卯, 94) marked" width="1440" height="1962"></picture></div>
+<!-- ── 2 철학 (SITE-40 · 소유자 확정 2026-09-22) — 🔴 새로 쓴 섹션이 아니다. 지시서 §2 의 제목·세 문단은
+     이 띠에 **이미 글자 그대로** 있었다(2026-09-16 소유자 원문). 자리만 옮기고 id 를 달았다. -->
+<section class="pad usp" id="philosophy"><div class="wrap">
+<!-- 초안 · 소유자 확인 — 원문: Play 스토어 앱 설명 h2 7 「소우주로서의 인간, 음양오행으로 풀어낸 삶의 지도」. 스토어 설명에 같은 자리 영어판이 없다 -->
+<h2>The human as a microcosm,<br><b>a map of life read through yin-yang and the five elements</b></h2>
+<!-- 초안 · 소유자 확인 — 본문 원문: 소유자 한국어 원문 (2026-09-16 · docs/tasks/TASK-SITE-COPY-1.md). 단정·효능 표현을 피해 옮겼다 -->
+<p>Everyday worries can make it hard to settle straight into meditation.<br>We read fortune the way one reads a weather forecast — to accept life's rises and falls,<br>set down attachment and comparison, and notice the natural flow of things.</p>
+<p>A person is a small universe that holds the principles of yin-yang and the five elements.<br>JINAZEN reads the blueprint of that universe<br>as an aid to harmony and balance in life.</p>
+<p>Understanding the flow of life first can help the mind grow calmer.<br>When we make time for ourselves and seek the true self through meditation,<br>life can be shaped anew, like a work of art.</p>
+</div></section>
+
+<!-- ── 3 흐름 넷 (SITE-40 §2 · 소유자 문안 2026-09-22) — 틀은 일월성신 차 카드(.teas .grid · .tea)를 그대로 쓴다.
+     🔴 더한 규칙은 칸 수 하나(.path .grid — style.css 끝 SITE-40). 단계 이름은 빈 채로 있던 `.tea .role` 자리다.
+     ⚠ 섹션 제목이 없다 — 지시서에 제목 문안이 없다({{문안 대기}}). -->
+<!-- 초안 · 소유자 확인 — 원문: 「① 나를 읽다 — 인간은 음양오행의 원리가 담긴 작은 우주입니다. 사주는 그 설계도입니다. (사주) / ② 흐름을 보다 — 인생의 흥망성쇠를 일기예보처럼 받아들이면, 집착과 비교가 놓입니다. (운세그래프) / ③ 마음을 고요히 — 삶의 흐름을 먼저 이해하면, 마음은 차분해집니다. (명상) / ④ 참된 나, 진아 — 명상으로 참된 나를 발견할 때, 삶은 하나의 예술로 재창조됩니다. (예술)」 -->
+<section class="pad teas path" id="path"><div class="wrap">
+<div class="grid">
+<div class="tea"><div class="hanja">①</div><div class="name">Read yourself</div><div class="desc">A human is a small universe that holds the principles of yin-yang and the five elements. Saju is its blueprint.</div><div class="role">Saju</div></div>
+<div class="tea"><div class="hanja">②</div><div class="name">See the flow</div><div class="desc">Take life's rises and falls like a weather forecast, and attachment and comparison fall away.</div><div class="role">Fortune Graph</div></div>
+<div class="tea"><div class="hanja">③</div><div class="name">Quiet the mind</div><div class="desc">When you first understand the flow of life, the mind settles.</div><div class="role">Meditation</div></div>
+<div class="tea"><div class="hanja">④</div><div class="name">The true self, Jina</div><div class="desc">When meditation reveals the true self, life is recreated as a work of art.</div><div class="role">Art</div></div>
+</div>
 </div></section>
 
 <!-- ── 운명리포트 (웹) ─────────────────────────────────────────────
@@ -101,13 +105,32 @@
 </p>
 </div></section>
 
-<section class="pad usp"><div class="wrap">
-<!-- 초안 · 소유자 확인 — 원문: Play 스토어 앱 설명 h2 7 「소우주로서의 인간, 음양오행으로 풀어낸 삶의 지도」. 스토어 설명에 같은 자리 영어판이 없다 -->
-<h2>The human as a microcosm,<br><b>a map of life read through yin-yang and the five elements</b></h2>
-<!-- 초안 · 소유자 확인 — 본문 원문: 소유자 한국어 원문 (2026-09-16 · docs/tasks/TASK-SITE-COPY-1.md). 단정·효능 표현을 피해 옮겼다 -->
-<p>Everyday worries can make it hard to settle straight into meditation.<br>We read fortune the way one reads a weather forecast — to accept life's rises and falls,<br>set down attachment and comparison, and notice the natural flow of things.</p>
-<p>A person is a small universe that holds the principles of yin-yang and the five elements.<br>JINAZEN reads the blueprint of that universe<br>as an aid to harmony and balance in life.</p>
-<p>Understanding the flow of life first can help the mind grow calmer.<br>When we make time for ourselves and seek the true self through meditation,<br>life can be shaped anew, like a work of art.</p>
+<!-- ── 5 공간 (SITE-40 §2 · 소유자 문안 2026-09-22) — 🔴 주소 · 시간 · 개시일을 넣지 않는다. 「곧 문을 엽니다」 한 줄만.
+     틀은 2026-09-16 에 뺀 매장 섹션(b57940c^)이 쓰던 것 그대로다 — `.store` 띠 · `.store-right` · `.stands` 거치대.
+     그림도 그때 그 두 장(site_05 · site_06)이다. 새 그림 0장. alt 는 그때 글자에서 「키오스크」만 걷었다(2026-09-16 에 뺀 낱말).
+     ⚠ 두 그림은 매장 **사진**이 아니라 매장 화면 **캡처**(v0.8.1 판)다. -->
+<!-- 초안 · 소유자 확인 — 원문: 「속초의 명상·상담 공간 / 운세를 보고, 차를 마시고, 명상으로 마음을 정리하는 곳. 전문 상담사가 사주·자미두수·타로운명수로 당신의 흐름을 함께 읽습니다. / 곧 문을 엽니다」 -->
+<section class="pad store space" id="space"><div class="wrap">
+<div><h2>A meditation and <b>consultation space in Sokcho</b></h2>
+<p>A place to read your fortune, drink tea and settle your mind through meditation.<br>Professional counselors read your flow with you through Saju, Zi Wei Dou Shu and Tarot destiny numbers.</p>
+<p>Opening soon</p></div>
+<div class="store-right"><div class="stands">
+<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_05_kiosk_idle.webp" type="image/webp"><img src="../assets/img/site_05_kiosk_idle.png" alt="Idle screen — the JINAZEN Fortune Graph title and a touch-to-begin prompt in four languages" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_06_kiosk_elements.webp" type="image/webp"><img src="../assets/img/site_06_kiosk_elements.png" alt="Five-element result — the governing element Fire with the wood, fire, earth, metal and water counts, a reading and remedies" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+</div></div>
+</div></section>
+
+<!-- ── 6 전문가 앱 (SITE-40) — 옛 히어로(#fortune)를 **글자 그대로** 내렸다. h1 → h2 만 바뀌었다(모양은 `.hero h2`).
+     🔴 web_report `test_app_cta` 가 이 자리 글자(앱 이름 · eyebrow · 가격 안내 · Play 라벨)를 홈과 대조한다. -->
+<section class="hero" id="app"><div class="wrap">
+<p class="eyebrow">CREATED BY A MEDITATION ARTIST</p>
+<h2>JINAZEN <em>Fortune Graph</em></h2>
+<!-- 초안 · 소유자 확인 — 원문: 「사주 상담, 자미두수 상담, 타로 상담을 한 프로그램에서 다루려는 역술인과 상담사를 위해 만들었습니다.」 -->
+<p class="lead">Made for practitioners and counselors who want to handle Saju, Zi Wei Dou Shu and Tarot consultations in one program.<br>A consultation solution built for professionals</p>
+<a class="cta" href="https://play.google.com/store/apps/details?id=com.jinazen.fortunegraph">Google Play <small>LAUNCH PRICE</small></a>
+<p class="pricenote">The download is free. One purchase inside the app keeps it — this is not a subscription.</p>
+<p class="uinote">The app interface is currently in Korean. An English UI is in preparation.</p>
+<div class="hero-device graph"><picture><source srcset="../assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="../assets/img/site_01_hero_graph.png" alt="JINAZEN Fortune Graph major-luck chart — a smooth curve through ten decade scores from age 1 to 91, with the current decade (age 41, 丁卯, 94) marked" width="1440" height="1962" loading="lazy" decoding="async"></picture></div>
 </div></section>
 
 <section class="pad three"><div class="wrap"><div class="grid">
@@ -209,9 +232,10 @@
 <span>주소 경기도 고양시 덕양구 꽃마을로 36, 14층 1403호 (DMC스타비즈 6st) (향동동)</span>
 <span>전화 070-8287-1733</span><span>이메일 <a href="mailto:jina@jinazen.com">jina@jinazen.com</a></span><span>호스팅 Cloudflare, Inc.</span>
 </div>
+<!-- 🔴 SITE-40 §3 — 메뉴에서 뺀 회사소개를 여기로. -->
 <div class="row">
 <span>© JinaZen. All rights reserved.</span>
-<span><a href="../privacy/en/">Privacy Policy</a></span>
+<span><a href="#company">About</a> · <a href="../privacy/en/">Privacy Policy</a></span>
 </div>
 </div></footer>
 </body></html>
