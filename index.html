@@ -20,6 +20,9 @@
 </script>
 <link rel="icon" type="image/svg+xml" href="assets/img/northstar.svg">
 <link rel="stylesheet" href="assets/style.css">
+<!-- 🔴 SITE-43 — 배너 ① 사진(CSS 배경)이 LCP 다. 스타일시트를 다 읽은 뒤에야 발견되므로 미리 받는다. ②③ 그림은 lazy. -->
+<link rel="preload" as="image" href="assets/img/philo_photo.jpg" fetchpriority="high">
+<script src="assets/banner.js" defer></script>
 <!-- 🔴 SITE-40 — 히어로 그림 preload 를 걷었다. 그 그림은 여섯째 섹션(#app)으로 내려가 첫 화면 밖이고
      `loading=lazy` 다. 첫 화면의 큰 그림은 이제 사진 띠 배경(philo_photo.jpg · CSS 배경)이다. -->
 <script>if(new URLSearchParams(location.search).get("mode")==="privacy")location.replace("privacy/");</script>
@@ -33,9 +36,9 @@
      소유자 제안은 「운세그래프 · 공간」 차례였다 — 섹션 차례(공간이 앞)와 어긋나 한 칸 바꿨다. 보고에 적었다.
      「명상아티스트」 · 「회사소개」 가 빠졌다. 회사소개는 푸터 링크로 옮겼다. 폰(760px 이하)에서는 여전히 안 그려진다. -->
 <a href="#philosophy">진아젠</a>
-<a href="https://jinazen.com/report/">운명리포트</a>
+<a href="https://jinazen.com/report/">개인용</a>
 <a href="#space">공간</a>
-<a href="#app">운세그래프</a>
+<a href="#app">전문가용</a>
 <a href="#store">매장 도입</a>
 <a href="#contact">문의하기</a>
 </nav>
@@ -43,22 +46,40 @@
 </div></header>
 <main id="top">
 
-<section class="philo"><div class="wrap">
+<!-- ── 1 첫 화면 — 배너 셋 (SITE-43 · 소유자 확정 2026-09-22) ────────────────────────────
+     🔴 **스크립트 없이도 셋 다 밀어서 보인다** — CSS scroll-snap(`.banner-track`). 스크립트(`assets/banner.js`)는
+        점 셋 · 좌우 화살표(PC) · 자동 넘김만 **얹는다**. 꺼져 있으면 그것들이 안 생길 뿐이다.
+     🔴 h1 은 ① 에만 하나(「진아젠 JINAZEN」 · SITE-40 판정 그대로). ②③ 제목은 h2.
+     🔴 ① 에는 단추가 없다(소유자 확정). 판매 단추는 ② 개인용(/report/) · ③ 전문가용(Play) 으로 옮겼다.
+     글자 출처: ② 한 줄 = 아래 #report 본문(`flow_copy.SALES_INTRO`)에서 넷째 항목 이름만 「리포트」로 ·
+               ③ 한 줄 = #app 부제 둘째 줄 · 단추 = 소유자 확정 문안.
+     그림: ① 지금 사진(CSS 배경 · preload) · ② {{그림 대기}} — 우선 자미차(tea_jami) · ③ 대운 그래프(site_01) · ②③ lazy. -->
+<section class="banners" aria-roledescription="carousel" aria-label="진아젠 소개 배너" data-prev="이전 배너" data-next="다음 배너" data-dot="{n}번째 배너">
+<div class="banner-track" tabindex="0">
+<div class="banner philo" id="banner-1" role="group" aria-roledescription="slide" aria-label="1 / 3"><div class="wrap">
 <img class="mark" src="assets/img/northstar.svg" alt="" width="200" height="200">
 <p class="line1">명상이 예술이 되는 순간</p>
 <!-- 🔴 SITE-40 §1 — 페이지의 h1 은 이것 하나다(브랜드 「진아젠 JINAZEN」). 글자·모양은 그대로이고 태그만 p → h1.
      「진아젠 운세그래프」(앱 이름)는 #app 의 h2 로 내려갔다 — <title> · JSON-LD 는 그대로 앱 이름을 말한다. -->
 <h1 class="line2">진아젠 <small>JINAZEN</small></h1>
-<!-- 🔴 첫 화면의 입구 (SITE-38) — 스크롤 없이 보이는 자리는 이 사진 띠뿐이다(폰 400×800 · PC 1280×800 실측).
-     히어로의 Play 단추는 두 폭 다 첫 화면 밖이다. 일반인이 먼저, 전문가 앱은 그다음(히어로)이다.
-     🔴 SITE-36 의 「히어로를 고치지 않는다」는 Play 심사 때문이었다 — 심사가 끝나 풀렸다(소유자 확인 2026-09-22).
-     🔴 글자는 web_report 설명 페이지(`flow_copy.START_LABEL` · `legal.SAMPLE_LINK_LABEL`)와 같다 — en·ja 는 SITE-36 초안 그대로.
-     ⚠ 채운 단추가 「시작하기」인 것은 소유자 지시다(SITE-38 §1). 아래 운명리포트 섹션과 web_report 는 「예시」가 채운 쪽이다. -->
+</div></div>
+<div class="banner pad alt feature" id="banner-2" role="group" aria-roledescription="slide" aria-label="2 / 3"><div class="wrap">
+<div class="text"><h2>개인용 <b>운세그래프</b></h2>
+<p>서비스는 이용자가 입력한 생년월일·시각·성별을 바탕으로 사주명반·자미두수·타로운명수를 화면으로 제공하고, 매장 결과지와 같은 내용의 리포트를 제공하는 디지털 콘텐츠입니다.</p>
 <p class="acts">
 <a class="cta fill" href="https://jinazen.com/report/">시작하기</a>
 <a class="cta" href="https://jinazen.com/report/sample">예시 화면 보기</a>
-</p>
-</div></section>
+</p></div>
+<div class="device"><img class="screen" src="assets/img/tea_jami.jpg" alt="자미차" width="1000" height="1000" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="banner pad feature flip" id="banner-3" role="group" aria-roledescription="slide" aria-label="3 / 3"><div class="wrap">
+<div class="text"><h2>전문가용 <b>운세그래프</b></h2>
+<p>전문가를 위한 운세상담 솔루션</p>
+<p class="acts"><a class="cta fill" href="https://play.google.com/store/apps/details?id=com.jinazen.fortunegraph">Google Play 에서 받기</a></p></div>
+<div class="hero-device graph"><picture><source srcset="assets/img/site_01_hero_graph.webp" type="image/webp"><img class="shot" src="assets/img/site_01_hero_graph.png" alt="진아젠 운세그래프 대운 그래프 — 1세부터 91세까지 열 개 대운의 점수를 잇는 곡선, 현재 대운 41세 丁卯 94점이 표시돼 있다" width="1440" height="1962" loading="lazy" decoding="async"></picture></div>
+</div></div>
+</div>
+</section>
 
 <!-- ── 2 철학 (SITE-40 · 소유자 확정 2026-09-22) — 🔴 새로 쓴 섹션이 아니다. 지시서 §2 의 제목·세 문단은
      이 띠에 **이미 글자 그대로** 있었다(2026-09-16 소유자 원문). 자리만 옮기고 id 를 달았다. -->
@@ -105,8 +126,8 @@
         **Worker Route** 가 내는 자리이고 이 Pages 사이트가 아니다. 상대경로로
         적으면 그 사정이 안 보인다. -->
 <section class="pad alt report" id="report"><div class="wrap">
-<h2>진아젠 <b>운명리포트</b></h2>
-<p>서비스는 이용자가 입력한 생년월일·시각·성별을 바탕으로 사주명반·자미두수·타로운명수를 화면으로 제공하고, 매장 결과지와 같은 내용의 운명리포트를 제공하는 디지털 콘텐츠입니다.</p>
+<h2>개인용 <b>운세그래프</b></h2>
+<p>서비스는 이용자가 입력한 생년월일·시각·성별을 바탕으로 사주명반·자미두수·타로운명수를 화면으로 제공하고, 매장 결과지와 같은 내용의 리포트를 제공하는 디지털 콘텐츠입니다.</p>
 <p class="fine">한 번 결제하면 해당 리포트를 계정에서 계속 열람할 수 있습니다. 구독이 아닙니다.<br>가격은 결제 화면에서 확인해 주세요.</p>
 <p class="acts">
 <!-- 🔴 SITE-39 §2 — 「시작하기」가 채운 단추 · 「예시 화면 보기」가 바로 옆 보조 (소유자 확정 2026-09-22). 법이 요구하는 것은 체험이 제공되고 닿는 것이다. 한 페이지 안에서 채운 단추가 달라 손님이 헷갈렸다(첫 화면 · web_report 와 통일). -->
@@ -151,7 +172,7 @@
      🔴 web_report `test_app_cta` 가 이 자리 글자(앱 이름 · eyebrow · 가격 안내 · Play 라벨)를 홈과 대조한다. -->
 <section class="hero" id="app"><div class="wrap">
 <p class="eyebrow">명상아티스트가 만든</p>
-<h2>진아젠 <em>운세그래프</em></h2>
+<h2>전문가용 <em>운세그래프</em></h2>
 <p class="lead">사주 상담, 자미두수 상담, 타로 상담을 한 프로그램에서 다루려는 역술인과 상담사를 위해 만들었습니다.<br>전문가를 위한 운세상담 솔루션</p>
 <a class="cta" href="https://play.google.com/store/apps/details?id=com.jinazen.fortunegraph">Google Play <small>출시 기념가</small></a>
 <p class="pricenote">다운로드는 무료이며, 앱 안에서 한 번 구매하면 계속 사용합니다. 구독이 아닙니다.</p>
