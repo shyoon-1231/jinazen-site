@@ -11,7 +11,9 @@
    - 🔴 prefers-reduced-motion: reduce 면 **처음부터 멈춤**(단추가 「재생」 상태로 시작) · 넘김도 부드럽게 하지 않는다.
      사람이 「재생」을 누르면 돈다 — 스스로 고른 것이기 때문이다(SITE-44 · 소유자 확정)
    - 🔴 **멈춤/재생 단추** (SITE-44 · WCAG 2.2.2 — 5초 넘게 움직이는 것에는 멈출 수단이 있어야 한다)
-     점 셋 옆 · `aria-pressed`(눌림 = 멈춤) · `aria-label` 「자동 넘김 멈춤」/「자동 넘김 재생」(소유자 확정 글자) ·
+     점 셋 옆 · `aria-label` 「자동 넘김 멈춤」/「자동 넘김 재생」(소유자 확정 글자) ·
+     🔴 `aria-pressed` 는 쓰지 않는다(SITE-45 · 소유자 확정 2026-09-22) — 라벨이 상태에 따라 바뀌므로 pressed 를 함께 두면
+     「멈춤, 눌림」처럼 두 번 말한다(APG: 라벨을 바꾸거나 pressed 를 쓰거나 둘 중 하나) ·
      손으로 넘겨 멈춘 것도 이 단추에 **멈춤**으로 보인다 — 다시 누르면 돈다
    상태는 `data-auto` 에 적는다(on · paused · stopped) — 시험이 이것을 읽는다. */
 (function () {
@@ -29,7 +31,6 @@
   function state() {
     root.setAttribute("data-auto", stopped ? "stopped" : paused ? "paused" : "on");
     if (toggle) {
-      toggle.setAttribute("aria-pressed", stopped ? "true" : "false");
       toggle.setAttribute("aria-label", root.getAttribute(stopped ? "data-play" : "data-pause") || "");
       toggle.firstChild.textContent = stopped ? "\u25B6\uFE0E" : "\u275A\u275A";
     }
