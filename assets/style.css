@@ -511,6 +511,16 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
   border:1px solid var(--ink);background:rgba(255,255,255,.92);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
 .banner-arrow.prev{left:16px} .banner-arrow.next{right:16px}
 @media(max-width:720px){.banner{min-height:420px}.banner-arrow{display:none}}
+/* 🔴 SITE-46 §2 — 화살표가 **본문 글자 위에 얹히던** 것을 고친다 (SITE-45 가 미검증으로 남긴 것).
+   실측(2026-09-23 · ko·en·ja × 열세 폭): 겹침은 721~1183px **전 구간**이었다 — SITE-45 가 적어 둔
+   721~820 보다 넓다. 1184px 부터 저절로 사라지는데, 그때부터 `.wrap`(max 1120)이 가운데로 모이면서
+   글자 왼끝(28px)이 화살표 오른끝(60px) 밖으로 나가기 때문이다.
+   🔴 그래서 **숨기지 않고 본문을 밀었다.** 숨기면 721~1183 에서 화살표가 사라지는데, 그것은
+   「그 폭에서 숨긴다」가 아니라 **거의 모든 화면에서 없애는** 것이 된다(점 셋·밀기는 그대로지만
+   화살표를 기대는 사람에게는 통로가 준다).
+   값의 출처 — 새 값 없음: 72px = 16(`.banner-arrow.prev{left:16px}`) + 44(화살표 크기) + 12(`.banner .acts{gap:12px}`).
+   ⚠ 화살표가 안 보이는 720px 이하에는 걸지 않는다 — 거기서는 밀 까닭이 없다. */
+@media(min-width:721px){.banners .banner>.wrap{padding-left:72px;padding-right:72px}}
 /* ⚠ 그림 · 여백은 820px 부터 — `.feature` 가 820px 에서 한 칸으로 접힌다(761px 실측: 점이 861px 로 첫 화면 밖이었다) */
 @media(max-width:820px){
   .banner.feature{padding:32px 0}
