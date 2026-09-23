@@ -71,7 +71,13 @@ img,svg{display:block;max-width:100%}
 .menu a:hover{color:var(--ink)}
 .lang{display:flex;gap:10px;font-size:12px;letter-spacing:.08em;color:var(--ink-soft)}
 .lang b{color:var(--ink);font-weight:600}
-@media(max-width:760px){.menu{display:none}}
+/* ── 🔴 폰(760px 이하) — 메뉴는 숨되 「마이페이지」 한 칸만 남는다 (SITE-47 §2 · WEB-52 확정 ⑦) ──
+   종전: `@media(max-width:760px){.menu{display:none}}` — 여섯 칸을 **통째로** 숨겼다.
+   🔴 그래서 폰 손님에게는 **마이페이지 입구가 아예 없었다**(WEB-52 §4-6 이 그 구멍을 적어 두었다).
+   ⚠ `.menu` 를 `display:none` 인 채로 두고 자식 하나만 되살릴 수는 없다 — **부모가 없으면 자식도 없다.**
+     그래서 부모는 그대로 두고 **나머지 칸을 숨긴다.** 보이는 칸이 하나뿐이라 `gap` 은 쓰이지 않는다.
+   ⚠ 자리 — `.nav .wrap` 이 `space-between` 이므로 로고와 언어 전환 **사이**에 놓인다. */
+@media(max-width:760px){.menu>a:not(.mypage){display:none}}
 /* ── 🔴 좁은 데스크톱에서 메뉴 간격 (2026-09-19 · SITE-36) ─────────────
    메뉴가 **여섯**이 되면서 761~855px 구간의 영어 메뉴가 넘쳤다. 실측 (헤드리스
    Chrome · `.nav .wrap` 안쪽 705px):
