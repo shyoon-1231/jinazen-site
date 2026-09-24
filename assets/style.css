@@ -69,7 +69,10 @@ img,svg{display:block;max-width:100%}
 .brand img{width:24px;height:24px}
 .menu{display:flex;gap:26px;font-size:13.5px;color:var(--ink-soft)}
 .menu a:hover{color:var(--ink)}
-.lang{display:flex;gap:10px;font-size:12px;letter-spacing:.08em;color:var(--ink-soft)}
+/* 🔴 **틈 10 → 6px** (SITE-52 §6 · 선택지 A · 소유자 확정 2026-09-25) — 언어 칸이 **넷**이 되면서
+   761px 에서 en 메뉴가 두 줄이 됐다(실측). 🔴 **토큰이 아니다** — 이 규칙의 값 하나만 바꿨다.
+   ⚠ 6px 은 새 값이다. 근거: 점 단추 사이 4px(`.banner-dots`)와 메뉴 틈 12px(아래) 사이. */
+.lang{display:flex;gap:6px;font-size:12px;letter-spacing:.08em;color:var(--ink-soft)}
 .lang b{color:var(--ink);font-weight:600}
 /* ── 🔴 폰(760px 이하) — 메뉴는 숨되 「마이페이지」 한 칸만 남는다 (SITE-47 §2 · WEB-52 확정 ⑦) ──
    종전: `@media(max-width:760px){.menu{display:none}}` — 여섯 칸을 **통째로** 숨겼다.
@@ -98,7 +101,10 @@ img,svg{display:block;max-width:100%}
       50px 가 남는다.
    ⚠ 900px 을 경계로 삼은 것은 en 이 860px 에서야 여유(38px)를 얻기 때문이다.
       경계를 855px 에 딱 맞추면 글꼴이 바뀔 때 다시 넘친다. */
-@media(max-width:900px){.menu{gap:16px}}
+/* 🔴 **틈 16 → 12px** (SITE-52 §6 · 선택지 C · 소유자 확정 2026-09-25) — 위 A 만으로는 모자랐다
+   (실측: A 만 넣어도 761px en 은 **0.0 · 두 줄**). A+C 로 **10.0px** 이 된다.
+   ⚠ 900px 아래에서만 돈다 — 넓은 화면의 틈은 26px 그대로다. */
+@media(max-width:900px){.menu{gap:12px}}
 .hero{padding:92px 0 72px;text-align:center}
 .eyebrow{font-size:13px;letter-spacing:.18em;color:var(--ink-soft);margin-bottom:24px}
 h1{font-weight:600;font-size:clamp(34px,5.2vw,60px);line-height:1.2;letter-spacing:-.03em}
