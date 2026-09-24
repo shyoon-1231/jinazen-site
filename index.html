@@ -120,36 +120,34 @@
 </div>
 </div></section>
 
-<!-- ── 운명리포트 (웹) ─────────────────────────────────────────────
-     🔴 자리가 **히어로 바로 다음**인 이유 — 폰에서 메뉴가 안 그려지므로 일반인
-        손님이 닿는 길은 스크롤뿐이다. 아래로 내리면 그만큼 안 읽힌다.
-     🔴 **히어로 문안은 한 글자도 안 건드렸다.** 「전문가를 위한」은 앱 스토어·
-        Play 심사와 맞춰 둔 글자다. 일반인이 자기 자리를 찾는 일은 이 섹션이 한다.
-
-     🔴 **새 문장을 짓지 않았다.** 전부 web_report 에서 글자 그대로 왔다:
-       · h2          `api/pages.py` ORDER_NAME 「진아젠 운명리포트」
-       · 본문        `flow_copy.SALES_INTRO` (= 약관 제4조 첫 문단 첫 문장)
-       · 잔글씨 앞   `flow_copy.REOPEN_FREE` (= 약관 제11조 첫 문단 둘째 마디)
-       · 잔글씨 뒤   `legal.PRICE_LINE_FALLBACK`
-       · 단추        `legal.SAMPLE_LINK_LABEL` · `flow_copy.START_LABEL`
-
-     🔴 **값을 글자로 박지 않는다.** 홈페이지는 정적이라 서버 값을 못 찍는데
-        값은 관리 화면(`/report/admin/price`)에서 바뀐다 — 박아 두면 그때 두
-        곳이 갈리고, **갈려도 아무 일이 안 난다.** `PRICE_LINE_FALLBACK` 은
-        web_report 가 「값을 못 읽었을 때」를 위해 이미 갖고 있는 문장이다.
-
-     ⚠ 주소를 절대경로로 적는다 — `/report` 는 같은 호스트이지만 Cloudflare
-        **Worker Route** 가 내는 자리이고 이 Pages 사이트가 아니다. 상대경로로
-        적으면 그 사정이 안 보인다. -->
-<section class="pad alt report" id="report"><div class="wrap">
+<!-- ── 개인용 운세그래프 (웹) — 🔴 **다시 썼다** (SITE-52 §1 · 소유자 확정 2026-09-25) ──────
+     🔴 **까닭 — 표시와 상품이 달랐다.** 이 자리가 설명하던 「리포트」는 **WEB-68 이 웹에서 껐다.**
+        손님은 없는 것을 읽고 있었다. 걷은 두 문단을 아래에 취소선으로 남긴다:
+        ~~서비스는 이용자가 입력한 생년월일·시각·성별을 바탕으로 사주명반·자미두수·타로운명수를 화면으로
+          제공하고, 매장 결과지와 같은 내용의 리포트를 제공하는 디지털 콘텐츠입니다.~~
+        ~~한 번 결제하면 해당 리포트를 계정에서 계속 열람할 수 있습니다. 구독이 아닙니다. /
+          가격은 결제 화면에서 확인해 주세요.~~
+     🔴 **새 문장을 짓지 않았다** — 한 줄은 **배너 ② 의 문장 그대로**이고, 카드 이름 셋도 그 문장 안의 낱말이다.
+        잔글씨는 기존 문장에서 **「리포트」만 뺀 것**이다(소유자 문안).
+     ⚠ **카드 설명 문장은 넣지 않았다 — {{소유자 확인}}.** 이름만 둔다. 지어내지 않는다.
+     ⚠ **「가격은 결제 화면에서 확인해 주세요」가 함께 걷혔다** — 소유자 문안이 그 줄을 갖고 있지 않다.
+        🔴 되살릴지는 {{소유자 확인}}. 값은 `/report/` 결제 화면에 있다.
+     🔴 **「리포트」·「결과지」 낱말이 이 섹션에 0건이다** (네 언어 각 낱말 · 시험으로 잠근다).
+     🔴 **단추는 「예시 화면 보기」 하나다** — 「시작하기」는 배너 ② 에 있다.
+     그림: 🔴 **라이브 예시 화면(`/report/sample/*`)을 찍어 넣었다** (2026-09-25 · 1000×1000).
+        🔴 셋 다 「예시입니다 · 실제 인물이 아닙니다」 띠와 **「샘플 고객」 표시가 보인다** — 실제 손님 **0**.
+        ⚠ `jinazen-web` 저장소는 건드리지 않았다. 공개 주소를 브라우저로 본 것뿐이다.
+     ⚠ `alt` 는 **화면에 그려진 글자**로 적었다(예시 띠 · 표 이름). 새 문장을 짓지 않으려는 것이다. -->
+<section class="pad alt report teas" id="report"><div class="wrap">
 <h2>개인용 <b>운세그래프</b></h2>
-<p>서비스는 이용자가 입력한 생년월일·시각·성별을 바탕으로 사주명반·자미두수·타로운명수를 화면으로 제공하고, 매장 결과지와 같은 내용의 리포트를 제공하는 디지털 콘텐츠입니다.</p>
-<p class="fine">한 번 결제하면 해당 리포트를 계정에서 계속 열람할 수 있습니다. 구독이 아닙니다.<br>가격은 결제 화면에서 확인해 주세요.</p>
-<p class="acts">
-<!-- 🔴 SITE-39 §2 — 「시작하기」가 채운 단추 · 「예시 화면 보기」가 바로 옆 보조 (소유자 확정 2026-09-22). 법이 요구하는 것은 체험이 제공되고 닿는 것이다. 한 페이지 안에서 채운 단추가 달라 손님이 헷갈렸다(첫 화면 · web_report 와 통일). -->
-<a class="cta fill" href="https://jinazen.com/report/">시작하기</a>
-<a class="cta" href="https://jinazen.com/report/sample">예시 화면 보기</a>
-</p>
+<p>생년월일 하나로 사주명반·자미두수·타로운명수를 보고, 나만의 운세그래프로 삶의 흐름을 읽어 보세요.</p>
+<div class="grid">
+<div class="tea"><div class="name">사주명반</div><div class="img"><picture><source srcset="assets/img/site_07_sample_saju.webp" type="image/webp"><img src="assets/img/site_07_sample_saju.png" alt="예시 화면 — 사주 명반. 맨 위에 「예시입니다 · 실제 인물이 아닙니다」 띠와 「샘플 고객」 표시가 있고, 사주 원국표와 오행 · 용신 요약이 보인다" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
+<div class="tea"><div class="name">자미두수</div><div class="img"><picture><source srcset="assets/img/site_08_sample_ziwei.webp" type="image/webp"><img src="assets/img/site_08_sample_ziwei.png" alt="예시 화면 — 자미두수. 맨 위에 「예시입니다 · 실제 인물이 아닙니다」 띠와 「샘플 고객」 표시가 있고, 12궁 명반이 보인다" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
+<div class="tea"><div class="name">타로운명수</div><div class="img"><picture><source srcset="assets/img/site_09_sample_tarot.webp" type="image/webp"><img src="assets/img/site_09_sample_tarot.png" alt="예시 화면 — 타로운명수. 맨 위에 「예시입니다 · 실제 인물이 아닙니다」 띠와 「샘플 고객」 표시가 있고, 세 장의 카드가 보인다" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
+</div>
+<p class="fine">한 번 결제하면 계속 다시 볼 수 있습니다. 구독이 아닙니다.</p>
+<p class="acts"><a class="cta" href="https://jinazen.com/report/sample">예시 화면 보기</a></p>
 </div></section>
 
 <!-- ── 5 공간 (SITE-41 · 소유자 정정 2026-09-22) — 「스스로 자신을 찾는 곳」이다. 누가 읽어 주는 곳이 아니다.
