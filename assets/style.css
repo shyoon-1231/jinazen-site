@@ -538,6 +538,11 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
 :lang(ko) .banner p{word-break:keep-all}
 :lang(ja) .banner p{word-break:auto-phrase}
 
+/* 🔴 **아래 규칙 셋은 2026-09-24 부터 쓰이지 않는다** (SITE-48 §2 · 소유자 확정) —
+   `assets/banner.js` 가 멈춤/재생 단추를 더 이상 만들지 않으므로 `.banner-pause` 가 **한 곳에도 없다**.
+   🔴 **지우지 않는다** — `.stands` · `.flow` · `.hero-device.phone` 과 같은 처지다(이 파일의 선례).
+      단추가 돌아오면 그때 값을 다시 고르지 않아도 된다. `.banner-dots{align-items:center}` 는
+      점만 있을 때도 해롭지 않아 그대로 둔다. ⚠ **값은 한 자도 안 고쳤다.** */
 /* ── SITE-44 멈춤/재생 단추 (2026-09-22 · WCAG 2.2.2) — 🔴 토큰 변경 0 · 새 규칙 하나
    | 값 | 출처 |
    | 44×44 · 모서리 999px · 테두리 `--ink` · 바탕 흰 반투명 · 글자 `--ink` | `.banner-arrow` 그대로(SITE-43) |

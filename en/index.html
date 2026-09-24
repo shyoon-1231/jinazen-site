@@ -64,12 +64,15 @@
 <!-- ── 1 첫 화면 — 배너 셋 (SITE-43 · 소유자 확정 2026-09-22) ────────────────────────────
      🔴 **스크립트 없이도 셋 다 밀어서 보인다** — CSS scroll-snap(`.banner-track`). 스크립트(`assets/banner.js`)는
         점 셋 · 좌우 화살표(PC) · 자동 넘김만 **얹는다**. 꺼져 있으면 그것들이 안 생길 뿐이다.
+     🔴 **멈춤/재생 단추를 뺐다** (SITE-48 §2 · 소유자 확정 2026-09-24) — `data-pause` · `data-play` 두 속성도 함께 뺐다.
+        자동 넘김은 **계속 돈다**. 멈춤은 손을 대고 있는 동안뿐이다(올림 · 초점 · 누름 · 휠) — 떼면 다시 돈다.
+        ⚠ 접근성 기준(WCAG 2.2.2)에서 멀어진다 · 동작 줄이기 설정 손님은 종전대로 자동 넘김 **없음**. 까닭은 `assets/banner.js` 머리말.
      🔴 h1 은 ① 에만 하나(「진아젠 JINAZEN」 · SITE-40 판정 그대로). ②③ 제목은 h2.
      🔴 ① 에는 단추가 없다(소유자 확정). 판매 단추는 ② 개인용(/report/) · ③ 전문가용(Play) 으로 옮겼다.
      글자 출처: ② 한 줄 = 🟢 소유자 문안(SITE-44 · 2026-09-22 — 줄바꿈은 <br> 로 옮기지 않았다) ·
                ③ 한 줄 = #app 부제 둘째 줄 · 단추 = 소유자 확정 문안.
      그림: ① 지금 사진(CSS 배경 · preload) · ② {{그림 대기}} — 우선 밤하늘·북극성(philo_bg.svg · CSS 배경 · SITE-45) · 소유자 사진이 오면 바꾼다 · ③ 대운 그래프(site_01) · ②③ lazy. -->
-<section class="banners" aria-roledescription="carousel" aria-label="JINAZEN banners" data-prev="Previous banner" data-next="Next banner" data-dot="Banner {n}" data-pause="Pause auto-advance" data-play="Play auto-advance">
+<section class="banners" aria-roledescription="carousel" aria-label="JINAZEN banners" data-prev="Previous banner" data-next="Next banner" data-dot="Banner {n}">
 <div class="banner-track" tabindex="0">
 <div class="banner philo" id="banner-1" role="group" aria-roledescription="slide" aria-label="1 of 3"><div class="wrap">
 <img class="mark" src="../assets/img/northstar.svg" alt="" width="200" height="200">
