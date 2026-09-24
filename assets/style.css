@@ -484,6 +484,14 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
    🔴 `.usp p` · `.report p` 줄과 **같은 규칙**이다. ja 에 keep-all 을 쓰지 않는 이유도 같다.
    ⚠ 소유자 문안의 줄바꿈 둘은 `<br>` 로 옮기지 않았다 — 문장 한가운데라 460px 칸에서 두 번 꺾였다. 글자는 그대로다. */
 .space-cards .role a{color:var(--gold-ink);font-weight:600}
+/* ── 🔴 짙은 띠(.store) 위 주소 링크 (SITE-52 §3) — 새 값 0 ─────────────
+   전역이 `a{color:inherit}` 라 그냥 두면 **본문 글자와 구별되지 않는다**(SITE-41 §2 와 같은 사정).
+   | 값 | 출처 |
+   | 글자 rgba(255,255,255,.85) | `.store-ask a` 그대로(STORE-INQUIRY-1) |
+   | hover --gold | `.store-ask a:hover` 그대로 · 검정 위 7.75:1(이 파일 브랜드 색 주석) |
+   🔴 --gold-ink 를 쓰지 않는다 — 흰 배경 위 글자 전용이라 검정 위에서 4.06:1 로 떨어진다. */
+.space .addr a{color:rgba(255,255,255,.85);font-weight:500}
+.space .addr a:hover{color:var(--gold)}
 :lang(ko) .space p{word-break:keep-all}
 :lang(ja) .space p{word-break:auto-phrase}
 
