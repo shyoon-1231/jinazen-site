@@ -72,6 +72,15 @@
 <!-- 🔴 SITE-43 — 배너 ① 사진(CSS 배경)이 LCP 다. 스타일시트를 다 읽은 뒤에야 발견되므로 미리 받는다. ②③ 그림은 lazy. -->
 <link rel="preload" as="image" href="../assets/img/philo_photo.jpg" fetchpriority="high">
 <script src="../assets/banner.js" defer></script>
+<!-- 🔴 **머리띠 첫 그림 — 지난번 답을 기억한다** (SITE-55 · 소유자 지적 2026-09-25)
+     까닭: 로그인한 손님에게 「로그인」이 먼저 보였다가 「마이페이지」로 바뀌었다.
+     🔴 이 한 줄이 **첫 그림 전에** 기억(jz_login_hint 하나 · 값 1 또는 0)을 읽어 html 에 표시를 붙인다:
+        1 → jz-in(처음부터 「마이페이지」) · 0 → 없음(「로그인」) · 없음 → jz-wait(글자 숨김 · 600ms 뒤 스스로 푼다).
+     🔴 머리에 둔 까닭 — account.js 는 defer 라 첫 그림보다 늦고, 느린 망에서는 파일 자체가 늦게 온다.
+        600ms 상한을 지키려면 타이머가 여기 있어야 한다.
+     🔴 저장소가 막히면(예외) 아무것도 안 붙인다 — SITE-50 동작 그대로. 스크립트가 꺼지면 이 줄도 안 돈다 — 「로그인」 그대로.
+     자세한 규칙은 assets/account.js 머리말. -->
+<script>try{var h=localStorage.getItem("jz_login_hint"),c=document.documentElement.classList;if(h==="1")c.add("jz-in");else if(h!=="0"){c.add("jz-wait");setTimeout(function(){c.remove("jz-wait")},600)}}catch(e){}</script>
 <script src="../assets/account.js" defer></script>
 <!-- 🔴 SITE-40 — 히어로 그림 preload 를 걷었다. 그 그림은 여섯째 섹션(#app)으로 내려가 첫 화면 밖이고
      `loading=lazy` 다. 첫 화면의 큰 그림은 이제 사진 띠 배경(philo_photo.jpg · CSS 배경)이다. -->

@@ -611,3 +611,12 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
       달라(폰 24px ↔ 지금 26px) 지시서의 「폰은 지금 그대로」를 깬다. 그래서 PC 에만 거는 규칙 하나로 했다.
    🔴 820px 이하(폰 · 좁은 창)는 **한 글자도 안 바뀐다** — 이 규칙이 아예 안 돈다. */
 @media(min-width:821px){#store .wrap{grid-template-columns:1fr;text-align:center}#store .wrap p{margin-left:auto;margin-right:auto}}
+
+/* ── SITE-55 머리띠 깜박임 줄이기 — 🔴 토큰 변경 0 · 새 값 0 ────────────────────────
+   머리(head) 안 인라인 한 줄이 지난번 답(`localStorage` 의 jz_login_hint)을 읽어 `<html>` 에 붙인다:
+   · `jz-in`   — 기억 "1" → 처음부터 「마이페이지」
+   · `jz-wait` — 기억 없음 → 두 라벨 다 숨긴 채 기다린다(최대 600ms · **칸 폭은 그대로** — `visibility` 라 자리가 남는다)
+   🔴 스크립트가 꺼지면 이 클래스가 **안 붙는다** — 아래 규칙이 걸리지 않아 「로그인」 그대로다.
+   ⚠ `jz-wait` 는 스크립트만 붙이고 스크립트만 뗀다(인라인 600ms 타이머 · account.js). */
+html.jz-in .menu a.mypage .acct-out,html.jz-wait .menu a.mypage>span{visibility:hidden}
+html.jz-in .menu a.mypage .acct-in{visibility:visible}
