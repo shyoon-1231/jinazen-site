@@ -222,12 +222,17 @@
         `.tea` 는 흰 바탕인데 `.tea .name` · `.tea .hanja` 는 글자색이 없어 `.store{color:#fff}` 를 물려받는다.
         새 CSS 없이는 읽히지 않으므로 지시서의 대안(제목 띠만 짙게)을 골랐다.
      🔴 새 CSS 0 — 전부 기존 규칙이다. 공간의 닻 이름(space)은 제목 띠에 있다(메뉴 · 배너 ① 단추 · LocalBusiness). -->
-<section class="pad store space" id="space"><div class="wrap">
-<div><h2>束草，<b>JINAZEN 的空间</b></h2>
-<p><b>以身体体验 JINAZEN 哲学的地方</b></p></div>
-</div></section>
-
-<section class="pad alt teas path space-cards"><div class="wrap">
+<!-- 🔴 **체험 카드 넷을 「속초, 진아젠의 공간」 섹션 위로 · 공간 띠는 SITE-50 이전 모양 그대로** (SITE-56 · 소유자 정정 2026-09-25)
+     ~~SITE-50 §2 · SITE-54 §1 — 짙은 제목 띠 → 밝은 카드 띠 → 짙은 글 띠(공간을 셋으로 나눔)~~ — 소유자 뜻을 잘못 옮긴 것이었다.
+     소유자는 카드 넷이 공간 **섹션 위**에 오기를 원했다. 셋으로 나누니 제목 띠에 제목 두 줄뿐이라 휑했다.
+     🔴 차례: 밝은 카드 띠(체험 넷) → 짙은 공간 띠 하나(제목 · 부제 · 글 네 문단 · 주소 · 개시일 | 그림 두 장)
+     🔴 공간 띠 마크업은 3107ffa^ 판 그대로다 — 주소 · 개시일 글자는 SITE-53 판이고 지금 글자와 같다(대조함).
+        카드 글자 · 순서 · 「이스트프렌즈에서 보기 ↗」 링크는 한 글자도 안 바꿨다 — 띠 자리만 옮겼다.
+     🔴 닻 이름(space)은 **카드 띠**에 둔다 — 메뉴 「공간」 · 배너 ① 단추 · LocalBusiness url 이 손님이 먼저 보는 카드에 닿는다.
+        공간 띠에 두면 메뉴가 카드를 건너뛰고 제목부터 보여, 카드를 위로 올린 뜻이 메뉴에서만 거꾸로 된다.
+     ⚠ 카드 띠 안 주석의 「바로 뒤 밝은 띠에 둔다」는 SITE-41 때 차례다 — 이제는 공간 띠 **바로 앞**이다.
+     🔴 새 CSS 0 — 전부 기존 규칙이다. -->
+<section class="pad alt teas path space-cards" id="space"><div class="wrap">
 <!-- 공간 체험 카드 넷 (SITE-41 §1) — 🔴 ② 의 링크는 이스트프렌즈(다른 사업자 누리집) — 새 창 · rel="noopener noreferrer".
      초안 · 소유자 확인 — 원문: 「① 운세그래프 출력 — 키오스크에 생년월일을 넣으면 나의 흐름이 종이로 나옵니다 / ② 개운 굿즈와 한방차 — 개운법에 따라 나에게 맞는 것을 고릅니다 / ③ 황금부리 — 만지며 소원을 빕니다 / ④ 명상 공간 — 흐름을 이해한 뒤, 마음을 고요히 합니다 · ② 링크 「이스트프렌즈에서 보기 ↗」」 -->
 <div class="grid">
@@ -239,22 +244,14 @@
 </div></section>
 
 <section class="pad store space"><div class="wrap">
-<div><p>东海升起的太阳、雪岳山、永郎湖。JINAZEN 的空间坐落在束草永郎海滩的自然气息之中。</p>
+<div><h2>束草，<b>JINAZEN 的空间</b></h2>
+<p><b>以身体体验 JINAZEN 哲学的地方</b></p>
+<p>东海升起的太阳、雪岳山、永郎湖。JINAZEN 的空间坐落在束草永郎海滩的自然气息之中。</p>
 <p>在这里，没有人代您读解命运。在自助机输入出生年月日，运势图便会打印在纸上，那份流向由您自己读解。</p>
 <p>依照开运法挑选适合自己的好物与韩方茶，触摸黄金喙许下心愿，在冥想空间让心沉静。</p>
 <p>门店自助机可为您提供中文结果单。</p>
 <p>在冥想中寻找艺术的地方。是自己寻得自己的空间。</p>
-</div>
-<!-- ~~방문 정보 자리 (SITE-52 §4) — 주소·여는 시간·문의 세 줄을 주석으로만 두었다~~
-     🔴 **주소는 값이 서서 위에 그렸다**(SITE-52 §3). 남은 것은 **여는 시간**뿐이고 그것은 아직 값이 없다.
-     ⚠ 매장 주소는 푸터 사업자정보(본점 주소)와 **다른 값**이다 — 푸터 여덟 항목은 이번에도 무변경. -->
-<!-- 초안 · 소유자 확인 — alt 원문: 「키오스크 대기화면 — 「명상아티스트 김진아의 진아젠 운세그래프」와 「터치해서 시작하세요」가 4개 언어로 안내된다」 · 「키오스크 오행 밸런스 결과 — 용신 火와 목·화·토·금·수 분포, 오행 밸런스 해석과 개운법」
-     ⚠ 사람 이름은 한자로 옮기지 않았다 — 「김진아」의 한자 표기를 확인하지 못해 `Jina Kim` 을 쓴다(지어내지 않는다). -->
-<div class="store-right"><div class="stands">
-<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_05_kiosk_idle.webp" type="image/webp"><img src="../assets/img/site_05_kiosk_idle.png" alt="自助机待机画面 — 以四种语言显示「冥想艺术家 Jina Kim 的 JINAZEN 运势图」与「触摸开始」" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
-<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_06_kiosk_elements.webp" type="image/webp"><img src="../assets/img/site_06_kiosk_elements.png" alt="自助机五行平衡结果 — 用神「火」与木·火·土·金·水的分布、五行平衡解读与开运法" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
-</div>
-<div><!-- 🔴 **주소와 개시일** (SITE-52 §3 · 소유자 확정 2026-09-25)
+<!-- 🔴 **주소와 개시일** (SITE-52 §3 · 소유자 확정 2026-09-25)
      🔴 주소는 **소유자 글자 그대로**다: 「강원특별자치도 속초시 영랑해안6길 11」
      🔴 **좌표를 지어내지 않았다** — 지도는 **주소를 그대로 검색어로** 넘긴다
         (`map.naver.com/p/search/` + URL 인코딩). 위경도를 적으면 확인할 길 없는 값이 하나 는다.
@@ -274,9 +271,16 @@
         검색어와 무관하게 같은 표본을 돌려주는 것을 실측했다(서울 주소가 나갈 뻔했다). -->
 <p class="addr"><a href="https://map.naver.com/p/search/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%EC%98%81%EB%9E%91%ED%95%B4%EC%95%886%EA%B8%B8%2011" target="_blank" rel="noopener noreferrer"><span lang="ko">강원특별자치도 속초시 영랑해안6길 11</span> ↗</a></p>
 <!-- 초안 · 소유자 확인 — 원문: 「2026년 10월 초 문을 엽니다」 -->
-<p>2026 年 10 月初开业</p>
-</div>
-</div>
+<p>2026 年 10 月初开业</p></div>
+<!-- ~~방문 정보 자리 (SITE-52 §4) — 주소·여는 시간·문의 세 줄을 주석으로만 두었다~~
+     🔴 **주소는 값이 서서 위에 그렸다**(SITE-52 §3). 남은 것은 **여는 시간**뿐이고 그것은 아직 값이 없다.
+     ⚠ 매장 주소는 푸터 사업자정보(본점 주소)와 **다른 값**이다 — 푸터 여덟 항목은 이번에도 무변경. -->
+<!-- 초안 · 소유자 확인 — alt 원문: 「키오스크 대기화면 — 「명상아티스트 김진아의 진아젠 운세그래프」와 「터치해서 시작하세요」가 4개 언어로 안내된다」 · 「키오스크 오행 밸런스 결과 — 용신 火와 목·화·토·금·수 분포, 오행 밸런스 해석과 개운법」
+     ⚠ 사람 이름은 한자로 옮기지 않았다 — 「김진아」의 한자 표기를 확인하지 못해 `Jina Kim` 을 쓴다(지어내지 않는다). -->
+<div class="store-right"><div class="stands">
+<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_05_kiosk_idle.webp" type="image/webp"><img src="../assets/img/site_05_kiosk_idle.png" alt="自助机待机画面 — 以四种语言显示「冥想艺术家 Jina Kim 的 JINAZEN 运势图」与「触摸开始」" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+<figure class="stand"><div class="stand-screen"><picture><source srcset="../assets/img/site_06_kiosk_elements.webp" type="image/webp"><img src="../assets/img/site_06_kiosk_elements.png" alt="自助机五行平衡结果 — 用神「火」与木·火·土·金·水的分布、五行平衡解读与开运法" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+</div></div>
 </div></section>
 
 <!-- ── 3 흐름 넷 (SITE-40 §2 · 소유자 문안 2026-09-22) — 틀은 일월성신 차 카드를 그대로 쓴다.
