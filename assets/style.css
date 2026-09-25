@@ -620,3 +620,47 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
    ⚠ `jz-wait` 는 스크립트만 붙이고 스크립트만 뗀다(인라인 600ms 타이머 · account.js). */
 html.jz-in .menu a.mypage .acct-out,html.jz-wait .menu a.mypage>span{visibility:hidden}
 html.jz-in .menu a.mypage .acct-in{visibility:visible}
+
+/* ── SITE-57 §1 개인용 가격 글자 · 「구매하기」 (소유자 확정 2026-09-25) — 🔴 토큰 변경 0 · 지운 줄 0
+   글자는 `assets/price.js` 가 창구(/report/api/price)에서 읽어 채운다. HTML 에는 숫자가 없다.
+   🔴🔴 취소선 규칙이 **없다** — `line-through` 를 이 블록 어디에도 쓰지 않는다(종전거래가격 규정 · WEB-65 §1).
+   | 값 | 출처 |
+   | 가격 26px · 굵기 700 · 줄 1.3 | 26px = `.feature h2` 최소값(clamp 26~38) — 제목보다 커지지 않게 · 굵기 700 은 새 값 |
+   | 「부가세 포함」 13px | `.pricenote` · `.report .fine` 크기 |
+   | 딱지 12px · 테두리 1px · 모서리 999px · 틈 10px | `.cta small`(12px) · `.cta` 테두리 · 모서리 · 틈(gap 10px) |
+   | 딱지 색 — 밝은 띠 `--gold-ink` · 짙은 띠 `--gold` | `.cta small` · `.banner.night h2 b` |
+   | 가격 줄 위 14px · 다음 줄 12px · 두 문장 사이 4px | 새 값 — 두 문장이 한 묶음으로 읽히게 · 🔴 배너 높이 480(폰 420) 안에 다 들어가게(실측은 TASK 기록) |
+   🔴 글자 폭이 흔들리지 않게 — 「부가세 포함」은 값이 없으면 `visibility:hidden`(자리는 남는다 · 줄 높이 그대로).
+      가격 칸 · 구매 단추의 **최소 폭**은 아래 SITE-57 폭 규칙(언어별 실측값). */
+.banner p.price-line{margin-top:14px;font-size:26px;font-weight:700;line-height:1.3;letter-spacing:-.02em}
+.banner.night p.price-line{color:#fff}
+.banner p.price-line+p{margin-top:12px}
+.banner p.price-line+p+p{margin-top:4px}
+.price-now,.price-in{display:inline-block}
+.price-vat{font-size:13px;font-weight:400;letter-spacing:0;visibility:hidden}
+.price-vat.is-priced{visibility:visible}
+.banner.night .price-vat{color:rgba(255,255,255,.75)}
+.price-badge{display:inline-block;margin-right:10px;padding:2px 10px;border:1px solid var(--gold-ink);border-radius:999px;
+  font-size:12px;font-weight:600;letter-spacing:0;line-height:1.6;color:var(--gold-ink);vertical-align:middle}
+.price-badge[hidden]{display:none}
+.banner.night .price-badge{border-color:var(--gold);color:var(--gold)}
+.report p.price-say{color:var(--ink);font-weight:600}
+/* 가격 칸과 끝 글자(「에.」 · 「で。」)가 줄에서 떨어지지 않게 — 1280 에서 「에.」 만 다음 줄로 갔다(실측).
+   폭은 기존 `.report p.wide`(720px) 규칙을 쓴다(새 값 0). */
+.price-tail{white-space:nowrap}
+.cta.buy{justify-content:center}
+/* ── SITE-57 폭 규칙 — 🔴 **가격이 채워져도 · 못 읽어도 글자 폭이 같게** (실측 2026-09-25 · 네 언어 × 400 · 761 · 1280)
+   가격 칸은 HTML 에서 **빈 칸**이다(숫자를 박지 않는다). 그래서 칸 폭을 CSS 가 미리 잡아 둔다.
+   | | 채운 글자(9,900) 실측 | 최소 폭 |
+   | 가격 칸(26px) · 문장 칸(15.5px) | ko 3.6/3.65em · en 3.65/3.7em · ja 5.5/5.6em · zh 4.58/4.65em | ko·en 3.7em · ja 5.6em · zh 4.7em |
+   | 구매 단추(14px) | ko 155 · en 151.8 · ja 167.7 · zh 145.1px | ko 156 · en 152 · ja 168 · zh 146px |
+   ⚠ 최소 폭이지 고정 폭이 아니다 — 값이 한 자리 늘면(예: 19,900) 칸도 그만큼 는다. 그때만 한 번 흔들린다.
+   ⚠ ja · zh 는 가나 · 한자가 Pretendard 에 없어 **운영체제 글꼴**로 그린다 — 다른 기기에서는 실측과 몇 px 다를 수 있다.
+      그 차이만큼은 흔들릴 수 있다(칸이 모자라면 늘 뿐 잘리지 않는다). */
+:lang(ko) .price-now,:lang(ko) .price-in,:lang(en) .price-now,:lang(en) .price-in{min-width:3.7em}
+:lang(ja) .price-now,:lang(ja) .price-in{min-width:5.6em}
+:lang(zh) .price-now,:lang(zh) .price-in{min-width:4.7em}
+:lang(ko) .cta.buy{min-width:156px}
+:lang(en) .cta.buy{min-width:152px}
+:lang(ja) .cta.buy{min-width:168px}
+:lang(zh) .cta.buy{min-width:146px}

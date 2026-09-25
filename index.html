@@ -85,6 +85,10 @@
      자세한 규칙은 assets/account.js 머리말. -->
 <script>try{var h=localStorage.getItem("jz_login_hint"),c=document.documentElement.classList;if(h==="1")c.add("jz-in");else if(h!=="0"){c.add("jz-wait");setTimeout(function(){c.remove("jz-wait")},600)}}catch(e){}</script>
 <script src="assets/account.js" defer></script>
+<!-- 🔴 **개인용 가격 글자** (SITE-57 §1 · 소유자 확정 2026-09-25) — 창구(/report/api/price · WEB-84 §2)에서 읽어 채운다.
+     🔴 숫자를 HTML 에 박아 두지 않는다 — 못 읽음 · 2초 초과 · 스크립트 꺼짐이면 「구매하기」 · 가격 칸 빈 칸 그대로.
+     🔴 머리띠 로그인(위 두 줄)과 **따로 돈다** — 서로의 결과를 읽지 않는다. 자세한 규칙은 assets/price.js 머리말. -->
+<script src="assets/price.js" defer></script>
 <!-- 🔴 SITE-40 — 히어로 그림 preload 를 걷었다. 그 그림은 여섯째 섹션(#app)으로 내려가 첫 화면 밖이고
      `loading=lazy` 다. 첫 화면의 큰 그림은 이제 사진 띠 배경(philo_photo.jpg · CSS 배경)이다. -->
 <script>if(new URLSearchParams(location.search).get("mode")==="privacy")location.replace("privacy/");</script>
@@ -168,11 +172,24 @@
      🔴 채운 단추다 — 사진 위 흰 테두리 단추는 폰에서 대비가 1.6:1 까지 떨어졌다(SITE-38 실측). -->
 <p class="acts"><a class="cta fill" href="#space">속초 공간 보기</a></p>
 </div></div>
+<!-- 🔴 **배너 ② 에 가격과 「구매하기」** (SITE-57 §1 · 소유자 확정 2026-09-25)
+     까닭: 홈페이지에 개인용 가격과 구매하기가 없었다 — 손님이 「개인용은 살 수 있구나 · 사고 싶다」를 느끼게.
+     🔴 문안은 소유자 글자 그대로다 — 제목(그대로) · 가격 자리 · 「부가세 포함」 · 두 줄 · 단추 둘.
+        ~~생년월일 하나로 사주명반·자미두수·타로운명수를 보고, 나만의 운세그래프로 삶의 흐름을 읽어 보세요.~~ (SITE-44 소유자 문안)
+        ~~[시작하기] → /report/~~ → 🔴 **[구매하기] → /report/new** (정보 입력 화면 · 2026-09-25 라이브 200)
+     🔴 **가격은 창구에서 읽는다** — 가격 칸은 **빈 칸**, 단추는 **「구매하기」**가 HTML 의 글자다.
+        읽으면 `data-price-tpl` 틀대로 「9,900원」 · 「9,900원 구매하기」가 된다(assets/price.js).
+        「부가세 포함」은 가격이 채워졌을 때만 보인다(자리는 남는다 — 줄이 안 흔들린다).
+     🔴🔴 취소선 · 할인율 · 「원래 ○원」 없음 — 정가(`list_price`)는 화면에 안 나간다. 할인 중이면 딱지만 선다.
+     ⚠ 단추 모양은 홈페이지 기존 틀(`.cta` · 배너 단추) 그대로다 — 판매 흐름의 크기 규칙을 가져오지 않았다.
+        더한 것은 **최소 폭** 하나(`.cta.buy`) — 「구매하기」 → 「9,900원 구매하기」로 바뀌어도 단추가 안 커진다. -->
 <div class="banner pad feature night" id="banner-2" role="group" aria-roledescription="slide" aria-label="2 / 3"><div class="wrap">
 <div class="text"><h2>개인용 <b>운세그래프</b></h2>
-<p>생년월일 하나로 사주명반·자미두수·타로운명수를 보고, 나만의 운세그래프로 삶의 흐름을 읽어 보세요.</p>
+<p class="price-line"><span class="price-badge" data-price-badge hidden></span><span class="price-now" data-price-tpl="{p}원"></span> <small class="price-vat" data-price-when>부가세 포함</small></p>
+<p>전문가가 쓰는 운세 도구를 한 사람 몫으로.</p>
+<p>생년월일 하나로 사주명반·자미두수·타로운명수와 나의 운세그래프를 봅니다.</p>
 <p class="acts">
-<a class="cta fill" href="https://jinazen.com/report/">시작하기</a>
+<a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}원 구매하기">구매하기</a>
 <a class="cta" href="https://jinazen.com/report/sample">예시 화면 보기</a>
 </p></div>
 </div></div>
@@ -324,15 +341,31 @@
         🔴 셋 다 「예시입니다 · 실제 인물이 아닙니다」 띠와 **「샘플 고객」 표시가 보인다** — 실제 손님 **0**.
         ⚠ `jinazen-web` 저장소는 건드리지 않았다. 공개 주소를 브라우저로 본 것뿐이다.
      ⚠ `alt` 는 **화면에 그려진 글자**로 적었다(예시 띠 · 표 이름). 새 문장을 짓지 않으려는 것이다. -->
+<!-- 🔴 **가격 · 「구매하기」를 카드 셋 위에** (SITE-57 §1 · 소유자 확정 2026-09-25)
+     🔴 판정 — **카드 위**다. 손님이 값과 사는 길을 먼저 보고, 카드(예시 화면 셋)는 「무엇을 사는가」를 보여 준다.
+        카드 아래에 두면 1280 에서도 그림 셋을 지나야 단추가 나온다. 「예시 화면 보기」는 카드 **아래** 그대로 —
+        예시 그림을 본 손님이 누르는 자리다.
+     🔴 두 가격을 **나란히** — 「전문가용 앱(99,000원)」 곁에 「9,900원」. 비율 · 할인율 표현은 없다(소유자 지시).
+        ⚠ 「99,000원」은 **글자로** 둔다 — Play 결제라 창구와 무관하다. Play 인앱 가격이 바뀌면 이 글자도 바꾼다
+        (#app · 배너 ③ 의 「출시 기념가」와 같은 값).
+        🔴 「9,900원」은 **창구에서** 채운다 — 못 읽으면 그 자리가 빈 칸이다(숫자를 박지 않는다).
+     🔴 설명 한 줄은 **배너 ② 의 둘째 줄 그대로** 바꿨다 — 이 섹션은 SITE-52 때부터 배너 ② 와 같은 문장을 쓴다.
+        ~~생년월일 하나로 사주명반·자미두수·타로운명수를 보고, 나만의 운세그래프로 삶의 흐름을 읽어 보세요.~~
+     🔴 잔글씨는 소유자 새 문안이고 **카드 아래에서 위로 옮겼다**:
+        ~~한 번 결제하면 계속 다시 볼 수 있습니다. 구독이 아닙니다.~~ → 「한 번 결제하면 계속 다시 봅니다. 구독이 아닙니다.」
+     ⚠ 위 SITE-52 주석의 「단추는 「예시 화면 보기」 하나다 — 「시작하기」는 배너 ② 에 있다」는 **그때 차례다** —
+        이제 이 섹션에 「구매하기」가 있고 배너 ② 의 「시작하기」는 「구매하기」가 됐다. 지우지 않는다(함정 26). -->
 <section class="pad alt report teas" id="report"><div class="wrap">
 <h2>개인용 <b>운세그래프</b></h2>
-<p>생년월일 하나로 사주명반·자미두수·타로운명수를 보고, 나만의 운세그래프로 삶의 흐름을 읽어 보세요.</p>
+<p>생년월일 하나로 사주명반·자미두수·타로운명수와 나의 운세그래프를 봅니다.</p>
+<p class="price-say wide"><span class="price-badge" data-price-badge hidden></span>전문가용 앱(99,000원)이 다루는 사주명반·자미두수·타로운명수를, 내 것 하나만 <span class="price-tail"><span class="price-in" data-price-tpl="{p}원"></span>에.</span></p>
+<p class="fine">한 번 결제하면 계속 다시 봅니다. 구독이 아닙니다.</p>
+<p class="acts"><a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}원 구매하기">구매하기</a></p>
 <div class="grid">
 <div class="tea"><div class="name">사주명반</div><div class="img"><picture><source srcset="assets/img/site_07_sample_saju.webp" type="image/webp"><img src="assets/img/site_07_sample_saju.png" alt="예시 화면 — 사주 명반. 맨 위에 「예시입니다 · 실제 인물이 아닙니다」 띠와 「샘플 고객」 표시가 있고, 사주 원국표와 오행 · 용신 요약이 보인다" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 <div class="tea"><div class="name">자미두수</div><div class="img"><picture><source srcset="assets/img/site_08_sample_ziwei.webp" type="image/webp"><img src="assets/img/site_08_sample_ziwei.png" alt="예시 화면 — 자미두수. 맨 위에 「예시입니다 · 실제 인물이 아닙니다」 띠와 「샘플 고객」 표시가 있고, 12궁 명반이 보인다" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 <div class="tea"><div class="name">타로운명수</div><div class="img"><picture><source srcset="assets/img/site_09_sample_tarot.webp" type="image/webp"><img src="assets/img/site_09_sample_tarot.png" alt="예시 화면 — 타로운명수. 맨 위에 「예시입니다 · 실제 인물이 아닙니다」 띠와 「샘플 고객」 표시가 있고, 세 장의 카드가 보인다" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 </div>
-<p class="fine">한 번 결제하면 계속 다시 볼 수 있습니다. 구독이 아닙니다.</p>
 <p class="acts"><a class="cta" href="https://jinazen.com/report/sample">예시 화면 보기</a></p>
 </div></section>
 

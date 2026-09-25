@@ -96,6 +96,9 @@
      자세한 규칙은 assets/account.js 머리말. -->
 <script>try{var h=localStorage.getItem("jz_login_hint"),c=document.documentElement.classList;if(h==="1")c.add("jz-in");else if(h!=="0"){c.add("jz-wait");setTimeout(function(){c.remove("jz-wait")},600)}}catch(e){}</script>
 <script src="../assets/account.js" defer></script>
+<!-- 🔴 **개인용 가격 글자** (SITE-57 §1) — ko 와 같은 파일 · 같은 규칙. 글자 틀만 이 쪽 언어다(data-price-tpl).
+     자세한 규칙은 assets/price.js 머리말. -->
+<script src="../assets/price.js" defer></script>
 <!-- ⚠ `?mode=privacy` 스크립트는 **한국어 쪽에만** 있다 — Play 에 등록된 주소가 그것 하나다. 여기 두지 않는다. -->
 </head>
 <body>
@@ -159,11 +162,20 @@
      🔴 **한 줄을 더했다** (SITE-51 §2 · 소유자 확정 2026-09-25) — 원문: 「한국어 서비스입니다 · 카카오 계정이 필요합니다」.
         단추 글자와 목적지(`/report/`)는 **그대로 두고**, 그 목적지가 한국어라는 사실만 이 줄이 알린다. -->
 <div class="banner pad feature night" id="banner-2" role="group" aria-roledescription="slide" aria-label="2 / 3"><div class="wrap">
+<!-- 🔴 **배너 ② 가격 · 두 줄** (SITE-57 §1 · 소유자 확정 2026-09-25) — ko 판 주석 참조.
+     초안 · 소유자 확인 — 원문: 「9,900원 · 부가세 포함」 · 「전문가가 쓰는 운세 도구를 한 사람 몫으로.」 ·
+     「생년월일 하나로 사주명반·자미두수·타로운명수와 나의 운세그래프를 봅니다.」
+     ~~只需出生年月日，即可查看四柱命盘、紫微斗数与塔罗命运数，并以专属于您的运势图读解人生的流向。~~ (SITE-44 문안의 번역)
+     🔴 숫자는 창구에서 채운다 — 이 쪽 HTML 에는 가격 칸이 **빈 칸**이다. 한국어 서비스 안내 줄은 그대로 둔다. -->
 <div class="text"><h2>个人版 <b>运势图</b></h2>
-<p>只需出生年月日，即可查看四柱命盘、紫微斗数与塔罗命运数，并以专属于您的运势图读解人生的流向。</p>
+<p class="price-line"><span class="price-badge" data-price-badge hidden></span><span class="price-now" data-price-tpl="{p}韩元"></span> <small class="price-vat" data-price-when>含增值税</small></p>
+<p>专业人士使用的运势工具，化作一人份。</p>
+<p>只需出生年月日，即可查看四柱命盘、紫微斗数、塔罗命运数与您的运势图。</p>
 <p class="uinote">本服务为韩语服务 · 需要 Kakao 账号</p>
 <p class="acts">
-<a class="cta fill" href="https://jinazen.com/report/">开始使用</a>
+<!-- 초안 · 소유자 확인 — 원문: 「9,900원 구매하기」(창구에서 읽은 값) · 못 읽으면 「구매하기」 → /report/new
+     ~~开始使用 → /report/~~ -->
+<a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}韩元购买">购买</a>
 <a class="cta" href="https://jinazen.com/report/sample">查看示例画面</a>
 </p></div>
 </div></div>
@@ -324,17 +336,26 @@
      ⚠ `alt` 는 **화면에 그려진 글자**로 적었다(예시 띠 · 표 이름). 새 문장을 짓지 않으려는 것이다. -->
 <section class="pad alt report teas" id="report"><div class="wrap">
 <h2>个人版 <b>运势图</b></h2>
-<p>只需出生年月日，即可查看四柱命盘、紫微斗数与塔罗命运数，并以专属于您的运势图读解人生的流向。</p>
+<p>只需出生年月日，即可查看四柱命盘、紫微斗数、塔罗命运数与您的运势图。</p>
 <!-- 🔴 **한국어 서비스 안내** (SITE-52 §0 ⑫ · 소유자 확정 2026-09-25) — 목적지 `/report/` 는 한국어다.
      ⚠ zh 는 **그 쪽 배너 ② 의 글자 그대로**이고, en·ja 는 배너 ② 에 그 줄이 **없어** 새로 옮긴 **번역 초안**이다.
      초안 · 소유자 확인 — 원문: 「한국어 서비스입니다 · 카카오 계정이 필요합니다」 -->
 <p class="uinote">本服务为韩语服务 · 需要 Kakao 账号</p>
+<!-- 🔴 **가격 · 구매하기를 카드 셋 위에** (SITE-57 §1 · 소유자 확정 2026-09-25) — ko 판 주석 참조(판정 · 두 가격).
+     초안 · 소유자 확인 — 원문: 「전문가용 앱(99,000원)이 다루는 사주명반·자미두수·타로운명수를, 내 것 하나만 9,900원에.」 ·
+     「한 번 결제하면 계속 다시 봅니다. 구독이 아닙니다.」 · 「9,900원 구매하기」
+     ⚠ 잔글씨는 **종전 번역 그대로** 카드 아래에서 위로 옮겼다 — ko 문안이 「볼 수 있습니다」 → 「봅니다」로
+        바뀐 것뿐이라 뜻이 같다. 설명 한 줄은 배너 ② 둘째 줄의 번역으로 바꿨다(ko 와 같다).
+        ~~只需出生年月日，即可查看四柱命盘、紫微斗数与塔罗命运数，并以专属于您的运势图读解人生的流向。~~
+     ⚠ 「99,000」은 글자다(Play 결제) · 가격 칸은 빈 칸이다(창구). -->
+<p class="price-say wide"><span class="price-badge" data-price-badge hidden></span>专业版应用（99,000韩元）涵盖的四柱命盘、紫微斗数与塔罗命运数，只看您自己的一份，仅需<span class="price-tail"><span class="price-in" data-price-tpl="{p}韩元"></span>。</span></p>
+<p class="fine">付款一次后，即可持续重复查看。这不是订阅。</p>
+<p class="acts"><a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}韩元购买">购买</a></p>
 <div class="grid">
 <div class="tea"><div class="name">四柱命盘</div><div class="img"><picture><source srcset="../assets/img/site_07_sample_saju.webp" type="image/webp"><img src="../assets/img/site_07_sample_saju.png" alt="示例画面 — 四柱命盘。顶部有「这是示例 · 并非真实人物」的提示条与「样本客户」标示，下方是原局表与五行·用神摘要" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 <div class="tea"><div class="name">紫微斗数</div><div class="img"><picture><source srcset="../assets/img/site_08_sample_ziwei.webp" type="image/webp"><img src="../assets/img/site_08_sample_ziwei.png" alt="示例画面 — 紫微斗数。顶部有「这是示例 · 并非真实人物」的提示条与「样本客户」标示，下方是十二宫命盘" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 <div class="tea"><div class="name">塔罗命运数</div><div class="img"><picture><source srcset="../assets/img/site_09_sample_tarot.webp" type="image/webp"><img src="../assets/img/site_09_sample_tarot.png" alt="示例画面 — 塔罗命运数。顶部有「这是示例 · 并非真实人物」的提示条与「样本客户」标示，下方是三张牌" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 </div>
-<p class="fine">付款一次后，即可持续重复查看。这不是订阅。</p>
 <p class="acts"><a class="cta" href="https://jinazen.com/report/sample">查看示例画面</a></p>
 </div></section>
 

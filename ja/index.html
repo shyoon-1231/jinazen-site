@@ -84,6 +84,9 @@
      자세한 규칙은 assets/account.js 머리말. -->
 <script>try{var h=localStorage.getItem("jz_login_hint"),c=document.documentElement.classList;if(h==="1")c.add("jz-in");else if(h!=="0"){c.add("jz-wait");setTimeout(function(){c.remove("jz-wait")},600)}}catch(e){}</script>
 <script src="../assets/account.js" defer></script>
+<!-- 🔴 **개인용 가격 글자** (SITE-57 §1) — ko 와 같은 파일 · 같은 규칙. 글자 틀만 이 쪽 언어다(data-price-tpl).
+     자세한 규칙은 assets/price.js 머리말. -->
+<script src="../assets/price.js" defer></script>
 <!-- 🔴 SITE-40 — 히어로 그림 preload 를 걷었다. 그 그림은 여섯째 섹션(#app)으로 내려가 첫 화면 밖이고
      `loading=lazy` 다. 첫 화면의 큰 그림은 이제 사진 띠 배경(philo_photo.jpg · CSS 배경)이다. -->
 </head>
@@ -172,8 +175,15 @@
 </div></div>
 <!-- 초안 · 소유자 확인 — 원문: 「개인용 운세그래프 / 생년월일 하나로 사주명반·자미두수·타로운명수를 보고, 나만의 운세그래프로 삶의 흐름을 읽어 보세요.」 (SITE-44 · 소유자 문안 2026-09-22) -->
 <div class="banner pad feature night" id="banner-2" role="group" aria-roledescription="slide" aria-label="2 / 3"><div class="wrap">
+<!-- 🔴 **배너 ② 가격 · 두 줄** (SITE-57 §1 · 소유자 확정 2026-09-25) — ko 판 주석 참조.
+     초안 · 소유자 확인 — 원문: 「9,900원 · 부가세 포함」 · 「전문가가 쓰는 운세 도구를 한 사람 몫으로.」 ·
+     「생년월일 하나로 사주명반·자미두수·타로운명수와 나의 운세그래프를 봅니다.」
+     ~~生年月日ひとつで四柱の命盤・紫微斗数・タロット運命数を見て、自分だけの運勢グラフで人生の流れを読んでみてください。~~ (SITE-44 문안의 번역)
+     🔴 숫자는 창구에서 채운다 — 이 쪽 HTML 에는 가격 칸이 **빈 칸**이다. 한국어 서비스 안내 줄은 그대로 둔다. -->
 <div class="text"><h2>個人向け <b>運勢グラフ</b></h2>
-<p>生年月日ひとつで四柱の命盤・紫微斗数・タロット運命数を見て、自分だけの運勢グラフで人生の流れを読んでみてください。</p>
+<p class="price-line"><span class="price-badge" data-price-badge hidden></span><span class="price-now" data-price-tpl="{p}ウォン"></span> <small class="price-vat" data-price-when>税込</small></p>
+<p>専門家が使う運勢ツールを、ひとり分に。</p>
+<p>生年月日ひとつで四柱の命盤・紫微斗数・タロット運命数と、自分の運勢グラフを見られます。</p>
 <!-- 🔴 **한국어 서비스 안내를 배너 ② 에도 넣었다** (SITE-53 §3 · 소유자 확정 2026-09-25)
      zh 배너 ② 에는 SITE-51 부터 있었고 en·ja 에는 **개인용 섹션에만** 있었다 — 배너에서 바로 누르는
      손님은 그 사정을 못 보고 한국어 화면을 만났다.
@@ -181,7 +191,9 @@
      초안 · 소유자 확인 — 원문: 「한국어 서비스입니다 · 카카오 계정이 필요합니다」 -->
 <p class="uinote">本サービスは韓国語です · Kakao アカウントが必要です</p>
 <p class="acts">
-<a class="cta fill" href="https://jinazen.com/report/">はじめる</a>
+<!-- 초안 · 소유자 확인 — 원문: 「9,900원 구매하기」(창구에서 읽은 값) · 못 읽으면 「구매하기」 → /report/new
+     ~~はじめる → /report/~~ -->
+<a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}ウォンで購入">購入する</a>
 <a class="cta" href="https://jinazen.com/report/sample">サンプルを見る</a>
 </p></div>
 </div></div>
@@ -340,17 +352,26 @@
      ⚠ `alt` 는 **화면에 그려진 글자**로 적었다(예시 띠 · 표 이름). 새 문장을 짓지 않으려는 것이다. -->
 <section class="pad alt report teas" id="report"><div class="wrap">
 <h2>個人向け <b>運勢グラフ</b></h2>
-<p>生年月日ひとつで四柱の命盤・紫微斗数・タロット運命数を見て、自分だけの運勢グラフで人生の流れを読んでみてください。</p>
+<p>生年月日ひとつで四柱の命盤・紫微斗数・タロット運命数と、自分の運勢グラフを見られます。</p>
 <!-- 🔴 **한국어 서비스 안내** (SITE-52 §0 ⑫ · 소유자 확정 2026-09-25) — 목적지 `/report/` 는 한국어다.
      ⚠ zh 는 **그 쪽 배너 ② 의 글자 그대로**이고, en·ja 는 배너 ② 에 그 줄이 **없어** 새로 옮긴 **번역 초안**이다.
      초안 · 소유자 확인 — 원문: 「한국어 서비스입니다 · 카카오 계정이 필요합니다」 -->
 <p class="uinote">本サービスは韓国語です · Kakao アカウントが必要です</p>
+<!-- 🔴 **가격 · 구매하기를 카드 셋 위에** (SITE-57 §1 · 소유자 확정 2026-09-25) — ko 판 주석 참조(판정 · 두 가격).
+     초안 · 소유자 확인 — 원문: 「전문가용 앱(99,000원)이 다루는 사주명반·자미두수·타로운명수를, 내 것 하나만 9,900원에.」 ·
+     「한 번 결제하면 계속 다시 봅니다. 구독이 아닙니다.」 · 「9,900원 구매하기」
+     ⚠ 잔글씨는 **종전 번역 그대로** 카드 아래에서 위로 옮겼다 — ko 문안이 「볼 수 있습니다」 → 「봅니다」로
+        바뀐 것뿐이라 뜻이 같다. 설명 한 줄은 배너 ② 둘째 줄의 번역으로 바꿨다(ko 와 같다).
+        ~~生年月日ひとつで四柱の命盤・紫微斗数・タロット運命数を見て、自分だけの運勢グラフで人生の流れを読んでみてください。~~
+     ⚠ 「99,000」은 글자다(Play 결제) · 가격 칸은 빈 칸이다(창구). -->
+<p class="price-say wide"><span class="price-badge" data-price-badge hidden></span>専門家向けアプリ（99,000ウォン）が扱う四柱の命盤・紫微斗数・タロット運命数を、自分の分だけ<span class="price-tail"><span class="price-in" data-price-tpl="{p}ウォン"></span>で。</span></p>
+<p class="fine">一度お支払いいただくと、何度でもご覧いただけます。定期購読ではありません。</p>
+<p class="acts"><a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}ウォンで購入">購入する</a></p>
 <div class="grid">
 <div class="tea"><div class="name">四柱の命盤</div><div class="img"><picture><source srcset="../assets/img/site_07_sample_saju.webp" type="image/webp"><img src="../assets/img/site_07_sample_saju.png" alt="サンプル画面 — 四柱の命盤。上部に「例です · 実在の人物ではありません」の帯と「サンプル顧客」の表示があり、原局表と五行・用神の要約が見える" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 <div class="tea"><div class="name">紫微斗数</div><div class="img"><picture><source srcset="../assets/img/site_08_sample_ziwei.webp" type="image/webp"><img src="../assets/img/site_08_sample_ziwei.png" alt="サンプル画面 — 紫微斗数。上部に「例です · 実在の人物ではありません」の帯と「サンプル顧客」の表示があり、十二宮の命盤が見える" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 <div class="tea"><div class="name">タロット運命数</div><div class="img"><picture><source srcset="../assets/img/site_09_sample_tarot.webp" type="image/webp"><img src="../assets/img/site_09_sample_tarot.png" alt="サンプル画面 — タロット運命数。上部に「例です · 実在の人物ではありません」の帯と「サンプル顧客」の表示があり、3枚のカードが見える" width="1000" height="1000" loading="lazy" decoding="async"></picture></div></div>
 </div>
-<p class="fine">一度お支払いいただくと、何度でもご覧いただけます。定期購読ではありません。</p>
 <p class="acts"><a class="cta" href="https://jinazen.com/report/sample">サンプルを見る</a></p>
 </div></section>
 
