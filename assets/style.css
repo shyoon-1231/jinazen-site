@@ -602,3 +602,12 @@ footer .cr>:nth-child(3),footer .cr>:nth-child(4){font-size:11.5px;font-weight:5
 .menu a.mypage>span{grid-area:1/1;text-align:center}
 .menu a.mypage .acct-in,.menu a.mypage.in .acct-out{visibility:hidden}
 .menu a.mypage.in .acct-in{visibility:visible}
+
+/* ── SITE-54 §2 매장 도입 — PC 에서 한 칸 · 가운데 (소유자 확정 2026-09-25 · SITE-50 확인 ③) ──
+   까닭: SITE-50 §4 가 그림(오른쪽 칸)을 빼자 PC 에서 오른쪽 절반이 비었다.
+   🔴 토큰 변경 0 · 새 값 0 — 821px 는 `.store .wrap` 이 한 칸으로 접히는 기존 경계(820px) 바로 위,
+      글 폭은 `.store p{max-width:460px}` 그대로이고 가운데로만 옮긴다.
+   ⚠ 기존 한 칸 틀 `.usp`(철학 띠)를 쓰지 않은 까닭 — `.usp` 는 **폰에서도** 가운데 정렬이고 h2 크기도
+      달라(폰 24px ↔ 지금 26px) 지시서의 「폰은 지금 그대로」를 깬다. 그래서 PC 에만 거는 규칙 하나로 했다.
+   🔴 820px 이하(폰 · 좁은 창)는 **한 글자도 안 바뀐다** — 이 규칙이 아예 안 돈다. */
+@media(min-width:821px){#store .wrap{grid-template-columns:1fr;text-align:center}#store .wrap p{margin-left:auto;margin-right:auto}}
