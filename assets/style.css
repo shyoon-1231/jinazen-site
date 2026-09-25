@@ -675,3 +675,9 @@ html.jz-in .menu a.mypage .acct-in{visibility:visible}
 .banner p.launch-note,.hero p.launch-note{margin-top:6px;font-size:13px;color:var(--ink-soft)}
 .banner p.launch-note+.acts{margin-top:22px}
 .hero p.launch-note+.cta{margin-top:26px}
+
+/* ── SITE-58 §1 가격 문장 — 🔴 창구를 못 읽으면 통째로 숨긴다 (소유자 확정 2026-09-25) — 토큰 변경 0 · 새 값 0
+   🔴 기본이 숨김이다 — `assets/price.js` 가 가격을 채울 때 `.is-priced` 를 붙인다. 스크립트가 꺼지면 숨은 채다.
+   ⚠ `visibility` 가 아니라 `display:none` 이다 — 자리를 남기면 못 읽을 때 빈 줄이 보인다(판정은 index.html 주석).
+   ⚠ 가격 칸 최소 폭(`.price-in` · SITE-57 폭 규칙)은 그대로 둔다 — 문장이 보일 때는 채워진 뒤라 해가 없다. */
+.report p.price-say[data-price-when]:not(.is-priced){display:none}

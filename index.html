@@ -365,7 +365,12 @@
 <section class="pad alt report teas" id="report"><div class="wrap">
 <h2>개인용 <b>운세그래프</b></h2>
 <p>생년월일 하나로 사주명반·자미두수·타로운명수와 나의 운세그래프를 봅니다.</p>
-<p class="price-say wide"><span class="price-badge" data-price-badge hidden></span>전문가용 앱(99,000원)이 다루는 사주명반·자미두수·타로운명수를, 내 것 하나만 <span class="price-tail"><span class="price-in" data-price-tpl="{p}원"></span>에.</span></p>
+<!-- 🔴 **창구를 못 읽으면 이 문장을 통째로 숨긴다** (SITE-58 §1 · 소유자 확정 2026-09-25)
+     ~~SITE-57 — 못 읽으면 문장 안 가격 자리만 빈 칸~~ → 「…내 것 하나만 ␣␣␣에.」가 손님에게 보였다.
+     🔴 기본 숨김(`data-price-when` · CSS `display:none`) → 가격이 채워지면 보인다. 스크립트가 꺼져도 숨는다.
+     🔴 판정 — 나타날 때 아래가 한 줄 밀린다. **자리를 잡아 두지 않았다**: 잡아 두면 못 읽을 때 빈 줄이 남는다(빈 칸을 보이지 않는다는 확정과 어긋난다).
+        이 섹션은 첫 화면 밖이고, 손님이 이미 아래를 보고 있으면 브라우저 스크롤 고정이 보던 자리를 지킨다(실측 · TASK 기록). -->
+<p class="price-say wide" data-price-when><span class="price-badge" data-price-badge hidden></span>전문가용 앱(99,000원)이 다루는 사주명반·자미두수·타로운명수를, 내 것 하나만 <span class="price-tail"><span class="price-in" data-price-tpl="{p}원"></span>에.</span></p>
 <p class="fine">한 번 결제하면 계속 다시 봅니다. 구독이 아닙니다.</p>
 <p class="acts"><a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}원 구매하기">구매하기</a></p>
 <div class="grid">

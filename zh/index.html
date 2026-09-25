@@ -168,7 +168,7 @@
      ~~只需出生年月日，即可查看四柱命盘、紫微斗数与塔罗命运数，并以专属于您的运势图读解人生的流向。~~ (SITE-44 문안의 번역)
      🔴 숫자는 창구에서 채운다 — 이 쪽 HTML 에는 가격 칸이 **빈 칸**이다. 한국어 서비스 안내 줄은 그대로 둔다. -->
 <div class="text"><h2>个人版 <b>运势图</b></h2>
-<p class="price-line"><span class="price-badge" data-price-badge hidden></span><span class="price-now" data-price-tpl="{p}韩元"></span> <small class="price-vat" data-price-when>含增值税</small></p>
+<p class="price-line"><span class="price-now" data-price-tpl="{p}韩元"></span> <small class="price-vat" data-price-when>含增值税</small></p>
 <p>专业人士使用的运势工具，化作一人份。</p>
 <p>只需出生年月日，即可查看四柱命盘、紫微斗数、塔罗命运数与您的运势图。</p>
 <p class="uinote">本服务为韩语服务 · 需要 Kakao 账号</p>
@@ -356,7 +356,13 @@
         바뀐 것뿐이라 뜻이 같다. 설명 한 줄은 배너 ② 둘째 줄의 번역으로 바꿨다(ko 와 같다).
         ~~只需出生年月日，即可查看四柱命盘、紫微斗数与塔罗命运数，并以专属于您的运势图读解人生的流向。~~
      ⚠ 「99,000」은 글자다(Play 결제) · 가격 칸은 빈 칸이다(창구). -->
-<p class="price-say wide"><span class="price-badge" data-price-badge hidden></span>专业版应用（99,000韩元）涵盖的四柱命盘、紫微斗数与塔罗命运数，只看您自己的一份，仅需<span class="price-tail"><span class="price-in" data-price-tpl="{p}韩元"></span>。</span></p>
+<!-- 🔴 **창구를 못 읽으면 이 문장을 통째로 숨긴다** (SITE-58 §1 · 소유자 확정 2026-09-25)
+     ~~SITE-57 — 못 읽으면 문장 안 가격 자리만 빈 칸~~ → 「…내 것 하나만 ␣␣␣에.」가 손님에게 보였다.
+     🔴 기본 숨김(`data-price-when` · CSS `display:none`) → 가격이 채워지면 보인다. 스크립트가 꺼져도 숨는다.
+     🔴 판정 — 나타날 때 아래가 한 줄 밀린다. **자리를 잡아 두지 않았다**: 잡아 두면 못 읽을 때 빈 줄이 남는다(빈 칸을 보이지 않는다는 확정과 어긋난다).
+        이 섹션은 첫 화면 밖이고, 손님이 이미 아래를 보고 있으면 브라우저 스크롤 고정이 보던 자리를 지킨다(실측 · TASK 기록).
+     🔴 **할인 딱지 칸을 뺐다 — 이 쪽과 배너 ② 둘** (SITE-58 · 소유자 확정) — 딱지 글자는 관리 화면의 한국어뿐이다. 딱지는 ko 쪽에만 선다. -->
+<p class="price-say wide" data-price-when>专业版应用（99,000韩元）涵盖的四柱命盘、紫微斗数与塔罗命运数，只看您自己的一份，仅需<span class="price-tail"><span class="price-in" data-price-tpl="{p}韩元"></span>。</span></p>
 <p class="fine">付款一次后，即可持续重复查看。这不是订阅。</p>
 <p class="acts"><a class="cta fill buy" href="https://jinazen.com/report/new" data-price-tpl="{p}韩元购买">购买</a></p>
 <div class="grid">
