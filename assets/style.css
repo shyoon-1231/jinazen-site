@@ -664,3 +664,14 @@ html.jz-in .menu a.mypage .acct-in{visibility:visible}
 :lang(en) .cta.buy{min-width:152px}
 :lang(ja) .cta.buy{min-width:168px}
 :lang(zh) .cta.buy{min-width:146px}
+
+/* ── SITE-57 §2 전문가용 출시 기념가 (소유자 확정 2026-09-25) — 🔴 토큰 변경 0 · 지운 줄 0 · 취소선 규칙 0
+   | 값 | 출처 |
+   | 기념가 줄 17px · 굵기 700 · 잉크 | 17px = 이 파일 clamp 최소값(17px) · 굵기 700 은 §1 가격 줄과 같다 |
+   | 정상가 줄 13px · `--ink-soft` · 위 6px | `.pricenote` 크기 · 색 · 틈 6px 은 새 값(두 줄을 한 묶음으로) |
+   | 기념가 줄 위 22px | `.feature ul{margin-top:22px}` |
+   ⚠ 선택자를 `.banner p.launch` · `.hero p.launch` 로 — `.feature p`(0,1,1 · 15.5px · 위 18px)를 이겨야 한다. */
+.banner p.launch,.hero p.launch{margin-top:22px;font-size:17px;font-weight:700;color:var(--ink)}
+.banner p.launch-note,.hero p.launch-note{margin-top:6px;font-size:13px;color:var(--ink-soft)}
+.banner p.launch-note+.acts{margin-top:22px}
+.hero p.launch-note+.cta{margin-top:26px}
