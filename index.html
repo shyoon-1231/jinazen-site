@@ -199,14 +199,45 @@
         그래서 그림 alt 도 그때(b57940c^) 글자 그대로 되돌렸다. 홈페이지에는 이 낱말을 막는 자동 검사가 없다(등록할 예외 없음).
      틀: 본문 = `.store` 띠 · `.stands` 거치대(옛 매장 섹션) · 카드 = #path 와 같은 `.teas` · `.path` · `.tea`.
      ⚠ 두 그림은 매장 사진이 아니라 매장 화면 캡처(v0.8.1 판)다. -->
-<section class="pad store space" id="space"><div class="wrap">
-<div><h2>속초, <b>진아젠의 공간</b></h2>
-<p><b>진아젠의 철학을 몸으로 체험하는 곳</b></p>
-<p>동해의 떠오르는 태양, 설악산, 영랑호수. 속초 영랑해변의 자연 기운 속에 진아젠의 공간이 있습니다.</p>
+<!-- 🔴 **체험 카드 넷을 제목 바로 아래로 올렸다** (SITE-50 §2 · 소유자 지적 2026-09-25)
+     까닭: 카드 넷이 긴 글과 그림 **아래**에 있어, 손님이 여기서 무엇을 하는지 끝까지 내려야 보였다.
+     🔴 차례: 제목 · 부제 → 체험 카드 넷 → 글 문단 → 그림 두 장 → 주소 · 개시일
+     🔴 카드 글자 · 순서 · 「이스트프렌즈에서 보기 ↗」 링크는 **한 글자도 안 바꿨다** — 자리만 옮겼다.
+        제목 · 부제 · 글 · 주소 · 개시일 글자도 그대로다(태그 자리만 바뀌었다).
+     🔴 틀 — **새 CSS 0**: 제목 · 부제 · 카드를 종전 카드 띠(밝은 `.teas .path .space-cards`)에 올리고
+        공간의 닻 이름(space)을 그리로 옮겼다 — 메뉴 · 배너 ① 단추 · LocalBusiness 주소가 이제 제목에 닿는다.
+        글 · 그림 · 주소는 그 뒤 짙은 띠(`.store .space`)에 그대로 둔다.
+        주소 · 개시일은 그림 **아래**(오른쪽 열 `.store-right`) — 폰에서 한 줄로 접혀도 「글 → 그림 → 주소」 차례다.
+     ⚠ 제목 모양이 바뀐다 — 짙은 띠의 금색 강조 → 밝은 띠의 굵은 검정(다른 카드 띠 제목과 같은 모양). {{소유자 확인}}
+     ⚠ 짙은 띠 **안에** 카드를 두는 안은 고르지 않았다 — 새 격자 규칙과 흰 카드 글자색 규칙이 필요하다
+        (SITE-41 §1 이 카드를 밝은 띠에 둔 것과 같은 까닭). -->
+<section class="pad alt teas path space-cards" id="space"><div class="wrap">
+<h2>속초, <b>진아젠의 공간</b></h2>
+<p class="sub"><b>진아젠의 철학을 몸으로 체험하는 곳</b></p>
+<!-- 공간 체험 카드 넷 (SITE-41 §1) — #path 와 같은 틀. 짙은 띠(.store)의 두 칸 격자에 넣으면 새 격자 규칙이 필요해 바로 뒤 밝은 띠에 둔다.
+     🔴 ② 의 링크는 이스트프렌즈(다른 사업자 누리집) — 새 창 · rel="noopener noreferrer" (SITE-41 §2 판정). -->
+<div class="grid">
+<div class="tea"><div class="hanja">①</div><div class="name">운세그래프 출력</div><div class="desc">키오스크에 생년월일을 넣으면 나의 흐름이 종이로 나옵니다</div></div>
+<div class="tea"><div class="hanja">②</div><div class="name">개운 굿즈와 한방차</div><div class="desc">개운법에 따라 나에게 맞는 것을 고릅니다</div><div class="role"><a href="https://eastfriends.net/" target="_blank" rel="noopener noreferrer">이스트프렌즈에서 보기 ↗</a></div></div>
+<div class="tea"><div class="hanja">③</div><div class="name">황금부리</div><div class="desc">만지며 소원을 빕니다</div></div>
+<div class="tea"><div class="hanja">④</div><div class="name">명상 공간</div><div class="desc">흐름을 이해한 뒤, 마음을 고요히 합니다</div></div>
+</div>
+</div></section>
+
+<section class="pad store space"><div class="wrap">
+<div><p>동해의 떠오르는 태양, 설악산, 영랑호수. 속초 영랑해변의 자연 기운 속에 진아젠의 공간이 있습니다.</p>
 <p>이곳에서는 아무도 당신의 운명을 대신 읽어 주지 않습니다. 키오스크에 생년월일을 넣으면 운세그래프가 종이로 나오고, 그 흐름을 스스로 읽습니다.</p>
 <p>개운법에 따라 나에게 맞는 굿즈와 한방차를 고르고, 황금부리를 만지며 소원을 빌고, 명상 공간에서 마음을 고요히 합니다.</p>
 <p>명상에서 예술을 찾는 곳. 스스로 자신을 찾는 공간입니다.</p>
-<!-- 🔴 **주소와 개시일** (SITE-52 §3 · 소유자 확정 2026-09-25)
+</div>
+<!-- ~~방문 정보 자리 (SITE-52 §4) — 주소·여는 시간·문의 세 줄을 주석으로만 두었다~~
+     🔴 **주소는 값이 서서 위에 그렸다**(SITE-52 §3). 남은 것은 **여는 시간**뿐이고 그것은 아직 값이 없다.
+     ⚠ 매장 주소는 푸터 사업자정보(본점 주소)와 **다른 값**이다 — 푸터 여덟 항목은 이번에도 무변경. -->
+<div class="store-right"><div class="stands">
+<figure class="stand"><div class="stand-screen"><picture><source srcset="assets/img/site_05_kiosk_idle.webp" type="image/webp"><img src="assets/img/site_05_kiosk_idle.png" alt="키오스크 대기화면 — 「명상아티스트 김진아의 진아젠 운세그래프」와 「터치해서 시작하세요」가 4개 언어로 안내된다" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+<figure class="stand"><div class="stand-screen"><picture><source srcset="assets/img/site_06_kiosk_elements.webp" type="image/webp"><img src="assets/img/site_06_kiosk_elements.png" alt="키오스크 오행 밸런스 결과 — 용신 火와 목·화·토·금·수 분포, 오행 밸런스 해석과 개운법" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
+</div>
+<div><!-- 🔴 **주소와 개시일** (SITE-52 §3 · 소유자 확정 2026-09-25)
      🔴 주소는 **소유자 글자 그대로**다: 「강원특별자치도 속초시 영랑해안6길 11」
      🔴 **좌표를 지어내지 않았다** — 지도는 **주소를 그대로 검색어로** 넘긴다
         (`map.naver.com/p/search/` + URL 인코딩). 위경도를 적으면 확인할 길 없는 값이 하나 는다.
@@ -225,24 +256,8 @@
      ⚠ **영문 주소는 아직 넣지 않는다** — {{소유자 확인}}. SITE-52 에서 juso.go.kr 시험 열쇠가
         검색어와 무관하게 같은 표본을 돌려주는 것을 실측했다(서울 주소가 나갈 뻔했다). -->
 <p class="addr"><a href="https://map.naver.com/p/search/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%EC%98%81%EB%9E%91%ED%95%B4%EC%95%886%EA%B8%B8%2011" target="_blank" rel="noopener noreferrer">강원특별자치도 속초시 영랑해안6길 11 ↗</a></p>
-<p>2026년 10월 초 문을 엽니다</p></div>
-<!-- ~~방문 정보 자리 (SITE-52 §4) — 주소·여는 시간·문의 세 줄을 주석으로만 두었다~~
-     🔴 **주소는 값이 서서 위에 그렸다**(SITE-52 §3). 남은 것은 **여는 시간**뿐이고 그것은 아직 값이 없다.
-     ⚠ 매장 주소는 푸터 사업자정보(본점 주소)와 **다른 값**이다 — 푸터 여덟 항목은 이번에도 무변경. -->
-<div class="store-right"><div class="stands">
-<figure class="stand"><div class="stand-screen"><picture><source srcset="assets/img/site_05_kiosk_idle.webp" type="image/webp"><img src="assets/img/site_05_kiosk_idle.png" alt="키오스크 대기화면 — 「명상아티스트 김진아의 진아젠 운세그래프」와 「터치해서 시작하세요」가 4개 언어로 안내된다" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
-<figure class="stand"><div class="stand-screen"><picture><source srcset="assets/img/site_06_kiosk_elements.webp" type="image/webp"><img src="assets/img/site_06_kiosk_elements.png" alt="키오스크 오행 밸런스 결과 — 용신 火와 목·화·토·금·수 분포, 오행 밸런스 해석과 개운법" width="1600" height="2394" loading="lazy" decoding="async"></picture></div><div class="stand-neck"></div><div class="stand-base"></div></figure>
-</div></div>
-</div></section>
-
-<!-- 공간 체험 카드 넷 (SITE-41 §1) — #path 와 같은 틀. 짙은 띠(.store)의 두 칸 격자에 넣으면 새 격자 규칙이 필요해 바로 뒤 밝은 띠에 둔다.
-     🔴 ② 의 링크는 이스트프렌즈(다른 사업자 누리집) — 새 창 · rel="noopener noreferrer" (SITE-41 §2 판정). -->
-<section class="pad alt teas path space-cards"><div class="wrap">
-<div class="grid">
-<div class="tea"><div class="hanja">①</div><div class="name">운세그래프 출력</div><div class="desc">키오스크에 생년월일을 넣으면 나의 흐름이 종이로 나옵니다</div></div>
-<div class="tea"><div class="hanja">②</div><div class="name">개운 굿즈와 한방차</div><div class="desc">개운법에 따라 나에게 맞는 것을 고릅니다</div><div class="role"><a href="https://eastfriends.net/" target="_blank" rel="noopener noreferrer">이스트프렌즈에서 보기 ↗</a></div></div>
-<div class="tea"><div class="hanja">③</div><div class="name">황금부리</div><div class="desc">만지며 소원을 빕니다</div></div>
-<div class="tea"><div class="hanja">④</div><div class="name">명상 공간</div><div class="desc">흐름을 이해한 뒤, 마음을 고요히 합니다</div></div>
+<p>2026년 10월 초 문을 엽니다</p>
+</div>
 </div>
 </div></section>
 
