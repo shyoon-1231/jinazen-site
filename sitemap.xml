@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jinazen.com/</loc></url>
-  <url><loc>https://jinazen.com/en/</loc></url>
-  <url><loc>https://jinazen.com/ja/</loc></url>
-  <url><loc>https://jinazen.com/zh/</loc></url>
-  <url><loc>https://jinazen.com/privacy/</loc></url>
-  <url><loc>https://jinazen.com/privacy/en/</loc></url>
-  <url><loc>https://jinazen.com/privacy/ja/</loc></url>
+  <url><loc>https://jinazen.com/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://jinazen.com/en/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://jinazen.com/ja/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://jinazen.com/zh/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://jinazen.com/privacy/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://jinazen.com/privacy/en/</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://jinazen.com/privacy/ja/</loc><lastmod>2026-09-25</lastmod></url>
 </urlset>

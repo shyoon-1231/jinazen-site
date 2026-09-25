@@ -2,41 +2,42 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<!-- ── og:image 만드는 원본 (SITE-52 §3 · 2026-09-25) ───────────────────────────
+<!-- ── og:image 만드는 원본 (SITE-52 §5 · 2026-09-25 · **다시 썼다**) ────────────────
      🔴 **공개되지 않는다** — `_redirects` 가 `/docs/*` 를 첫 화면으로 301 시킨다(SITE-39).
-     🔴 **새 그림을 그리지 않았다** — 북극성(`northstar.svg`)과 대운 그래프(`site_01_hero_graph.png`)는
-        이미 사이트에 있던 그림이고, 색은 `style.css` 의 `--ink` · `--gold` · `--paper` 그대로다.
-        🔴 **토큰을 바꾸지 않았다. 여기서 값을 다시 적은 것은 이 파일이 style.css 를 안 읽기 때문이다**
-        (읽게 하면 글꼴 92개까지 딸려 와 1200×630 한 장을 찍는 데 과하다).
-     🔴 **손님 정보 0** — 대운 그래프는 앱 화면이고 이름·생년월일이 없다(이미 첫 화면에 쓰던 그림이다).
-     글자: 「JINAZEN」(브랜드) · 「진아젠 운세그래프」(앱 이름) · 소유자 문안 제목의 뒷마디.
-     다시 만들 때:
-       python .venv/bin/python scripts 없이 — Playwright 로 이 파일을 1200×630 으로 찍는다.
-       (이번에 쓴 명령은 `docs/tasks/TASK-SITE-52-CUSTOMER-FIX-1.md` §3 에 적어 두었다) -->
+     🔴 **방향이 바뀌었다** — ~~북극성 + 대운 그래프~~ 였다. 운세 그래프를 앞세우면 「운세 사이트」로 읽힌다.
+        이제 **공간 사진 · 북극성 · JINAZEN · 「명상이 예술이 되는 순간」** 이다(소유자 2026-09-25).
+     🔴 **새 그림을 그리지 않았다** — 사진은 첫 화면 배너 ① 이 쓰는 `philo_photo.jpg` 이고
+        북극성은 `northstar.svg` 다. 색·어둡게 덮는 값은 `style.css` 의 `.philo::after` 그대로다.
+     🔴 **손님 정보 0** — 사진과 글자뿐이다.
+     🔴 글자는 셋 다 **이미 있는 것**이다: 「명상이 예술이 되는 순간」(결과지 정본 `_BRAND_TAGLINE`) ·
+        「JINAZEN」 · 「진아젠」.
+     다시 만들 때: Playwright 로 이 파일을 **1200×630** 으로 찍는다(명령은 TASK 기록 §5). -->
 <style>
-  /* 값 출처: assets/style.css `:root` — --ink #111 · --gold #C5A15B · --paper #FFF · --f */
+  /* 값 출처: assets/style.css `:root`(--ink #111 · --gold #C5A15B) · `.philo::after`(어둡게 덮는 그라디언트) */
   @font-face{font-family:'Pretendard Variable';src:url(../../assets/font/PretendardVariable.woff2) format('woff2-variations');font-weight:45 920;font-display:block}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{width:1200px;height:630px;background:#111;color:#FFF;overflow:hidden;
-       font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo",system-ui,sans-serif;
-       display:grid;grid-template-columns:1fr 470px;align-items:center;gap:40px;padding:64px 72px}
-  /* 🔴 북극성은 `--ink` 로 그려진 그림이라 검정 바탕에서 안 보인다 — 흰색으로 뒤집는다(값을 안 바꾸고 칠만).
-     ⚠ 실측: 뒤집기 전에는 왼쪽 위가 거의 비어 보였다. */
-  .mark{width:84px;height:84px;filter:brightness(0) invert(1);opacity:.92}
-  .brand{margin-top:22px;font-size:68px;font-weight:800;letter-spacing:-.03em;line-height:1}
-  .app{margin-top:16px;font-size:27px;font-weight:600;color:#C5A15B;letter-spacing:-.02em}
-  .line{margin-top:20px;font-size:25px;font-weight:400;color:rgba(255,255,255,.80);line-height:1.5;letter-spacing:-.02em;word-break:keep-all}
-  /* 🔴 아래가 잘리지 않게 칸 안에 담는다 — 잘리면 표가 반쯤 보여 무엇인지 안 읽힌다(실측). */
-  .shot{width:100%;max-height:502px;object-fit:contain;object-position:top;border-radius:18px;
-        filter:drop-shadow(0 30px 60px rgba(0,0,0,.55))}
+  body{width:1200px;height:630px;background:#111;position:relative;overflow:hidden;
+       font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo",system-ui,sans-serif;color:#fff}
+  /* 사진 — 첫 화면과 같은 자리(오른쪽 위)가 보이게 */
+  .photo{position:absolute;inset:0;background:url(../../assets/img/philo_photo.jpg) center/cover no-repeat}
+  /* 어둡게 덮기 — `.philo::after` 의 값 그대로(위 0.15 → 아래 0.55). 글자가 사진 위에 놓이므로 필요하다. */
+  .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,22,16,.15) 0%,rgba(28,22,16,.55) 100%)}
+  /* 🔴 오른쪽 아래 글자 뒤는 사진이 밝다 — 한 겹 더 덮는다(같은 색 계열). */
+  .veil2{position:absolute;inset:0;background:linear-gradient(100deg,rgba(28,22,16,0) 30%,rgba(28,22,16,.72) 72%)}
+  .box{position:absolute;right:72px;top:50%;transform:translateY(-50%);text-align:right;max-width:560px}
+  .mark{width:64px;height:64px;margin-left:auto;margin-bottom:26px;filter:brightness(0) invert(1);opacity:.92}
+  .line1{font-size:34px;font-weight:400;letter-spacing:.01em;color:rgba(255,255,255,.92)}
+  .brand{margin-top:16px;font-size:76px;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .brand small{font-size:.34em;font-weight:600;letter-spacing:.2em;color:rgba(255,255,255,.74);margin-left:16px;vertical-align:middle}
+  .place{margin-top:22px;font-size:25px;font-weight:500;color:#C5A15B;letter-spacing:-.01em}
 </style>
 </head>
 <body>
-<div>
+<div class="photo"></div><div class="veil"></div><div class="veil2"></div>
+<div class="box">
   <img class="mark" src="../../assets/img/northstar.svg" alt="">
-  <div class="brand">JINAZEN</div>
-  <div class="app">진아젠 운세그래프</div>
-  <div class="line">사주 · 자미두수 · 타로로 읽는<br>나의 운세그래프</div>
+  <div class="line1">명상이 예술이 되는 순간</div>
+  <div class="brand">진아젠 <small>JINAZEN</small></div>
+  <div class="place">속초 명상 체험 공간</div>
 </div>
-<div><img class="shot" src="../../assets/img/site_01_hero_graph.png" alt=""></div>
 </body></html>
