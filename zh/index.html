@@ -73,7 +73,7 @@
 {"@context":"https://schema.org","@type":"WebSite","name":"진아젠 JINAZEN","url":"https://jinazen.com/","inLanguage":["ko","en","ja","zh-Hans"]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"진아젠 속초","url":"https://jinazen.com/#space","telephone":"+82-70-8287-1733","image":"https://jinazen.com/assets/img/philo_photo.jpg","address":{"@type":"PostalAddress","streetAddress":"영랑해안6길 11","addressLocality":"속초시","addressRegion":"강원도","addressCountry":"KR"}}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"진아젠 속초","url":"https://jinazen.com/#space","telephone":"+82-70-8287-1733","image":"https://jinazen.com/assets/img/philo_photo.jpg","address":{"@type":"PostalAddress","streetAddress":"영랑해안6길 11","addressLocality":"속초시","addressRegion":"강원특별자치도","addressCountry":"KR"}}
 </script>
 <link rel="icon" type="image/svg+xml" href="../assets/img/northstar.svg">
 <link rel="stylesheet" href="../assets/style.css">
@@ -184,7 +184,7 @@
 <p>门店自助机可为您提供中文结果单。</p>
 <p>在冥想中寻找艺术的地方。是自己寻得自己的空间。</p>
 <!-- 🔴 **주소와 개시일** (SITE-52 §3 · 소유자 확정 2026-09-25)
-     🔴 주소는 **소유자 글자 그대로**다: 「강원도 속초시 영랑해안6길 11」
+     🔴 주소는 **소유자 글자 그대로**다: 「강원특별자치도 속초시 영랑해안6길 11」
      🔴 **좌표를 지어내지 않았다** — 지도는 **주소를 그대로 검색어로** 넘긴다
         (`map.naver.com/p/search/` + URL 인코딩). 위경도를 적으면 확인할 길 없는 값이 하나 는다.
      🔴 **새 창**이다(`target="_blank"` · `rel="noopener noreferrer"`) — 다른 회사 지도다.
@@ -195,7 +195,13 @@
         영문 주소는 {{소유자 확인}} 또는 정식 열쇠로 다시 조회한다.
      ⚠ **여는 시간 줄은 그리지 않는다** — 값이 없다. 자리표시 글자를 손님에게 내보내지 않는다.
         값이 서면 이 자리에 `<p>여는 시간 {{소유자 확인}}</p>` 한 줄을 넣는다. -->
-<p class="addr"><a href="https://map.naver.com/p/search/%EA%B0%95%EC%9B%90%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%EC%98%81%EB%9E%91%ED%95%B4%EC%95%886%EA%B8%B8%2011" target="_blank" rel="noopener noreferrer"><span lang="ko">강원도 속초시 영랑해안6길 11</span> ↗</a></p>
+<!-- 🔴 **행정명을 공식명으로 고쳤다** (SITE-53 §1 · 소유자 확정 2026-09-25)
+     ~~강원도~~ → **강원특별자치도** — 2023-06-11 강원특별자치도가 출범했다. 공식 행정명이다.
+     🔴 **세 자리를 함께 고쳤다** — 화면 글자 · 지도 검색어(URL 인코딩) · JSON-LD `addressRegion`.
+        한 곳만 고치면 손님이 읽는 주소와 검색엔진이 읽는 주소가 갈린다.
+     ⚠ **영문 주소는 아직 넣지 않는다** — {{소유자 확인}}. SITE-52 에서 juso.go.kr 시험 열쇠가
+        검색어와 무관하게 같은 표본을 돌려주는 것을 실측했다(서울 주소가 나갈 뻔했다). -->
+<p class="addr"><a href="https://map.naver.com/p/search/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%EC%98%81%EB%9E%91%ED%95%B4%EC%95%886%EA%B8%B8%2011" target="_blank" rel="noopener noreferrer"><span lang="ko">강원특별자치도 속초시 영랑해안6길 11</span> ↗</a></p>
 <!-- 초안 · 소유자 확인 — 원문: 「2026년 10월 초 문을 엽니다」 -->
 <p>2026 年 10 月初开业</p></div>
 <!-- ~~방문 정보 자리 (SITE-52 §4) — 주소·여는 시간·문의 세 줄을 주석으로만 두었다~~
