@@ -75,6 +75,7 @@
 <!-- 🔴 SITE-43 — 배너 ① 사진(CSS 배경)이 LCP 다. 스타일시트를 다 읽은 뒤에야 발견되므로 미리 받는다. ②③ 그림은 lazy. -->
 <link rel="preload" as="image" href="assets/img/philo_photo.jpg" fetchpriority="high">
 <script src="assets/banner.js" defer></script>
+<script src="assets/account.js" defer></script>
 <!-- 🔴 SITE-40 — 히어로 그림 preload 를 걷었다. 그 그림은 여섯째 섹션(#app)으로 내려가 첫 화면 밖이고
      `loading=lazy` 다. 첫 화면의 큰 그림은 이제 사진 띠 배경(philo_photo.jpg · CSS 배경)이다. -->
 <script>if(new URLSearchParams(location.search).get("mode")==="privacy")location.replace("privacy/");</script>
@@ -113,7 +114,17 @@
      ⚠ 차례는 **맨 끝**이다. 앞의 여섯은 SITE-46 에서 소유자가 확정한 차례라 **한 칸도 안 건드렸고**,
        이것은 섹션이 아니라 **계정 입구**라 언어 전환 옆에 붙였다.
      ⚠ 폰(760px 이하)에서는 **이 칸만** 보인다 — `assets/style.css` 의 `.menu>a:not(.mypage)`. -->
-<a class="mypage" href="https://jinazen.com/mypage/">마이페이지</a>
+<!-- 🔴 **「로그인」이 기본이다 — 로그인한 손님에게만 「마이페이지」** (SITE-50 §1 · 소유자 지적 2026-09-25)
+     ~~위 SITE-47 판정 (가) 「늘 보인다」~~ — 🔴 WEB-70 이 `/report/auth/me` 를 열어 판정 (나)가 가능해졌다.
+        소유자 지적: 로그인 전에도 「마이페이지」가 보였다. 위 주석은 **지우지 않는다** — 왜 한 번
+        늘 「마이페이지」였는지가 남아야 다음 사람이 같은 것을 또 묻지 않는다.
+     🔴 기본 글자·링크는 「로그인」 · `/login/?next=/mypage/` — 스크립트가 꺼져도 이대로 맞다
+        (이미 로그인한 손님이 눌러도 웹이 마이페이지로 보낸다).
+     🔴 `assets/account.js` 가 물어 답이 정확히 loggedIn 참 하나일 때만 「마이페이지」 · `/mypage/` 로 바꾼다.
+        실패 · 2초 초과 · 모양이 다르면 「로그인」 그대로다.
+     🔴 칸 폭 고정 — 두 라벨을 같은 칸에 겹쳐 두고 하나만 보인다(`assets/style.css` 의 SITE-50 규칙).
+        글자가 바뀌어도 머리띠가 흔들리지 않는다. -->
+<a class="mypage" href="https://jinazen.com/login/?next=/mypage/" data-in-href="https://jinazen.com/mypage/"><span class="acct-out">로그인</span><span class="acct-in">마이페이지</span></a>
 </nav>
 <!-- 🔴 **「中文」을 더했다** (SITE-52 §6 · SITE-51 §3 판정 · 소유자 확정 2026-09-25)
      ⚠ 그냥 더하면 **en 쪽이 761~777px 에서 두 줄**이 된다(SITE-51 실측 · 여유 8.3 → 0.0).
